@@ -8,11 +8,14 @@ module.exports = {
       link: '/'
     }, {
       text: 'JavaScript',
-      link: '/javascript/',
       items: [{
         text: 'ES6',
-        link: 'es6/',
+        link: '/javascript/es6/',
       }]
+    }, {
+      text: 'Github',
+      link: 'https://github.com/cheekahao/learning',
+      target: '_blank'
     }],
     sidebar: {
       '/javascript/es6': ['/javascript/es6']
