@@ -245,7 +245,8 @@ let proxy = new Proxy(target, {
         console.log(trapTarget === target, key, value, receiver === proxy); // true 'name' 'proxy' true
         
         return Reflect.set(trapTarget, key, value, receiver)
-    }
+    },
+    get
 })
 
 proxy.name = "proxy"
