@@ -1,0 +1,28 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "description": "my learning notebook",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheekahao/learning.git"
+  },
+  "keywords": [
+    "learning",
+    "notebook"
+  ],
+  "author": "cheeka hao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheekahao/learning/issues"
+  },
+  "homepage": "https://github.com/cheekahao/learning#readme",
+  "devDependencies": {
+    "vuepress": "^1.5.2"
+  }
+}
