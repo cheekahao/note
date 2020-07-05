@@ -408,3 +408,34 @@ const result = multiply(1, 3)
 
 ### 异步模块加载
 
+与通用脚本加载一样，模块也支持`async`属性，设置之后，会以异步方式加载。异步加载的模块不必等待文档解析完成，但是需要模块中所有导入文件都加载完成，才会执行模块。但是无法保证模块的先后执行顺序，而是哪个模块及其依赖模块先加载完就先执行哪个模块。
+
+### 将模块作为`Worker`加载
+
+通过配置`Worker`的第二个参数，可以支持以模块方式加载。
+
+```js
+const worker = new Worker('script.js') // 创建的Worker以脚本方式加载
+
+const moduleWorker = new Worker('module.js', {type: 'module'}) // 创建的Worker以模块方式加载
+```
+
+以脚本方式加载的`Worker`与以模块方式加载的`Worker`存在以下两点不同：
+
+1. `Worker`脚本只能引用与网页同源的`JavaScript`，而`Worker`模块不会完全受限，可以加载并访问具有适当的跨域资源共享(CORS)头的文件。
+2. `Worker`脚本可以使用`self.importScripts()`加载其他脚本，但`Worker`模块不能，而是应该使用`import`来导入。
+
+### 浏览器模块说明符解析
+
+在浏览器中，模块说明符(`module specifier`)只支持以下四种格式：
+
+* 以`/`开头，从根目录开始解析
+* 以`./`开头，从当前目录开始解析
+* 以`../`开头，从父级目录开始解析
+* URL格式，不同源时，需要正确配置跨域(CORS)
+  
+以下的格式，是无效的，并且会导致错误
+
+```js
+import {multiply} from 'example.js'
+```
