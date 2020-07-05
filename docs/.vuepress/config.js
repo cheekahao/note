@@ -10,7 +10,10 @@ module.exports = {
       text: 'JavaScript',
       items: [{
         text: 'ES6',
-        link: '/javascript/es6/',
+        link: '/javascript/es6',
+      }, {
+        text: 'JS拾遗',
+        link: '/javascript/omission',
       }]
     }, {
       text: 'Github',
@@ -18,7 +21,8 @@ module.exports = {
       target: '_blank'
     }],
     sidebar: {
-      '/javascript/es6': ['/javascript/es6']
+      '/javascript/es6': ['/javascript/es6'],
+      '/javascript/omission': ['/javascript/omission']
     }
   }
 }
