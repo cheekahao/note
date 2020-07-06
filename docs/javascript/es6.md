@@ -64,9 +64,9 @@ Object.is(NaN, NaN)    // true
 * 不支持arguments对象
 * 不支持重复的命名参数
 
-## 迭代器(Iterator)和生成器(Generator)
+## 迭代器和生成器
 
-### 迭代器和生成器
+### 迭代器(`Iterator`)和生成器(`Generator`)
 
 **迭代器**是一种特殊的对象，具有为迭代过程设计的专有接口，都一个`next`方法，每次调用都返回一个结果对象。结果对象有两个属性：一个是`value`，表示下一个将要返回的值；另一个是布尔类型的done，当没有更多数据返回时返回`true`。迭代器会保存一个内部指针，用来指向当前集合中值的位置。
 
@@ -143,9 +143,9 @@ console.log(iterator.next()) // {value: undefined, done: true}
 
 `for-of`循环没执行一次都会调用可迭代对象的`next()`方法，并将迭代器返回的结果对象的`value`属性储存在一个变量中，循环将持续执行这个过程直到返回队形的`done`属性为`true`
 
-## 内置迭代器
+### 内置迭代器
 
-### 集合对象迭代器
+#### 集合对象迭代器
 
 `ES6`中有3种集合对象：数组，`Map`和`Set`。都有以下三种迭代器：
 
@@ -155,11 +155,11 @@ console.log(iterator.next()) // {value: undefined, done: true}
 
 在`for-of`循环中，没有显示指定，则使用集合的默认迭代器。数组和`Set`集合的默认迭代器是`values()`方法，`Map`集合的默认迭代器是`entries()`方法
 
-### 字符串迭代器（问题未复现）
+#### 字符串迭代器（问题未复现）
 
 `ES5`中是可以通过方括号访问字符串中的字符的，但是由于方括号操作的是编码单元而不是字符，无法正确访问双字节字符。而在`ES6`中通过字符串的默认迭代器解决了这个问题。
 
-### `NodeList`迭代器
+#### `NodeList`迭代器
 
 `DOM`标准中的`NodeList`是一个类数组对象。`ES6`添加了默认迭代器后，`DOM`标准(定义在HTML标准中)也拥有了与数组行为一致的迭代器。因此在`for-of`循环中，与数组表现一致。
 
@@ -173,7 +173,7 @@ console.log(iterator.next()) // {value: undefined, done: true}
 
 生成器委托可以进一步利用返回值来处理复杂任务
 
-### 类
+## 类
 
 `ES6`的类是基于已有自定义类型声明的语法糖。但是类和自定义类型仍存在以下区别：
 
@@ -200,6 +200,99 @@ Foo('Mike') // 报错，没有通过new关键字调用构造函数
 const person = new Foo('Mike')
 new person.sayName() //报错，不能用new关键字调用类的方法
 ```
+
+同函数一样，类也是一等公民。可以传入函数也可以从函数返回。
+
+类可以通过立即调用类构造函数创建单例：
+
+```js
+let person = new class {
+    constructor(name){
+        this.name = name
+        
+        Foo = "bar" //报错，类型内部不能修改类名
+    }
+    sayName(){
+        console.log(this.name)
+    }
+}('Mike')
+
+person.sayName() // Mike
+```
+
+### 访问器属性
+
+类支持在构造函数`constructor`中创建属性，也支持直接在**原型**上定义访问器属性
+
+```js
+class Foo{
+    constructor(firstName, lastName){
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+
+    /*
+     * 相当于Object.defineProperty(Foo.prototype, "fullName", {
+         enumerable: false,
+         configurable: true,
+         get(){
+             return this.firstName + this.lastName
+         }
+     })
+     */
+    get fullName(){
+        return this.firstName + this.lastName
+    }
+}
+```
+
+### 可计算成员名称及生产器方法
+
+与对象字面量类似，类的方法和访问器属性支持变量。也支持用生成器定义方法。
+
+```js
+const methodName = 'sayName'
+class Foo{
+    constructor(name){
+        this.name = name
+        
+        Foo = "bar" //报错，类型内部不能修改类名
+    }
+    [methodName](){
+        console.log(this.name)
+    }
+    /*
+     * 该方法为Foo类定义一个默认迭代器方法，可以用于for...of循环
+     */
+    *[Symbol.iterator](){
+        yield 1
+        yield 2
+        yield 3
+    }
+}
+```
+
+### 静态成员
+
+可以使用`static`关键字为类添加静态成员：
+
+```js
+class Foo.{
+    constructor(name){
+        this.name = name
+        
+        Foo = "bar" //报错，类型内部不能修改类名
+    }
+    /*
+     * 相当于Foo.create
+     */
+    static create(){
+        console.log(this.name)
+    }
+}
+```
+
+> 静态成员挂在类上面，不能在静态成员中访问
 
 ## 代理和反射
 
