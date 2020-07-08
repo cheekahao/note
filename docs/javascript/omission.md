@@ -9,7 +9,7 @@
  - 指定的原型`proto`
  - 一个可选参数`descriptors`，属性描述符
  
- ```
+ ```js
  Object.create(null) // {}
  Object.create({x: 0}, {
      y: {value: 1, enumerable: true}
@@ -24,7 +24,7 @@
 
 可以用以下代码模拟`Object.create`:
 
-```
+```js
 Object.prototype.create = function(proto){
     var fn = function(){};
     
@@ -40,7 +40,7 @@ Object.prototype.create = function(proto){
 
 `Object.setPrototypeOf(obj, prototype)`
 
-```
+```js
 `ployfill`
 // 仅适用于Chrome和FireFox，在IE中不工作：
 Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
@@ -59,7 +59,7 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 - 通过new创建的每个对象将最终被`[[Prototype]]`链接到这个函数的`prototype`对象上
 - 如果函数没有返回对象类型`Object`(包含`Functoin`, `Array`, `Date`, `RegExg`, `Error`)，那么`new`表达式中的函数调用会自动返回这个新的对象
 
-```
+```js
 function _new(ctor, ...arguments){
     // ES6 new.target 是指向构造函数
     _new.target = ctor;
@@ -112,7 +112,7 @@ function _inherits(Child, Parent){
 
 在子类型构造函数中通用`call()`调用父类型构造函数
 
-```
+```js
 function Person(name, age) {
     this.name = name,
     this.age = age,
@@ -145,7 +145,7 @@ var s1 = new Student('Tom', 20, 15000)
 
 通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用。
 
-```
+```js
 function Person (name, age) {
   this.name = name,
   this.age = age,
@@ -174,7 +174,7 @@ Student.prototype.sayHello = function () { }
 
 ### 组合继承优化
 
-```
+```js
 function Person (name, age) {
   this.name = name,
   this.age = age,
@@ -201,7 +201,7 @@ var s1 = new Student('Tom', 20, 15000)
 
 ### 组合继承优化2
 
-```
+```js
 function Person (name, age) {
   this.name = name,
   this.age = age
@@ -221,7 +221,7 @@ var s1 = new Student('Tom', 20, 15000)
 
 **组合式继承**
 
-```
+```js
 function _inherits(Child, Parent){
     // Object.create
     Child.prototype = Object.create(Parent.prototype);

@@ -294,6 +294,176 @@ class Foo.{
 
 > 静态成员挂在类上面，不能在静态成员中访问
 
+### 类的继承与派生
+
+`ES6`可以使用`extends`关键字实现类的继承。可以调用`super()`方法访问基类的构造函数。
+
+```js
+class Child extends Parent{
+    constructor(options){
+        // 等价于Parent.call(this, options)
+        super(options)
+    }
+}
+```
+
+继承自其他类的类被称为**派生类**。如果派生类有构造函数，必须调用`super()`，否则会报错。如果派生类不实用构造函数，则创建新的实例时会自动调用`super()`并传入所有参数。
+
+`super()`的使用有以下几个关键点：
+
+* 只能在派生类的构造函数中使用，在非派生类或者函数中使用会报错
+* 要在构造函数访问`this`之前调用`super()`，他负责初始化`this`，在`super()`之前使用`this`会报错
+* 在类的构造函数中返回一个对象，可以不调用`super()`
+
+**类的方法的遮蔽**
+
+派生类中的方法会覆盖基类中的同名方法。可以使用`super.method()`调用基类被覆盖的方法。
+
+**静态成员的继承**
+
+如果基类有静态成员，派生类中冶可以使用。
+
+**extend高级用法**
+
+`extend`可以从表达式导出类。只有表达式可以被解析成一个函数并且有`[[Construct]]`属性和原型，就可以用`extend`进行派生。
+
+```js
+// 基类可以是`ES5`的构造函数
+function Rectangle{
+    }(length, width){
+    this.length = length
+    this.width = width
+}
+
+Rectangle.prototype.getArea() = function(){
+    return this.length * this.width
+}
+
+class Suqare extends Rectangle{
+    constructor(length){
+        super(length, length)
+    }
+}
+
+// 可以通过函数动态的确定类的继承目标
+function getBase(){
+    return Rectangle
+}
+
+class Suqare extends getBase(){
+    constructor(length){
+        super(length, length)
+    }
+}
+
+// 可以创建不同的继承方法
+const SerializableMixin = {
+    serialize(){
+        return JSON.stringify(this)
+    }
+}
+const AreaMixin = {
+    getArea(){
+        return this.length * this.width
+    }   
+}
+
+function mixin(...mixins){
+    const base = function(){}
+
+    Object.assign(base.prototype, ...mixins)
+
+    return base
+}
+
+class Suqare extends mixin(SerializableMixin, AreaMixin){
+    constructor(length){
+        this.length = length
+        this.width = length
+    }
+}
+```
+
+> `extends`后面的表达式不能是null或者生成器函数会导致错误
+
+**内建对象的继承**
+
+在`ES5`中无法实现对内建对象(如`Array`)的继承：
+
+```js
+function MyArray(){
+    Array.apply(this, arguments)
+}
+
+MyArray.prototype = Object.create(Array.prototype, {
+    constructor: {
+        value: Array,
+        writable: true,
+        configurable: true,
+        enumerable: true
+    }
+})
+
+let colors = new MyArray()
+
+colors[0] = "red"
+
+console.log(colors.length) // 0
+
+colors.length = 0
+
+console.log(colors[0]) // "red"
+
+colors.push('blue') 
+
+console.log(colors.length) // 1
+```
+
+`ES6`的`extends`与`ES5`实现的继承不同的是：
+
+* `ES5`先由派生类型创建`this`值，然后调用基类的构造函数(`apply`)。`this`开始指向派生类的实例，随后被基类的属性修饰
+* `ES6`的`extends`先由基类创建`this`值，然后派生类的构造函数再修改这个值，然后在正确的接受所有与之相关的功能
+
+```js
+class MyArray extends Array {
+}
+
+let colors = new MyArray()
+
+colors[0] = "red"
+
+console.log(colors.length) // 1
+
+colors.length = 0
+
+console.log(colors[0]) // undefined
+```
+
+### Symbol.species属性
+
+内建对象继承，会使原本在内建对象中返回自身实例的方法将自动返回派生类的实例。这主要是通过`Symbol.species`属性实现的。
+
+```js
+class MyArray extends Array {
+}
+
+const items = new MyArray(1, 2, 3, 4)
+const subItems = items.slice(1, 3)
+
+console.log(items instanceof MyArray) // true
+console.log(subItems instanceof MyArray) // true， ES5继承时，为false
+```
+
+`Symbol.species`属性主要用于定义返回函数的静态访问器属性。被返回的函数是一个构造函数，实例的方法中创建的类的实例时必须用这个构造函数。以下内建类型均已定义`Symbol.species`属性
+
+* `Array`
+* `ArrayBuffer`
+* `Map`
+* `Promise`
+* `RegExp`
+* `Set`
+* `Typed arrays`
+
 ## 代理和反射
 
 代理(Proxy)是一种可以拦截并改变底层`JavaScript`引擎操作的包装器。
