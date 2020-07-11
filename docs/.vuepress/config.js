@@ -16,6 +16,15 @@ module.exports = {
         link: '/javascript/omission',
       }]
     }, {
+      text: '进阶',
+      items: [{
+        text: '函数式编程',
+        link: '/advance/functional',
+      }, {
+        text: '设计模式',
+        link: '/advance/patterns',
+      }]
+    }, {
       text: 'Github',
       link: 'https://github.com/cheekahao/learning',
       target: '_blank'
@@ -23,7 +32,9 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: {
       '/javascript/es6': ['/javascript/es6'],
-      '/javascript/omission': ['/javascript/omission']
+      '/javascript/omission': ['/javascript/omission'],
+      '/advance/functional': ['/advance/functional'],
+      '/advance/patterns': ['/advance/patterns']
     }
   }
 }
