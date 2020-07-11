@@ -201,7 +201,7 @@ const person = new Foo('Mike')
 new person.sayName() //报错，不能用new关键字调用类的方法
 ```
 
-同函数一样，类也是一等公民。可以传入函数也可以从函数返回。
+同函数一样，类也是**一等公民**。可以传入函数也可以从函数返回。
 
 类可以通过立即调用类构造函数创建单例：
 
@@ -463,6 +463,46 @@ console.log(subItems instanceof MyArray) // true， ES5继承时，为false
 * `RegExp`
 * `Set`
 * `Typed arrays`
+
+内建类型的`Symbol.species`属性实现的功能，可以用以下代码模拟：
+
+```js
+class MyClass{
+    static get [Symbol.species](){
+        return this
+    }
+
+    constructor(value){
+        this.value = value
+    }
+
+    clone(){
+        return new this.constructor[Symbol.species](this.value)
+    }
+}
+```
+
+由于`clone()`方法通过调用`this.constructor[Symbol.species]`获取`MyClass`，因此派生类可以覆盖这个值。
+
+### 类的构造函数中的new.target
+
+在类的构造函数中可以通过`new.target`确定类是如何被调用的。在一般简单情况下，`new.target`等于类的构造函数。
+
+但是在派生类中调用基类的构造函数时，`new.target`等于派生类的构造函数。
+
+```js
+class Parent{
+    constructor(name){
+        console.log(new.target)
+        this.name = name
+    }
+}
+class Child extends Parent {
+
+}
+
+const children = new Child('Mike') // Child
+```
 
 ## 代理和反射
 

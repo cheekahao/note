@@ -20,6 +20,7 @@ module.exports = {
       link: 'https://github.com/cheekahao/learning',
       target: '_blank'
     }],
+    sidebarDepth: 2,
     sidebar: {
       '/javascript/es6': ['/javascript/es6'],
       '/javascript/omission': ['/javascript/omission']
