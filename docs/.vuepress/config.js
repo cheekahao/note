@@ -22,6 +22,12 @@ module.exports = {
             link: '/network/http',
         }]
     }, {
+        text: '工程化',
+        items: [{
+            text: 'webpack',
+            link: '/engineering/webpack',
+        }]
+    }, {
       text: '进阶',
       items: [{
         text: '函数式编程',
@@ -45,7 +51,8 @@ module.exports = {
       '/advance/functional': ['/advance/functional'],
       '/advance/patterns': ['/advance/patterns'],
       '/advance/algorithm': ['/advance/algorithm'],
-      '/network/http': ['/network/http']
+      '/network/http': ['/network/http'],
+        '/engineering/webpack': ['/engineering/webpack']
     }
   }
 }
