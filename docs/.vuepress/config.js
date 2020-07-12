@@ -23,6 +23,9 @@ module.exports = {
       }, {
         text: '设计模式',
         link: '/advance/patterns',
+      }, {
+          text: '数据结构',
+          link: '/advance/algorithm',
       }]
     }, {
       text: 'Github',
@@ -34,7 +37,8 @@ module.exports = {
       '/javascript/es6': ['/javascript/es6'],
       '/javascript/omission': ['/javascript/omission'],
       '/advance/functional': ['/advance/functional'],
-      '/advance/patterns': ['/advance/patterns']
+      '/advance/patterns': ['/advance/patterns'],
+      '/advance/algorithm': ['/advance/algorithm']
     }
   }
 }
