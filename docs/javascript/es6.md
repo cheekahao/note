@@ -173,6 +173,21 @@ console.log(iterator.next()) // {value: undefined, done: true}
 
 生成器委托可以进一步利用返回值来处理复杂任务
 
+### 异步任务执行
+
+## async函数
+
+`ES2017`标准引入了`async`函数，使得异步操作变得更加方便。
+
+简而言之，`async`函数就是`Generator`函数的语法糖。将`Generator`函数的星号`*`替换成`async`，将`yield`替换成`await`。
+
+相对于`Generator`函数，`async`函数做了以下的改进
+
+* 内置执行器。`Generator`函数的执行必须靠执行器(例如`co`模块)，而`async`函数自带执行器
+* 语义更清晰。与`Generator`函数的星号`*`和`yield`相比，`async`表示函数里有异步操作，`await`表示紧跟在后面的表达式需要等待结果
+* 适用性更广。`await`关键字后面，可以是`Promise`对象和原始类型的值，原始类型的值会自动转成立即`resolved`的`Promise`对象
+* 返回值是`Promise`。
+
 ## 类
 
 `ES6`的类是基于已有自定义类型声明的语法糖。但是类和自定义类型仍存在以下区别：

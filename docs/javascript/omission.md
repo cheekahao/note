@@ -370,3 +370,9 @@ arr instanceof Array; // false
  - `value`: 包含该属性的数据值。默认为undefined
 
 **存取器属性**，`accessor property`，又称访问器属性，不同于数据属性，包含的是一对`get`和`set`方法。在读取属性时调用`get`函数，在写入属性时调用`set`函数，因此`get`和`set`方法分别代替了数据属性的`value`和`writable`特性
+
+## 函数的length属性与arguments.length
+
+函数的`length`属性指函数定义时所声明的形参的个数，而`arguments.length`表示的是函数调用时，实参的个数。
+
+实际调用函数时，传入的参数的个数可以比形参的个数少，也可以比它多。
