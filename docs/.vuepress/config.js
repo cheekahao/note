@@ -1,6 +1,6 @@
 module.exports = {
-  title: '学习笔记',
-  base: '/learning/',
+  title: '前端笔记',
+  base: '/note/',
   description: 'learning notebook of cheeka',
   themeConfig: {
     nav: [{
@@ -15,6 +15,12 @@ module.exports = {
         text: 'JS拾遗',
         link: '/javascript/omission',
       }]
+    }, {
+        text: '网络',
+        items: [{
+            text: 'HTTP',
+            link: '/network/http',
+        }]
     }, {
       text: '进阶',
       items: [{
@@ -38,7 +44,8 @@ module.exports = {
       '/javascript/omission': ['/javascript/omission'],
       '/advance/functional': ['/advance/functional'],
       '/advance/patterns': ['/advance/patterns'],
-      '/advance/algorithm': ['/advance/algorithm']
+      '/advance/algorithm': ['/advance/algorithm'],
+      '/network/http': ['/network/http']
     }
   }
 }
