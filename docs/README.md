@@ -1,1 +1,6 @@
-# cheeka的前端笔记
+---
+home: true
+heroText: 前端进阶笔记
+tagline: Cheeka Hao
+pageClass: custom-index
+---
