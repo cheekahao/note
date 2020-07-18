@@ -23,10 +23,7 @@ module.exports = {
         }]
     }, {
         text: '工程化',
-        items: [{
-            text: 'webpack',
-            link: '/engineering/webpack',
-        }]
+        link: '/engineering/'
     }, {
       text: '进阶',
       items: [{
@@ -52,7 +49,7 @@ module.exports = {
       '/advance/patterns': ['/advance/patterns'],
       '/advance/algorithm': ['/advance/algorithm'],
       '/network/http': ['/network/http'],
-        '/engineering/webpack': ['/engineering/webpack']
+    '/engineering/': ['', '/engineering/webpack']
     }
   }
 }

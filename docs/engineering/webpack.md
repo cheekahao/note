@@ -1,30 +1,6 @@
 # webpack
 
-## 前端构建
-
-鉴于模块化，`ES6`、`LESS`等前端新技术的发展，当前的前端源代码必须经过构建之后，才能进行部署。
-
-前端的构建，主要是指将源代码转换成可执行的`JavaScript`、`CSS`、`HTML`代码，主要包括以下内容：
-
-* 代码转换，将`TypeScript`或者`ES6`转换成`ES5`，将`SCSS`或`LESS`转成`CSS`
-* 文件优化，压缩`JavaScript`、`CSS`、`HTML`代码，压缩合并图片
-* 代码分割，提取多个页面的公共代码，提取首屏不要执行的代码让其异步加载
-* 模块合并，将多个模块和文件分类合并成一个文件
-* 自动刷新，监听本地源代码的变化，自动重新构建、刷新浏览器
-* 代码校验，在代码被提交到仓库之前校验代码是否符合规范，以及单元测试是否通过
-* 自动发布，更新代码后，自动构建出线上发布代码并传输给发布系统
-
-大部分的前端构建工具基本上都是基于`Node.js`开发，常见的有：
-
-| 构建工具     | 简介                                                      |
-| ------------ | ------------------------------------------------------- |
-| <div style="width: 98px">`Npm Script`</div> | `Npm`内置功能，通过在`package.json`的`scripts`字段定义任务实现 |
-| `Grunt` | 与`Npm Script`类似的任务执行者，**配置驱动**，基于**插件**封装各种常见任务。集成度不高，任务非常多难以维护，资源文件较多时存在`I/O`性能问题 |
-| `Gulp` | 基于流的自动化构建工具，除了管理和执行任务，还支持监听文件、读写文件<br>设计简洁，只需要通过`gulp.task`注册任务、`gulp.run`执行任务、`gulp.watch`监听文件、`gulp.src`读取文件、`gulp.dest`写文件<br>代码驱动，写任务就和写普通的`Node.js`代码一样；好用又灵活，即可单独构建又可以和其他工具搭配使用<br> 对文件读取是流式操作（`Stream`），一次`I/O`可以处理多个任务 |
-| `Webpack` | 前端资源模块化管理和打包工具。一切皆模块，可以清晰的处理各模块之前的依赖关系。灵活可配置，基于`Loader`和`Plugin`的扩展机制。可以实现按需加载。 |
-| `Rollup` | 类似于`Webpack`的`JavaScript`模块打包器，首先引入了`Tree Shaking`和`Scope Hoisting`以减小文件大小和提升运行性能。不支持`Code Spliting`，更适用于打包`JavaScript`库 |
-
-## Webpack的工作原理
+## 工作原理
 
 ### 基本概念 
 
@@ -55,6 +31,19 @@
 * 输出，将编译后的`Module`组合成`Chunk`，然后转换成文件，输出到文件系统
 
 `build`时，只执行上述阶段一次。监听模式下，将不断的执行编译，输出阶段
+
+## 模块Module
+
+在模块化编程中，开发者将程序分解成离散功能块(discrete chunks of functionality)，并称之为模块。
+
+Webpack模块能够以各种方式表达他们的依赖关系，例如：
+
+* `ES6``import`语句
+* `CommonJS``require()`语句
+* `AMD``define`和`require`语句
+* `css/sass/less`文件中的`@import`语句
+* 样式(`url(...)`)或`HTML`文件(`<img src=...>`)中的图片链接(image url)
+
 
 ## Loader
 
@@ -190,6 +179,43 @@ module.exports = function(source){
 
 ## Plugin
 
+### Compiler和Compilation
+
+开发`Plugin`最常用的两个对象就是`Compiler`和`Compilation`，他们是`Plugin`和`Webpack`之间的桥梁。
+
+* `Compiler`包含所有配置信息(`options`、`loaders`和`plugins`等)，在`Webpack`启动时被实例化，全局唯一。代表了整个`Webpack`从启动到关闭的生命周期
+* `Compilation`包含当前的模块资源、编译生成资源和变化的文件等。在开发模式下，每当有文件变化时，就有一次新的`Compilation`被创建。代表了一次编译过程
+
+### Tapable
+
+`Webpack`通过`Tapable`来组织构建的事件流。`Webpack`中许多对象(包括`Compiler`和`Compilation`)都继承自`Tapable`。
+
+`Tapable`暴露了`tap`, `tapAsync`和`tapPromise`方法。可以使用这些方法，注入自定义的构建步骤，这些步骤将在整个编译过程中不同时机触发。
+
+都自`Tapable`，可以广播和监听事件：
+
+```js
+/**
+ * eventName 事件名，不要跟现有事件重名
+ * params    附带参数
+ */
+compiler.apply(eventName, params)
+
+// 监听事件
+compiler.plugin(eventName, callback)
+```
+
+每个插件的`Compiler`和`Compilation`对象都是同一个引用。修改`Compiler`和`Compilation`对象上的属性就会影响后面的插件。有些事件是异步的，插件处理完成时调用回调函数通知`Webpack`，才能进入下一个流程。
+
+```js
+compiler.plugin('emit', function handle(compilation, callback) {
+    // 处理逻辑省略
+
+    // 调用callback通知Webpack进入下一个流程
+    callback()
+})
+```
+
 ### 基本写法
 
 `Plugin`主要通过监听`Webpack`在运行的生命周期中广播的特定事件，在合适的时机通过`Webpack`提供的`API`做出对应的处理，改变输出结果
@@ -228,11 +254,15 @@ module.exports = {
 `Webpack`启动后，读取配置过程中会初始化插件实例。在初始化`compiler`对象之后，在调用插件的`apply`方法，为实例传入`compiler`对象。插件实例在获取到`compiler`对象后，通过
 `compiler.plugin(event: string, callback: function(compilation))`监听`Webpack`广播的事件，通过`compiler`对象去操作`Webpack`
 
-### Compiler和Compilation
 
-开发`Plugin`最常用的两个对象就是`Compiler`和`Compilation`，他们是`Plugin`和`Webpack`之间的桥梁。
 
-* `Compiler`包含所有配置信息(`options`、`loaders`和`plugins`等)，在`Webpack`启动时被实例化，全局唯一。代表了整个`Webpack`从启动到关闭的生命周期
-* `Compilation`包含当前的模块资源、编译生成资源和变化的文件等。在开发模式下，每当有文件变化时，就有一次新的`Compilation`被创建。代表了一次编译过程
+### 常用API
 
-### 事件流
+插件可以用来修改输出文件和增加输出文件，甚至提升`Webpack`性能
+
+#### 读取输出资源、代码块、模块及依赖
+
+`emit`事件发生时，代表源文件的转换和组装已经完成，可以读取到最终输出的资源、代码块、模块及其依赖，并修改输出资源的内容
+
+```
+```
