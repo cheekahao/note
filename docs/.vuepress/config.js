@@ -1,6 +1,5 @@
 module.exports = {
   title: '前端笔记',
-  base: '/note/',
   description: 'learning notebook of cheeka',
   themeConfig: {
     nav: [{
