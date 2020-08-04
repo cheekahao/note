@@ -15,6 +15,15 @@ module.exports = {
         link: '/javascript/omission',
       }]
     }, {
+        text: '框架',
+        items: [{
+            text: 'Vue',
+            link: '/framework/vue',
+        }, {
+            text: 'React',
+            link: '/framework/react',
+        }]
+    }, {
         text: '网络',
         items: [{
             text: 'HTTP',
