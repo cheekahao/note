@@ -220,6 +220,16 @@ Hi! I'm a message!
 
 ## GET与POST的区别
 
+### 浏览器的GET和POST
+
+特指浏览器中非`Ajax`的`HTTP`请求，浏览器`GET`用于读取一个资源，`POST`用于提交一个表单。`GET`请求是没有副作用的，是幂等的，而`POST`请求用副作用，是不幂等的，但是接口中`POST`是可以幂等的。
+
+因为`GET`是读取，可以对`GET`请求的数据做缓存。可以做缓存浏览器本身上（彻底避免浏览器发请求），也可以做到代理上（如nginx），或者做到server端（用Etag，至少可以减少带宽消耗）。而`POST`不能缓存，也不能保存为书签。如果尝试重新执行`POST`请求，浏览器会弹一个框提示下刷新可能会有副作用，询问要不要继续。
+
+`GET`和`POST`携带数据的格式也有区别，`GET`请求的数据附在`URL`上而`POST`请求的数据在`body`里。并不是`GET`只能用`URL`，而是浏览器直接发出的`GET`只能由一个`URL`触发。所以`GET`请求参数只能在`URL`上附带`query string`，但`HTTP`协议本身并没有这个限制。
+
+浏览器的`POST`请求都来自表单提交，表单的数据被浏览器用编码到`HTTP`请求的`body`里。主要有有两种格式，一种是`application/x-www-form-urlencoded`，用来传输类似`key1=value1&key2=value2`这样的简单数据；另外一种是`multipart/form-data`，用来传输文件。因为`application/x-www-form-urlencoded`对于文件这种二进制的数据非常低效。
+
 ## Web的结构组件
 
 * 代理，位于客户端和服务器之间的`HTTP`中间实体
