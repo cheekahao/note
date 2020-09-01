@@ -57,7 +57,9 @@ module.exports = {
       '/advance/patterns': ['/advance/patterns'],
       '/advance/algorithm': ['/advance/algorithm'],
       '/network/http': ['/network/http'],
-    '/engineering/': ['', '/engineering/webpack']
+        '/engineering/': ['', '/engineering/webpack'],
+        "/framework/react": ['/framework/react'],
+        '/framework/vue': ['/framework/vue']
     }
   }
 }
