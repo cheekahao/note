@@ -45,6 +45,12 @@ module.exports = {
           link: '/advance/algorithm',
       }]
     }, {
+        text: '全栈',
+        items: [{
+            text: 'Node',
+            link: '/fullStack/node',
+        }]
+    }, {
       text: 'Github',
       link: 'https://github.com/cheekahao/learning',
       target: '_blank'
@@ -59,7 +65,8 @@ module.exports = {
       '/network/http': ['/network/http'],
         '/engineering/': ['', '/engineering/webpack'],
         "/framework/react": ['/framework/react'],
-        '/framework/vue': ['/framework/vue']
+        '/framework/vue': ['/framework/vue'],
+        '/fullStack/node': ['/fullStack/node']
     }
   }
 }
