@@ -20,6 +20,9 @@ module.exports = {
             text: 'Vue',
             link: '/framework/vue',
         }, {
+            text: 'Vue3源码解读',
+            link: '/framework/vue3',
+        }, {
             text: 'React',
             link: '/framework/react',
         }]
@@ -66,6 +69,7 @@ module.exports = {
         '/engineering/': ['', '/engineering/webpack'],
         "/framework/react": ['/framework/react'],
         '/framework/vue': ['/framework/vue'],
+        '/framework/vue3': ['/framework/vue3'],
         '/fullStack/node': ['/fullStack/node']
     }
   }
