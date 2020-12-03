@@ -1,4 +1,6 @@
-# Vue3入口-createApp
+# Vue3
+
+## Vue3入口-createApp
 
 相比较于`Vue 2`通过构造函数`new Vue()`的方式创建根`Vue`实例，`Vue 3`改为了通过调用 `createApp`返回一个应用实例：
 
@@ -94,7 +96,7 @@ export function createAppAPI<HostElement>(
 }
 ```
 
-# App的mount过程
+## App的mount过程
 
 由于在`@vue/runtime-dom/src/index.ts`的`createApp`函数中重写了`app.mount`方法，所以`App`的`mount`入口在这里：
 
@@ -151,3 +153,173 @@ function createApp(rootComponent, rootProps = null) {
 }
 ```
 
+## VNode
+
+### VNode的类型
+
+常规的`VNode`包括`Text`、`Comment`、`Static`、`Fragment`这几种类型。
+
+```typescript
+export const Text = Symbol(__DEV__ ? 'Text' : undefined)
+export const Comment = Symbol(__DEV__ ? 'Comment' : undefined)
+export const Static = Symbol(__DEV__ ? 'Static' : undefined)
+export const Fragment = (Symbol(__DEV__ ? 'Fragment' : undefined) as any) as {
+  __isFragment: true
+  new (): {
+    $props: VNodeProps
+  }
+}
+```
+
+`VNode`的内容：
+
+```typescript
+const vnode: VNode = {
+  __v_isVNode: true,
+  [ReactiveFlags.SKIP]: true,
+  type,
+  props,
+  key: props && normalizeKey(props),
+  ref: props && normalizeRef(props),
+  scopeId: currentScopeId,
+  children: null,
+  component: null,
+  suspense: null,
+  ssContent: null,
+  ssFallback: null,
+  dirs: null,
+  transition: null,
+  el: null,
+  anchor: null,
+  target: null,
+  targetAnchor: null,
+  staticCount: 0,
+  shapeFlag,
+  patchFlag,
+  dynamicProps,
+  dynamicChildren: null,
+  appContext: null
+}
+```
+
+`createVNode`位于`@vue/runtime-core/vnode.ts`，在生产环境调用了第317行的`_createVNode`，其代码如下：
+
+```typescript
+function _createVNode(
+  type: VNodeTypes | ClassComponent | typeof NULL_DYNAMIC_COMPONENT,
+  props: (Data & VNodeProps) | null = null,
+  children: unknown = null,
+  patchFlag: number = 0,
+  dynamicProps: string[] | null = null,
+  isBlockNode = false
+): VNode {
+  if (!type || type === NULL_DYNAMIC_COMPONENT) {
+    type = Comment
+  }
+
+  if (isVNode(type)) {
+    // createVNode receiving an existing vnode. This happens in cases like
+    // <component :is="vnode"/>
+    // #2078 make sure to merge refs during the clone instead of overwriting it
+    const cloned = cloneVNode(type, props, true /* mergeRef: true */)
+    if (children) {
+      normalizeChildren(cloned, children)
+    }
+    return cloned
+  }
+
+  // class component normalization.
+  if (isClassComponent(type)) {
+    type = type.__vccOpts
+  }
+
+  // class & style normalization.
+  if (props) {
+    // for reactive or proxy objects, we need to clone it to enable mutation.
+    if (isProxy(props) || InternalObjectKey in props) {
+      props = extend({}, props)
+    }
+    let { class: klass, style } = props
+    if (klass && !isString(klass)) {
+      props.class = normalizeClass(klass)
+    }
+    if (isObject(style)) {
+      // reactive state objects need to be cloned since they are likely to be
+      // mutated
+      if (isProxy(style) && !isArray(style)) {
+        style = extend({}, style)
+      }
+      props.style = normalizeStyle(style)
+    }
+  }
+
+  // encode the vnode type information into a bitmap
+  const shapeFlag = isString(type)
+    ? ShapeFlags.ELEMENT
+    : __FEATURE_SUSPENSE__ && isSuspense(type)
+      ? ShapeFlags.SUSPENSE
+      : isTeleport(type)
+        ? ShapeFlags.TELEPORT
+        : isObject(type)
+          ? ShapeFlags.STATEFUL_COMPONENT
+          : isFunction(type)
+            ? ShapeFlags.FUNCTIONAL_COMPONENT
+            : 0
+
+  const vnode: VNode = {
+    __v_isVNode: true,
+    [ReactiveFlags.SKIP]: true,
+    type,
+    props,
+    key: props && normalizeKey(props),
+    ref: props && normalizeRef(props),
+    scopeId: currentScopeId,
+    children: null,
+    component: null,
+    suspense: null,
+    ssContent: null,
+    ssFallback: null,
+    dirs: null,
+    transition: null,
+    el: null,
+    anchor: null,
+    target: null,
+    targetAnchor: null,
+    staticCount: 0,
+    shapeFlag,
+    patchFlag,
+    dynamicProps,
+    dynamicChildren: null,
+    appContext: null
+  }
+
+  normalizeChildren(vnode, children)
+
+  // normalize suspense children
+  if (__FEATURE_SUSPENSE__ && shapeFlag & ShapeFlags.SUSPENSE) {
+    const { content, fallback } = normalizeSuspenseChildren(vnode)
+    vnode.ssContent = content
+    vnode.ssFallback = fallback
+  }
+
+  if (
+    shouldTrack > 0 &&
+    // avoid a block node from tracking itself
+    !isBlockNode &&
+    // has current parent block
+    currentBlock &&
+    // presence of a patch flag indicates this node needs patching on updates.
+    // component nodes also should always be patched, because even if the
+    // component doesn't need to update, it needs to persist the instance on to
+    // the next vnode so that it can be properly unmounted later.
+    (patchFlag > 0 || shapeFlag & ShapeFlags.COMPONENT) &&
+    // the EVENTS flag is only for hydration and if it is the only flag, the
+    // vnode should not be considered dynamic due to handler caching.
+    patchFlag !== PatchFlags.HYDRATE_EVENTS
+  ) {
+    currentBlock.push(vnode)
+  }
+
+  return vnode
+}
+```

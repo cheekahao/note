@@ -68,8 +68,8 @@ module.exports = {
       '/network/http': ['/network/http'],
         '/engineering/': ['', '/engineering/webpack'],
         "/framework/react": ['/framework/react'],
-        '/framework/vue': ['/framework/vue'],
         '/framework/vue3': ['/framework/vue3'],
+        '/framework/vue': ['/framework/vue'],
         '/fullStack/node': ['/fullStack/node']
     }
   }
