@@ -1,4 +1,4 @@
-# Vue3入口
+# Vue3入口-createApp
 
 相比较于`Vue 2`通过构造函数`new Vue()`的方式创建根`Vue`实例，`Vue 3`改为了通过调用 `createApp`返回一个应用实例：
 
@@ -86,151 +86,68 @@ export function createAppAPI<HostElement>(
     let isMounted = false
 
     const app: App = (context.app = {
-      _uid: uid++,
-      _component: rootComponent as ConcreteComponent,
-      _props: rootProps,
-      _container: null,
-      _context: context,
-
-      version,
-
-      get config() {
-        return context.config
-      },
-
-      use(plugin: Plugin, ...options: any[]) {
-        if (installedPlugins.has(plugin)) {
-          __DEV__ && warn(`Plugin has already been applied to target app.`)
-        } else if (plugin && isFunction(plugin.install)) {
-          installedPlugins.add(plugin)
-          plugin.install(app, ...options)
-        } else if (isFunction(plugin)) {
-          installedPlugins.add(plugin)
-          plugin(app, ...options)
-        } else if (__DEV__) {
-          warn(
-            `A plugin must either be a function or an object with an "install" ` +
-              `function.`
-          )
-        }
-        return app
-      },
-
-      mixin(mixin: ComponentOptions) {
-        if (__FEATURE_OPTIONS_API__) {
-          if (!context.mixins.includes(mixin)) {
-            context.mixins.push(mixin)
-          } else if (__DEV__) {
-            warn(
-              'Mixin has already been applied to target app' +
-                (mixin.name ? `: ${mixin.name}` : '')
-            )
-          }
-        } else if (__DEV__) {
-          warn('Mixins are only available in builds supporting Options API')
-        }
-        return app
-      },
-
-      component(name: string, component?: Component): any {
-        if (__DEV__) {
-          validateComponentName(name, context.config)
-        }
-        if (!component) {
-          return context.components[name]
-        }
-        if (__DEV__ && context.components[name]) {
-          warn(`Component "${name}" has already been registered in target app.`)
-        }
-        context.components[name] = component
-        return app
-      },
-
-      directive(name: string, directive?: Directive) {
-        if (__DEV__) {
-          validateDirectiveName(name)
-        }
-
-        if (!directive) {
-          return context.directives[name] as any
-        }
-        if (__DEV__ && context.directives[name]) {
-          warn(`Directive "${name}" has already been registered in target app.`)
-        }
-        context.directives[name] = directive
-        return app
-      },
-
-      mount(rootContainer: HostElement, isHydrate?: boolean): any {
-        if (!isMounted) {
-          const vnode = createVNode(
-            rootComponent as ConcreteComponent,
-            rootProps
-          )
-          // store app context on the root VNode.
-          // this will be set on the root instance on initial mount.
-          vnode.appContext = context
-
-          // HMR root reload
-          if (__DEV__) {
-            context.reload = () => {
-              render(cloneVNode(vnode), rootContainer)
-            }
-          }
-
-          if (isHydrate && hydrate) {
-            hydrate(vnode as VNode<Node, Element>, rootContainer as any)
-          } else {
-            render(vnode, rootContainer)
-          }
-          isMounted = true
-          app._container = rootContainer
-          // for devtools and telemetry
-          ;(rootContainer as any).__vue_app__ = app
-
-          if (__DEV__ || __FEATURE_PROD_DEVTOOLS__) {
-            devtoolsInitApp(app, version)
-          }
-
-          return vnode.component!.proxy
-        } else if (__DEV__) {
-          warn(
-            `App has already been mounted.\n` +
-              `If you want to remount the same app, move your app creation logic ` +
-              `into a factory function and create fresh app instances for each ` +
-              `mount - e.g. \`const createMyApp = () => createApp(App)\``
-          )
-        }
-      },
-
-      unmount() {
-        if (isMounted) {
-          render(null, app._container)
-          if (__DEV__ || __FEATURE_PROD_DEVTOOLS__) {
-            devtoolsUnmountApp(app)
-          }
-        } else if (__DEV__) {
-          warn(`Cannot unmount an app that is not mounted.`)
-        }
-      },
-
-      provide(key, value) {
-        if (__DEV__ && (key as string | symbol) in context.provides) {
-          warn(
-            `App already provides property with key "${String(key)}". ` +
-              `It will be overwritten with the new value.`
-          )
-        }
-        // TypeScript doesn't allow symbols as index type
-        // https://github.com/Microsoft/TypeScript/issues/24587
-        context.provides[key as string] = value
-
-        return app
-      }
+      // ... app对象内容省略
     })
 
     return app
   }
+}
+```
+
+# App的mount过程
+
+由于在`@vue/runtime-dom/src/index.ts`的`createApp`函数中重写了`app.mount`方法，所以`App`的`mount`入口在这里：
+
+```ts
+// @vue/runtime-dom/src/index.ts 61行
+app.mount = (containerOrSelector: Element | string): any => {
+  // 如果是选择器，则返回对应的dom
+  const container = normalizeContainer(containerOrSelector)
+  if (!container) return
+  
+  // clear content before mounting
+  container.innerHTML = ''
+
+  const proxy = mount(container)
+  
+  container.removeAttribute('v-cloak')
+  container.setAttribute('data-v-app', '')
+  return proxy
+}
+```
+
+主要做了以下的操作，将选择器转行成`DOM`，将`container`清空，调用`app`原来的`mount`方法，并对`DOM`的属性做了一些操作
+
+`app`原来的`mount`方法位于`@vue/runtime-core/apiCreateApp.ts`的`createAppAPI`中，其主要内容为，将`App`组件内容生成`VNode`，将`vnode.appContext`设置上，调用`render(vnode, rootContainer)`渲染组件，将闭包里的`isMounted`设置成`true`，将`rootContainer`设置给`app._container`，将`vnode.component!.proxy`返回。
+
+```ts
+function createApp(rootComponent, rootProps = null) {
+  // 其他内容省略
+  const context = createAppContext()
+  let isMounted = false
+
+  const app: App = (context.app = {
+    // ... 其他app对象内容省略
+    mount(rootContainer: HostElement, isHydrate?: boolean): any {
+      if (!isMounted) {
+        const vnode = createVNode(
+          rootComponent as ConcreteComponent,
+          rootProps
+        )
+        // store app context on the root VNode.
+        // this will be set on the root instance on initial mount.
+        vnode.appContext = context
+
+        render(vnode, rootContainer)
+
+        isMounted = true
+        app._container = rootContainer
+        
+        return vnode.component!.proxy
+      }
+      // else if 内容为开发环境报警
+    },
+  })
 }
 ```
 
