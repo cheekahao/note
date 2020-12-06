@@ -267,30 +267,7 @@ function _createVNode(
             : 0
 
   const vnode: VNode = {
-    __v_isVNode: true,
-    [ReactiveFlags.SKIP]: true,
-    type,
-    props,
-    key: props && normalizeKey(props),
-    ref: props && normalizeRef(props),
-    scopeId: currentScopeId,
-    children: null,
-    component: null,
-    suspense: null,
-    ssContent: null,
-    ssFallback: null,
-    dirs: null,
-    transition: null,
-    el: null,
-    anchor: null,
-    target: null,
-    targetAnchor: null,
-    staticCount: 0,
-    shapeFlag,
-    patchFlag,
-    dynamicProps,
-    dynamicChildren: null,
-    appContext: null
+    // ... 省略VNode内容
   }
 
   normalizeChildren(vnode, children)
@@ -321,5 +298,23 @@ function _createVNode(
   }
 
   return vnode
+}
+```
+
+## Render
+
+`app`的`mount`方法中的`render`由`createAppAPI`作为参数传入，来源于`@vue/runtime-core/renderer.ts`中的`baseCreateRenderer`方法定义：
+
+```ts
+const render: RootRenderFunction = (vnode, container) => {
+  if (vnode == null) {
+    if (container._vnode) {
+      unmount(container._vnode, null, null, true)
+    }
+  } else {
+    patch(container._vnode || null, vnode, container)
+  }
+  flushPostFlushCbs()
+  container._vnode = vnode
 }
 ```
