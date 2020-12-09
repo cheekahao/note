@@ -325,29 +325,27 @@ const render: RootRenderFunction = (vnode, container) => {
 
 #### patch的类型
 
+不同类型的元素或组件，有不同的patch策略
+
 ```typescript
 export const enum PatchFlags {
-  // Indicates an element with dynamic textContent (children fast path)
+  // 表明元素具有动态文本
   TEXT = 1,
-
-  // Indicates an element with dynamic class binding.
-  CLASS = 1 << 1,
-
-  // Indicates an element with dynamic style
-  // The compiler pre-compiles static string styles into static objects
-  // + detects and hoists inline static objects
-  // e.g. style="color: red" and :style="{ color: 'red' }" both get hoisted as
-  //   const style = { color: 'red' }
-  //   render() { return e('div', { style }) }
-  STYLE = 1 << 2,
-
-  // Indicates an element that has non-class/style dynamic props.
+  // 表明元素具有动态class绑定
+  CLASS = 1 << 1, // 2
+  // 表明元素具有动态样式style，编译器会将静态对象字符串编译为静态对象，并做变量提升优化
+  // 例如：
+  // style="color: red" 或 :style="{ color: 'red' }"
+  // 将被编译为：
+  // const style = { color: 'red' }
+  // render() { return e('div', { style }) }
+  STYLE = 1 << 2, // 4
+  // 表明元素或者组件具有class/style以外的动态属性props
   // Can also be on a component that has any dynamic props (includes
   // class/style). when this flag is present, the vnode also has a dynamicProps
   // array that contains the keys of the props that may change so the runtime
   // can diff them faster (without having to worry about removed props)
-  PROPS = 1 << 3,
-
+  PROPS = 1 << 3, // 8
   // Indicates an element with props with dynamic keys. When keys change, a full
   // diff is always needed to remove the old key. This flag is mutually
   // exclusive with CLASS, STYLE and PROPS.
