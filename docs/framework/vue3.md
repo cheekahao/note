@@ -503,3 +503,228 @@ const patch: PatchFn = (
   }
 }
 ```
+
+`patch`方法经过`swtich`语句调用了`processComponent`方法，其代码位于同文件的第1201行：
+
+```typescript
+const processComponent = (
+  n1: VNode | null,
+  n2: VNode,
+  container: RendererElement,
+  anchor: RendererNode | null,
+  parentComponent: ComponentInternalInstance | null,
+  parentSuspense: SuspenseBoundary | null,
+  isSVG: boolean,
+  optimized: boolean
+) => {
+  if (n1 == null) {
+    if (n2.shapeFlag & ShapeFlags.COMPONENT_KEPT_ALIVE) {
+      (parentComponent!.ctx as KeepAliveContext).activate(
+        n2,
+        container,
+        anchor,
+        isSVG,
+        optimized
+      )
+    } else {
+      mountComponent(
+        n2,
+        container,
+        anchor,
+        parentComponent,
+        parentSuspense,
+        isSVG,
+        optimized
+      )
+    }
+  } else {
+    updateComponent(n1, n2, optimized)
+  }
+}
+```
+
+其主要有两个逻辑分支：旧的`VNode``n1`不为`null`时，调用更新组件的`updateComponent`方法；当`n1`为`null`时，又有两个子分支：新的`VNode``n1`为`keep-alive`的组件时，调用其`ctx`的`activate`方法，否则调用挂载组件的`mountComponent`方法。
+
+我们先看挂载组件的`mountComponent`方法，其位于`processComponent`的下方：
+
+```typescript
+const mountComponent: MountComponentFn = (
+  initialVNode, // 初始的VNode
+  container,  // 挂载的容器
+  anchor,
+  parentComponent,
+  parentSuspense,
+  isSVG,
+  optimized
+) => {
+  const instance: ComponentInternalInstance = (initialVNode.component = createComponentInstance(
+    initialVNode,
+    parentComponent,
+    parentSuspense
+  ))
+
+  // inject renderer internals for keepAlive
+  if (isKeepAlive(initialVNode)) {
+    (instance.ctx as KeepAliveContext).renderer = internals
+  }
+
+  setupComponent(instance)
+
+  // setup() is async. This component relies on async logic to be resolved
+  // before proceeding
+  if (__FEATURE_SUSPENSE__ && instance.asyncDep) {
+    parentSuspense && parentSuspense.registerDep(instance, setupRenderEffect)
+
+    // Give it a placeholder if this is not hydration
+    // TODO handle self-defined fallback
+    if (!initialVNode.el) {
+      const placeholder = (instance.subTree = createVNode(Comment))
+      processCommentNode(null, placeholder, container!, anchor)
+    }
+    return
+  }
+
+  setupRenderEffect(
+    instance,
+    initialVNode,
+    container,
+    anchor,
+    parentSuspense,
+    isSVG,
+    optimized
+  )
+}
+```
+
+### create
+
+首先调用`createComponentInstance`方法生成组件的实例，先看下组件实例的构成：
+
+```typescript
+const instance: ComponentInternalInstance = {
+  uid: uid++,
+  vnode,
+  type,
+  parent,
+  appContext,
+  root: null!, // to be immediately set
+  next: null,
+  subTree: null!, // will be set synchronously right after creation
+  update: null!, // will be set synchronously right after creation
+  render: null,
+  proxy: null,
+  exposed: null,
+  withProxy: null,
+  effects: null,
+  provides: parent ? parent.provides : Object.create(appContext.provides),
+  accessCache: null!,
+  renderCache: [],
+
+  // local resovled assets
+  components: null,
+  directives: null,
+
+  // resolved props and emits options
+  propsOptions: normalizePropsOptions(type, appContext),
+  emitsOptions: normalizeEmitsOptions(type, appContext),
+
+  // emit
+  emit: null as any, // to be set immediately
+  emitted: null,
+
+  // state
+  ctx: EMPTY_OBJ,
+  data: EMPTY_OBJ,
+  props: EMPTY_OBJ,
+  attrs: EMPTY_OBJ,
+  slots: EMPTY_OBJ,
+  refs: EMPTY_OBJ,
+  setupState: EMPTY_OBJ,
+  setupContext: null,
+
+  // suspense related
+  suspense,
+  suspenseId: suspense ? suspense.pendingId : 0,
+  asyncDep: null,
+  asyncResolved: false,
+
+  // lifecycle hooks
+  // not using enums here because it results in computed properties
+  isMounted: false,
+  isUnmounted: false,
+  isDeactivated: false,
+  bc: null,
+  c: null,
+  bm: null,
+  m: null,
+  bu: null,
+  u: null,
+  um: null,
+  bum: null,
+  da: null,
+  a: null,
+  rtg: null,
+  rtc: null,
+  ec: null
+}
+```
+
+`createComponentInstance`方法的代码位于`@vue/runtime-core/component.ts`的第401行：
+
+```typescript
+export function createComponentInstance(
+  vnode: VNode,
+  parent: ComponentInternalInstance | null,
+  suspense: SuspenseBoundary | null
+) {
+  const type = vnode.type as ConcreteComponent
+  // inherit parent app context - or - if root, adopt from root vnode
+  const appContext =
+    (parent ? parent.appContext : vnode.appContext) || emptyAppContext
+
+  const instance: ComponentInternalInstance = {
+    // 省略componentInstance内容
+  }
+
+  if (__DEV__) { // TODO
+    instance.ctx = createRenderContext(instance)
+  } else {
+    instance.ctx = { _: instance }
+  }
+
+  instance.root = parent ? parent.root : instance
+  instance.emit = emit.bind(null, instance)
+
+  return instance
+}
+```
+
+### setup
+
+`setup`主要包括`setupComponent`和`setupRenderEffect`两个过程。
+
+`setupComponent`方法代码位于`@vue/runtime-core/component.ts`的第516行：
+
+```typescript
+export let isInSSRComponentSetup = false // 表明组件是否服务端渲染的变量
+
+export function setupComponent(
+  instance: ComponentInternalInstance,
+  isSSR = false
+) {
+  isInSSRComponentSetup = isSSR
+
+  const { props, children, shapeFlag } = instance.vnode
+  const isStateful = shapeFlag & ShapeFlags.STATEFUL_COMPONENT
+  initProps(instance, props, isStateful, isSSR)
+  initSlots(instance, children)
+
+  const setupResult = isStateful
+    ? setupStatefulComponent(instance, isSSR)
+    : undefined
+  isInSSRComponentSetup = false
+  return setupResult
+}
+```
+
+内部主要做了初始化属性`initProps`和初始化插槽`initSlots`这两件事儿，并且带状态`isStateful`的组件，会执行`setupStatefulComponent`方法获取`setupResult`。最后将标识组件是否在`SSR`环境下执行`setup`的标识置为`false`，并返回`setupResult`。
