@@ -728,3 +728,84 @@ export function setupComponent(
 ```
 
 内部主要做了初始化属性`initProps`和初始化插槽`initSlots`这两件事儿，并且带状态`isStateful`的组件，会执行`setupStatefulComponent`方法获取`setupResult`。最后将标识组件是否在`SSR`环境下执行`setup`的标识置为`false`，并返回`setupResult`。
+
+`initProps`方法位于`@vue/runtime-core/componentProps.ts`的第114行：
+
+```ts
+export function initProps(
+  instance: ComponentInternalInstance,
+  rawProps: Data | null,
+  isStateful: number, // result of bitwise flag comparison
+  isSSR = false
+) {
+  const props: Data = {}
+  const attrs: Data = {}
+  def(attrs, InternalObjectKey, 1)
+  setFullProps(instance, rawProps, props, attrs)
+  // validation
+  if (__DEV__) {
+    validateProps(props, instance)
+  }
+
+  if (isStateful) {
+    // stateful
+    instance.props = isSSR ? props : shallowReactive(props)
+  } else {
+    if (!instance.type.props) {
+      // functional w/ optional props, props === attrs
+      instance.props = attrs
+    } else {
+      // functional w/ declared props
+      instance.props = props
+    }
+  }
+  instance.attrs = attrs
+}
+```
+
+`setFullProps`位于同文件：
+
+```ts
+function setFullProps(
+  instance: ComponentInternalInstance,
+  rawProps: Data | null,
+  props: Data,
+  attrs: Data
+) {
+  const [options, needCastKeys] = instance.propsOptions
+  if (rawProps) {
+    for (const key in rawProps) {
+      const value = rawProps[key]
+      // key, ref are reserved and never passed down
+      if (isReservedProp(key)) {
+        continue
+      }
+      // prop option names are camelized during normalization, so to support
+      // kebab -> camel conversion here we need to camelize the key.
+      let camelKey
+      if (options && hasOwn(options, (camelKey = camelize(key)))) {
+        props[camelKey] = value
+      } else if (!isEmitListener(instance.emitsOptions, key)) {
+        // Any non-declared (either as a prop or an emitted event) props are put
+        // into a separate `attrs` object for spreading. Make sure to preserve
+        // original key casing
+        attrs[key] = value
+      }
+    }
+  }
+
+  if (needCastKeys) {
+    const rawCurrentProps = toRaw(props)
+    for (let i = 0; i < needCastKeys.length; i++) {
+      const key = needCastKeys[i]
+      props[key] = resolvePropValue(
+        options!,
+        rawCurrentProps,
+        key,
+        rawCurrentProps[key],
+        instance
+      )
+    }
+  }
+}
+```
