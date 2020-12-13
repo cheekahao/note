@@ -809,3 +809,172 @@ function setFullProps(
   }
 }
 ```
+
+`shallowReactive`调用了`Reactivity`部分的核心代码`createReactiveObject`，通过`new Proxy`的方式来响应`data`的变化。
+
+### update
+
+`setupRenderEffect`主要设置了实例的`update`方法：
+
+```ts
+const setupRenderEffect: SetupRenderEffectFn = (
+  instance,
+  initialVNode,
+  container,
+  anchor,
+  parentSuspense,
+  isSVG,
+  optimized
+) => {
+  // create reactive effect for rendering
+  instance.update = effect(function componentEffect() {
+    if (!instance.isMounted) {
+      let vnodeHook: VNodeHook | null | undefined
+      const { el, props } = initialVNode
+      const { bm, m, parent } = instance
+
+      // beforeMount hook
+      if (bm) {
+        invokeArrayFns(bm)
+      }
+      // onVnodeBeforeMount
+      if ((vnodeHook = props && props.onVnodeBeforeMount)) {
+        invokeVNodeHook(vnodeHook, parent, initialVNode)
+      }
+
+      
+      const subTree = (instance.subTree = renderComponentRoot(instance))
+      if (__DEV__) {
+        endMeasure(instance, `render`)
+      }
+
+      if (el && hydrateNode) {
+        if (__DEV__) {
+          startMeasure(instance, `hydrate`)
+        }
+        // vnode has adopted host node - perform hydration instead of mount.
+        hydrateNode(
+          initialVNode.el as Node,
+          subTree,
+          instance,
+          parentSuspense
+        )
+        if (__DEV__) {
+          endMeasure(instance, `hydrate`)
+        }
+      } else {
+        if (__DEV__) {
+          startMeasure(instance, `patch`)
+        }
+        patch(
+          null,
+          subTree,
+          container,
+          anchor,
+          instance,
+          parentSuspense,
+          isSVG
+        )
+        if (__DEV__) {
+          endMeasure(instance, `patch`)
+        }
+        initialVNode.el = subTree.el
+      }
+      // mounted hook
+      if (m) {
+        queuePostRenderEffect(m, parentSuspense)
+      }
+      // onVnodeMounted
+      if ((vnodeHook = props && props.onVnodeMounted)) {
+        queuePostRenderEffect(() => {
+          invokeVNodeHook(vnodeHook!, parent, initialVNode)
+        }, parentSuspense)
+      }
+      // activated hook for keep-alive roots.
+      // #1742 activated hook must be accessed after first render
+      // since the hook may be injected by a child keep-alive
+      const { a } = instance
+      if (
+        a &&
+        initialVNode.shapeFlag & ShapeFlags.COMPONENT_SHOULD_KEEP_ALIVE
+      ) {
+        queuePostRenderEffect(a, parentSuspense)
+      }
+      instance.isMounted = true
+    } else {
+      // updateComponent
+      // This is triggered by mutation of component's own state (next: null)
+      // OR parent calling processComponent (next: VNode)
+      let { next, bu, u, parent, vnode } = instance
+      let originNext = next
+      let vnodeHook: VNodeHook | null | undefined
+      if (__DEV__) {
+        pushWarningContext(next || instance.vnode)
+      }
+
+      if (next) {
+        updateComponentPreRender(instance, next, optimized)
+      } else {
+        next = vnode
+      }
+      next.el = vnode.el
+
+      // beforeUpdate hook
+      if (bu) {
+        invokeArrayFns(bu)
+      }
+      // onVnodeBeforeUpdate
+      if ((vnodeHook = next.props && next.props.onVnodeBeforeUpdate)) {
+        invokeVNodeHook(vnodeHook, parent, next, vnode)
+      }
+
+      
+      const nextTree = renderComponentRoot(instance)
+      if (__DEV__) {
+        endMeasure(instance, `render`)
+      }
+      const prevTree = instance.subTree
+      instance.subTree = nextTree
+
+      // reset refs
+      // only needed if previous patch had refs
+      if (instance.refs !== EMPTY_OBJ) {
+        instance.refs = {}
+      }
+      if (__DEV__) {
+        startMeasure(instance, `patch`)
+      }
+      patch(
+        prevTree,
+        nextTree,
+        // parent may have changed if it's in a teleport
+        hostParentNode(prevTree.el!)!,
+        // anchor may have changed if it's in a fragment
+        getNextHostNode(prevTree),
+        instance,
+        parentSuspense,
+        isSVG
+      )
+      
+      next.el = nextTree.el
+      if (originNext === null) {
+        // self-triggered update. In case of HOC, update parent component
+        // vnode el. HOC is indicated by parent instance's subTree pointing
+        // to child component's vnode
+        updateHOCHostEl(instance, nextTree.el)
+      }
+      // updated hook
+      if (u) {
+        queuePostRenderEffect(u, parentSuspense)
+      }
+      // onVnodeUpdated
+      if ((vnodeHook = next.props && next.props.onVnodeUpdated)) {
+        queuePostRenderEffect(() => {
+          invokeVNodeHook(vnodeHook!, parent, next!, vnode)
+        }, parentSuspense)
+      }
+    }
+  }, prodEffectOptions)
+}
+```
+
