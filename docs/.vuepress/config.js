@@ -13,6 +13,9 @@ module.exports = {
       }, {
         text: 'JS拾遗',
         link: '/javascript/omission',
+      }, {
+          text: 'TypeScript',
+          link: '/javascript/ts',
       }]
     }, {
         text: '框架',
@@ -62,6 +65,7 @@ module.exports = {
     sidebar: {
       '/javascript/es6': ['/javascript/es6'],
       '/javascript/omission': ['/javascript/omission'],
+      '/javascript/ts': ['/javascript/ts'],
       '/advance/functional': ['/advance/functional'],
       '/advance/patterns': ['/advance/patterns'],
       '/advance/algorithm': ['/advance/algorithm'],

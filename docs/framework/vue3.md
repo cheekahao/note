@@ -6,8 +6,9 @@
 
 ```js
 import { createApp } from 'vue'
+import App from './App.vue'
 
-const app = createApp({})
+createApp(App).mount('#app')
 ```
 
 `createApp`源码位于`@vue/runtime-dom/src/index.ts`：
