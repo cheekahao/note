@@ -811,7 +811,7 @@ function setFullProps(
 }
 ```
 
-`shallowReactive`调用了`Reactivity`部分的核心代码`createReactiveObject`，通过`new Proxy`的方式来响应`data`的变化。
+`shallowReactive`为`Vue3`暴露的响应式核心`API`之一，用于创建一个不会深度嵌套的响应式`proxy`。调用了`Reactivity`部分的核心代码`createReactiveObject`，通过`new Proxy`的方式来响应`data`的变化。
 
 ### update
 
@@ -979,3 +979,65 @@ const setupRenderEffect: SetupRenderEffectFn = (
 }
 ```
 
+
+## Vue3的响应式系统
+
+`Vue3`新增了`Composition API`组合式`API`，能够通过较低级别的数据驱动视图和组件生命周期，将与同一个逻辑关注点相关的代码配置在一起。从而实现一种更自由形式的编写组件逻辑的方式。
+
+`Composition API`实现响应式的关键`API`为包装基本类型的`ref`和引用类型的`reactive`。
+
+### reactive
+
+`reactive`方法源码位于`@vue/reactivity/src/reactive.ts`的第63行，其逻辑很简单，先判断是否为`readonly`，如果是，直接返回`target`，否则调用`createReactiveObject`方法：
+
+```ts
+export function reactive(target: object) {
+  // if trying to observe a readonly proxy, return the readonly version.
+  if (target && (target as Target)[ReactiveFlags.IS_READONLY]) {
+    return target
+  }
+  return createReactiveObject(
+    target,
+    false,
+    mutableHandlers,
+    mutableCollectionHandlers
+  )
+}
+```
+
+`createReactiveObject`方法位于同文件的第136行：
+
+```ts
+function createReactiveObject(
+  target: Target,
+  isReadonly: boolean,
+  baseHandlers: ProxyHandler<any>,
+  collectionHandlers: ProxyHandler<any>
+) {
+  if (!isObject(target)) return target
+  // target is already a Proxy, return it.
+  // exception: calling readonly() on a reactive object
+  if (
+    target[ReactiveFlags.RAW] &&
+    !(isReadonly && target[ReactiveFlags.IS_REACTIVE])
+  ) return target
+  
+  // target already has corresponding Proxy
+  const proxyMap = isReadonly ? readonlyMap : reactiveMap
+  const existingProxy = proxyMap.get(target)
+  if (existingProxy) {
+    return existingProxy
+  }
+  // only a whitelist of value types can be observed.
+  const targetType = getTargetType(target)
+  if (targetType === TargetType.INVALID) {
+    return target
+  }
+  const proxy = new Proxy(
+    target,
+    targetType === TargetType.COLLECTION ? collectionHandlers : baseHandlers
+  )
+  proxyMap.set(target, proxy)
+  return proxy
+}
+```
