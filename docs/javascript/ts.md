@@ -27,13 +27,14 @@ var counter : number = 0    // number类型
 * `number`
 * `string`
 * `boolean`
-* `symbol`，是`ES6`新增的数据类型，在编译目标是`ES5`及以下时会报错
+* `symbol`，是`ES6`新增的数据类型，在编译目标是`ES5`及以下时会报错。由于只能通过`Symbol`函数生成，可以通过类型推断确定类型，无需特别声明变量为`symbol`类型。
 * `undefined`和`null`，是所有其他类型的子类型，可以赋值给任何其他类型的变量。在`tsconfig`中开启了`strictNullChecks`，那么`undefined`和`null`就只能赋值给`void`或`any`类型变量以及它们自身类型的变量。
 
 ### 高级类型
 
 * `void`，表明函数没有返回值
-* `any`，任何`JavaScript`值
+* `any`，任何`JavaScript`值，即是类型系统的顶级类型（全局超级类型），又是`bottom type`（任何类型的`subtype`），是类型系统的一个逃逸舱
+* `unknown`，`TypeScript`3.0引入。类型系统的另一种顶级类型。`unknown`可以赋值为任意类型，但是只能被赋值给`any`类型和`unknown`类型本身。
 * `never`，永远不会存在的值的类型。`never`是任何类型的子类型，但没有类型是`never`的子类型。
 
 `never`类型常用于两种情况：
