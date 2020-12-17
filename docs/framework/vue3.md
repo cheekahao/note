@@ -1014,30 +1014,114 @@ function createReactiveObject(
   baseHandlers: ProxyHandler<any>,
   collectionHandlers: ProxyHandler<any>
 ) {
+  // 非对象，直接返回
   if (!isObject(target)) return target
-  // target is already a Proxy, return it.
-  // exception: calling readonly() on a reactive object
+
+  // 已经是一个Reactive Proxy，但不是Reactive Readonly Proxy直接返回
   if (
     target[ReactiveFlags.RAW] &&
     !(isReadonly && target[ReactiveFlags.IS_REACTIVE])
   ) return target
   
-  // target already has corresponding Proxy
+  // 已经在proxyMap中有对应的Reactive Proxy，直接返回existingProxy
   const proxyMap = isReadonly ? readonlyMap : reactiveMap
   const existingProxy = proxyMap.get(target)
   if (existingProxy) {
     return existingProxy
   }
-  // only a whitelist of value types can be observed.
+
+  // 不是禁止Reactive的类型
   const targetType = getTargetType(target)
+
   if (targetType === TargetType.INVALID) {
     return target
   }
+
+  // 创建Reactive Proxy
   const proxy = new Proxy(
     target,
     targetType === TargetType.COLLECTION ? collectionHandlers : baseHandlers
   )
+
+  // 在proxyMap中设置缓存
   proxyMap.set(target, proxy)
+
   return proxy
+}
+```
+
+在`new Proxy`，根据`TargetType`分别使用了`collectionHandlers`和`baseHandlers`，先看下`baseHandlers`其值由`reactive`调用时传入的实参`mutableHandlers`，其定义位于`@vue/reactivity/src/baseHandlers.ts`的第187行：
+
+```ts
+export const mutableHandlers: ProxyHandler<object> = {
+  get,
+  set,
+  deleteProperty,
+  has,
+  ownKeys
+}
+```
+
+接下来我们一次看下对应的`ProxyHandler`: 
+
+### get
+
+`mutableHandlers`的`get``ProxyHandler`定义位于同文件的第35行，调用了同文件的第72行的`createGetter`。
+
+```ts
+const get = /*#__PURE__*/ createGetter()
+
+function createGetter(isReadonly = false, shallow = false) {
+  return function get(target: Target, key: string | symbol, receiver: object) {
+    if (key === ReactiveFlags.IS_REACTIVE) {
+      return !isReadonly
+    } else if (key === ReactiveFlags.IS_READONLY) {
+      return isReadonly
+    } else if (
+      key === ReactiveFlags.RAW &&
+      receiver === (isReadonly ? readonlyMap : reactiveMap).get(target)
+    ) {
+      return target
+    }
+
+    const targetIsArray = isArray(target)
+    if (targetIsArray && hasOwn(arrayInstrumentations, key)) {
+      return Reflect.get(arrayInstrumentations, key, receiver)
+    }
+
+    const res = Reflect.get(target, key, receiver)
+
+    const keyIsSymbol = isSymbol(key)
+    if (
+      keyIsSymbol
+        ? builtInSymbols.has(key as symbol)
+        : key === `__proto__` || key === `__v_isRef`
+    ) {
+      return res
+    }
+
+    if (!isReadonly) {
+      track(target, TrackOpTypes.GET, key)
+    }
+
+    if (shallow) {
+      return res
+    }
+
+    if (isRef(res)) {
+      // ref unwrapping - does not apply for Array + integer key.
+      const shouldUnwrap = !targetIsArray || !isIntegerKey(key)
+      return shouldUnwrap ? res.value : res
+    }
+
+    if (isObject(res)) {
+      // Convert returned value into a proxy as well. we do the isObject check
+      // here to avoid invalid value warning. Also need to lazy access readonly
+      // and reactive here to avoid circular dependency.
+      return isReadonly ? readonly(res) : reactive(res)
+    }
+
+    return res
+  }
 }
 ```
