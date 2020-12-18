@@ -1066,7 +1066,7 @@ export const mutableHandlers: ProxyHandler<object> = {
 
 ### get
 
-`mutableHandlers`的`get``ProxyHandler`定义位于同文件的第35行，调用了同文件的第72行的`createGetter`。
+`mutableHandlers`的`get` `ProxyHandler`定义位于同文件的第35行，调用了同文件的第72行的`createGetter`。
 
 ```ts
 const get = /*#__PURE__*/ createGetter()
@@ -1122,6 +1122,77 @@ function createGetter(isReadonly = false, shallow = false) {
     }
 
     return res
+  }
+}
+```
+
+其主要逻辑为调用`@vue/reactivity/src/effect.ts`的第141行的`track`方法，并且根据类型对值进行如下的特殊处理：将`ref`执行`unwrap`，引用类型递归转为`proxy`。
+
+`track`方法主要作用是更新`depsMap`，并与`activeEffect`关联起来，相当于`Vue2`中的`Dep`。
+
+```ts
+const targetMap = new WeakMap<any, KeyToDepMap>()
+let activeEffect: ReactiveEffect | undefined
+let shouldTrack = true
+
+export function track(target: object, type: TrackOpTypes, key: unknown) {
+  if (!shouldTrack || activeEffect === undefined) {
+    return
+  }
+  let depsMap = targetMap.get(target)
+  if (!depsMap) {
+    targetMap.set(target, (depsMap = new Map()))
+  }
+  let dep = depsMap.get(key)
+  if (!dep) {
+    depsMap.set(key, (dep = new Set()))
+  }
+  if (!dep.has(activeEffect)) {
+    dep.add(activeEffect)
+    activeEffect.deps.push(dep)
+  }
+}
+```
+
+### set
+
+`mutableHandlers`的`set` `ProxyHandler`定义位于同文件的第125行，调用了同文件的第128行的`createGetter`。
+
+```ts
+const set = /*#__PURE__*/ createSetter()
+
+function createSetter(shallow = false) {
+  return function set(
+    target: object,
+    key: string | symbol,
+    value: unknown,
+    receiver: object
+  ): boolean {
+    const oldValue = (target as any)[key]
+    if (!shallow) {
+      value = toRaw(value)
+      if (!isArray(target) && isRef(oldValue) && !isRef(value)) {
+        oldValue.value = value
+        return true
+      }
+    } else {
+      // in shallow mode, objects are set as-is regardless of reactive or not
+    }
+
+    const hadKey =
+      isArray(target) && isIntegerKey(key)
+        ? Number(key) < target.length
+        : hasOwn(target, key)
+    const result = Reflect.set(target, key, value, receiver)
+    // don't trigger if target is something up in the prototype chain of original
+    if (target === toRaw(receiver)) {
+      if (!hadKey) {
+        trigger(target, TriggerOpTypes.ADD, key, value)
+      } else if (hasChanged(value, oldValue)) {
+        trigger(target, TriggerOpTypes.SET, key, value, oldValue)
+      }
+    }
+    return result
   }
 }
 ```
