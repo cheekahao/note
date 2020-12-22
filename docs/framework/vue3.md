@@ -1128,7 +1128,7 @@ function createGetter(isReadonly = false, shallow = false) {
 
 其主要逻辑为调用`@vue/reactivity/src/effect.ts`的第141行的`track`方法，并且根据类型对值进行如下的特殊处理：将`ref`执行`unwrap`，引用类型递归转为`proxy`。
 
-`track`方法主要作用是更新`depsMap`，并与`activeEffect`关联起来，相当于`Vue2`中的`Dep`。
+`track`方法主要作用是追踪响应，将需要被追踪的对象作为键更新到全局的`depsMap`里，并与`activeEffect`关联起来，相当于`Vue2`中的`Dep`。
 
 ```ts
 const targetMap = new WeakMap<any, KeyToDepMap>()
@@ -1194,5 +1194,92 @@ function createSetter(shallow = false) {
     }
     return result
   }
+}
+```
+
+当`target`为引用类型是`set` `ProxyHandler`会根据是否`hadKey`分别调用`TriggerOpTypes`类型为`SET`/`ADD`类型的`trigger`。
+
+`trigger`代码位于`@vue/reactivity/src/effect.ts`的第167行，是响应的触发器，
+
+```ts
+export function trigger(
+  target: object,
+  type: TriggerOpTypes,
+  key?: unknown,
+  newValue?: unknown,
+  oldValue?: unknown,
+  oldTarget?: Map<unknown, unknown> | Set<unknown>
+) {
+  const depsMap = targetMap.get(target)
+  if (!depsMap) {
+    // never been tracked
+    return
+  }
+
+  const effects = new Set<ReactiveEffect>()
+  const add = (effectsToAdd: Set<ReactiveEffect> | undefined) => {
+    if (effectsToAdd) {
+      effectsToAdd.forEach(effect => {
+        if (effect !== activeEffect || effect.allowRecurse) {
+          effects.add(effect)
+        }
+      })
+    }
+  }
+
+  if (type === TriggerOpTypes.CLEAR) {
+    // collection being cleared
+    // trigger all effects for target
+    depsMap.forEach(add)
+  } else if (key === 'length' && isArray(target)) {
+    depsMap.forEach((dep, key) => {
+      if (key === 'length' || key >= (newValue as number)) {
+        add(dep)
+      }
+    })
+  } else {
+    // schedule runs for SET | ADD | DELETE
+    if (key !== void 0) {
+      add(depsMap.get(key))
+    }
+
+    // also run for iteration key on ADD | DELETE | Map.SET
+    switch (type) {
+      case TriggerOpTypes.ADD:
+        if (!isArray(target)) {
+          add(depsMap.get(ITERATE_KEY))
+          if (isMap(target)) {
+            add(depsMap.get(MAP_KEY_ITERATE_KEY))
+          }
+        } else if (isIntegerKey(key)) {
+          // new index added to array -> length changes
+          add(depsMap.get('length'))
+        }
+        break
+      case TriggerOpTypes.DELETE:
+        if (!isArray(target)) {
+          add(depsMap.get(ITERATE_KEY))
+          if (isMap(target)) {
+            add(depsMap.get(MAP_KEY_ITERATE_KEY))
+          }
+        }
+        break
+      case TriggerOpTypes.SET:
+        if (isMap(target)) {
+          add(depsMap.get(ITERATE_KEY))
+        }
+        break
+    }
+  }
+
+  const run = (effect: ReactiveEffect) => {
+    if (effect.options.scheduler) {
+      effect.options.scheduler(effect)
+    } else {
+      effect()
+    }
+  }
+
+  effects.forEach(run)
 }
 ```
