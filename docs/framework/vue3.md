@@ -161,15 +161,27 @@ function createApp(rootComponent, rootProps = null) {
 常规的`VNode`包括`Text`、`Comment`、`Static`、`Fragment`这几种类型。
 
 ```typescript
-export const Text = Symbol(__DEV__ ? 'Text' : undefined)
-export const Comment = Symbol(__DEV__ ? 'Comment' : undefined)
-export const Static = Symbol(__DEV__ ? 'Static' : undefined)
+// 所有VNode类型
+export type VNodeTypes =
+  | string
+  | VNode
+  | Component
+  | typeof Text
+  | typeof Static
+  | typeof Comment
+  | typeof Fragment
+  | typeof TeleportImpl
+  | typeof SuspenseImpl
+
+export const Text = Symbol(__DEV__ ? 'Text' : undefined)  // 纯文本
+export const Comment = Symbol(__DEV__ ? 'Comment' : undefined) // 注释类
+export const Static = Symbol(__DEV__ ? 'Static' : undefined) // 静态html
 export const Fragment = (Symbol(__DEV__ ? 'Fragment' : undefined) as any) as {
   __isFragment: true
   new (): {
     $props: VNodeProps
   }
-}
+}  // fragment html片段，根节点是多个节点
 ```
 
 `VNode`的内容：
@@ -424,7 +436,7 @@ const patch: PatchFn = (
   const { type, ref, shapeFlag } = n2
   switch (type) {
     case Text:
-      processText(n1, n2, container, anchor)
+      processText(n1, n2, container, anchor) // 纯文本
       break
     case Comment:
       processCommentNode(n1, n2, container, anchor)
@@ -449,7 +461,7 @@ const patch: PatchFn = (
       )
       break
     default:
-      if (shapeFlag & ShapeFlags.ELEMENT) {
+      if (shapeFlag & ShapeFlags.ELEMENT) { // VNode 是普通标签
         processElement(
           n1,
           n2,
@@ -460,7 +472,7 @@ const patch: PatchFn = (
           isSVG,
           optimized
         )
-      } else if (shapeFlag & ShapeFlags.COMPONENT) {
+      } else if (shapeFlag & ShapeFlags.COMPONENT) { // VNode 是组件
         processComponent(
           n1,
           n2,
@@ -471,7 +483,7 @@ const patch: PatchFn = (
           isSVG,
           optimized
         )
-      } else if (shapeFlag & ShapeFlags.TELEPORT) {
+      } else if (shapeFlag & ShapeFlags.TELEPORT) {   
         ;(type as typeof TeleportImpl).process(
           n1 as TeleportVNode,
           n2 as TeleportVNode,
