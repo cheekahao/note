@@ -24,7 +24,7 @@ module.exports = {
             link: '/framework/vue',
         }, {
             text: 'Vue3源码解读',
-            link: '/framework/vue3',
+            link: '/framework/vue3/',
         }, {
             text: 'React',
             link: '/framework/react',
@@ -63,16 +63,21 @@ module.exports = {
     }],
     sidebarDepth: 2,
     sidebar: {
-      '/javascript/es6': ['/javascript/es6'],
-      '/javascript/omission': ['/javascript/omission'],
-      '/javascript/ts': ['/javascript/ts'],
-      '/advance/functional': ['/advance/functional'],
-      '/advance/patterns': ['/advance/patterns'],
-      '/advance/algorithm': ['/advance/algorithm'],
-      '/network/http': ['/network/http'],
+        '/javascript/es6': ['/javascript/es6'],
+        '/javascript/omission': ['/javascript/omission'],
+        '/javascript/ts': ['/javascript/ts'],
+        '/advance/functional': ['/advance/functional'],
+        '/advance/patterns': ['/advance/patterns'],
+        '/advance/algorithm': ['/advance/algorithm'],
+        '/network/http': ['/network/http'],
         '/engineering/': ['', '/engineering/webpack'],
         "/framework/react": ['/framework/react'],
-        '/framework/vue3': ['/framework/vue3'],
+        '/framework/vue3/': [
+            '/framework/vue3/',
+            '/framework/vue3/reactivity',
+            '/framework/vue3/render',
+            '/framework/vue3/api',
+        ],
         '/framework/vue': ['/framework/vue'],
         '/fullStack/node': ['/fullStack/node']
     }
