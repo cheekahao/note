@@ -57,6 +57,15 @@ module.exports = {
             link: '/fullStack/node',
         }]
     }, {
+        text: '计算机科学',
+        items: [{
+            text: '程序是怎么跑起来的',
+            link: '/cs/program',
+        }, {
+            text: '编译原理',
+            link: '/cs/compiler'
+        }]
+    },{
       text: 'Github',
       link: 'https://github.com/cheekahao/learning',
       target: '_blank'
@@ -79,7 +88,9 @@ module.exports = {
             '/framework/vue3/api',
         ],
         '/framework/vue': ['/framework/vue'],
-        '/fullStack/node': ['/fullStack/node']
+        '/fullStack/node': ['/fullStack/node'],
+        "/cs/program": ['/cs/program'],
+        '/cs/compiler': ['/cs/compiler']
     }
   }
 }
