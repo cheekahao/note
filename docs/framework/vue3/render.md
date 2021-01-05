@@ -1,6 +1,5 @@
 # 渲染器
 
-
 ## VNode
 
 ### VNode的类型
@@ -674,7 +673,7 @@ function setFullProps(
 
 ### update
 
-`setupRenderEffect`主要设置了实例的`update`方法：
+`setupRenderEffect`主要设置了实例的`update`方法，此处调用了`reactivity`中的`effect`方法，在定义之后会立即执行，出发`DOM`渲染：
 
 ```ts
 const setupRenderEffect: SetupRenderEffectFn = (
