@@ -6,6 +6,12 @@ module.exports = {
       text: '首页',
       link: '/'
     }, {
+        text: '前端基础',
+        items: [{
+            text: 'css',
+            link: '/fe/css',
+        }]
+    }, {
       text: 'JavaScript',
       items: [{
         text: 'ES6',
@@ -90,7 +96,8 @@ module.exports = {
         '/framework/vue': ['/framework/vue'],
         '/fullStack/node': ['/fullStack/node'],
         "/cs/program": ['/cs/program'],
-        '/cs/compiler': ['/cs/compiler']
+        '/cs/compiler': ['/cs/compiler'],
+        '/fe/css': ['/fe/css']
     }
   }
 }
