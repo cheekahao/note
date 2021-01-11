@@ -28,7 +28,7 @@
 
 具体示例如下：
 
-```
+```jsx
 import React, { useState } from 'react';
 
 function Example() {

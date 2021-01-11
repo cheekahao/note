@@ -34,6 +34,95 @@
 
 **综上，可以看出，`Vue`父子组件生命周期钩子的执行顺序遵循：从外到内，然后再从内到外的规律。**
 
+## Vuex
+
+### install
+
+`Vuex`的`install`通过`beforeCreacte`钩子中增加处理逻辑，保证了所有组件实例的`$store`都是同一份`Store`实例：
+
+```js
+function vuexInit () {
+    const options = this.$options
+    // 注入$store
+    if (options.store) { // 存在store表明为根节点，为根节点设置$store
+        this.$store = typeof options.store === 'function'
+            ? options.store()
+            : options.store
+    } else if (options.parent && options.parent.$store) { // 子节点取父节点的$store
+        this.$store = options.parent.$store
+    }
+}
+```
+
+### 数据响应化
+
+`Vuex`通过`new Vue()`的方式实现`state`和`computed`的响应化，具体通过`resetStoreVM`方法：
+
+```javascript
+function resetStoreVM (store, state, hot) {
+  /* 存放之前的vm对象 */
+  const oldVm = store._vm 
+
+  // 通过Object.defineProperty为每一个getter方法设置get代理方法，将getter的属性代理到store._vm上，通过访问其计算属性的方式实现get
+  store.getters = {}
+  const wrappedGetters = store._wrappedGetters
+  const computed = {}
+
+  forEachValue(wrappedGetters, (fn, key) => {
+    computed[key] = () => fn(store)
+    Object.defineProperty(store.getters, key, {
+      get: () => store._vm[key],
+      enumerable: true // for local getters
+    })
+  })
+
+  // Vue.config.silent暂时设置为true的目的是在new一个Vue实例的过程中不会报出一切警告
+  const silent = Vue.config.silent
+
+  Vue.config.silent = true
+
+  /*  这里new了一个Vue对象，运用Vue内部的响应式实现注册state以及computed*/
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed
+  })
+  Vue.config.silent = silent
+
+  // enable strict mode for new vm
+  /* 使能严格模式，保证修改store只能通过mutation */
+  if (store.strict) {
+    enableStrictMode(store)
+  }
+
+  if (oldVm) {
+    /* 解除旧vm的state的引用，以及销毁旧的Vue对象 */
+    if (hot) {
+      store._withCommit(() => {
+        oldVm._data.$$state = null
+      })
+    }
+    Vue.nextTick(() => oldVm.$destroy())
+  }
+}
+```
+
+### 严格模式
+
+`Vuex`严格模式下，所有修改state的操作必须通过mutation实现，否则会抛出错误。这是通过`watch state`实现的：
+
+```javascript
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, () => {
+    if (process.env.NODE_ENV !== 'production') {
+      /* 检测store中的_committing的值，如果是true代表不是通过mutation的方法修改的 */
+      assert(store._committing, `Do not mutate vuex store state outside mutation handlers.`)
+    }
+  }, { deep: true, sync: true })
+}
+```
+
 ## `Object.defineProperty`有哪些缺点
 
 1. `Object.defineProperty`只能劫持对象的属性，而`Proxy `是直接代理对象。由于`Object.defineProperty` 只能对属性进行劫持，需要遍历对象的每个属性。而`Proxy` 可以直接代理对象。

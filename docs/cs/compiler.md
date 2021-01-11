@@ -50,6 +50,28 @@ int fun(int a,int b) {
 
 接下来，开始构建`main`函数自己的栈，`ebp`原来指向的地址值已经被保存了，此时和`esp`是重叠的，用来看管main函数的栈底。
 
+
+
+## 汇编中的寄存器
+
+`eax`, `ebx`, `ecx`, `edx`, `esi`, `edi`, `ebp`, `esp`等都是`X86`汇编语言中`CPU`上的通用寄存器的名称，是32位的寄存器。
+
+如果用C语言来解释，可以把这些寄存器当作变量看待。
+
+| 汇编名称     | 寄存器类型             | 作用  |
+| ------------ | --- | - | 
+| `EAX` |累加寄存器`accumulator register`| 加法乘法指令的缺省寄存器 |
+| `EBX` |基址寄存器`base register`| 内存寻址时存放基地址 |
+| `ECX` |程序计数器`program counter`| 重复`REP`前缀指令和`LOOP`指令的内定计数器 |
+| `EDX` | | 用来存放整数除法产生的余数 |
+| `ESI` | 源索引寄存器`source index`| 在很多字符串操作指令中, `DS:ESI`指向源串 |
+| `EDI` | 目标索引寄存器`destination index`| 在很多字符串操作指令中, `ES:EDI`指向目标串 |
+| `EBP` | 基址指针`base pointer`| 常被用作高级语言函数调用的**框架指针`frame pointer`**，存放当前线程的栈底指针|
+| `ESP` | 堆栈指针 | 存放当前线程的栈顶指针，堆栈的顶部是地址小的区域，压入堆栈的数据越多，ESP也就越来越小。|
+| `EIP` | 指令寄存器`instrution register` | 存放下一个`CPU`指令存放的内存地址 |
+
+因此，在函数的起始部分经常有：
+
 ```
 push ebp; 保存当前ebp
 mov ebp, esp; EBP设为当前堆栈指针
