@@ -73,11 +73,55 @@ function selectionSort(arr) {
 
 递归都有基线条件和递归条件。
 
-## 分治与快速排序
+## 分治
 
-分治算法divide and conquer，D & C，是一种著名的递归式问题解决方法。
+分治算法`divide and conquer`，`D & C`，是一种著名的递归式问题解决方法。
 
-快速排序是一种常用的排序算法，复杂度为O(nlog n)，就采用了分治策略。具体步骤如下：
+### 归并排序
+
+归并排序是将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着将小数组归并成较大的数组，直到最后只有一个排序完毕的大数组。复杂度为O(nlog(n))
+
+```javascript
+function mergeSort(array){
+    const {length} = array
+    if(length < 2) return array
+
+    const middle = Math.floor( length / 2 )
+    const left = mergeSort(array.slice(0, middle))
+    const right = mergeSort(array.slice(middle, length))
+
+    return merge(left, right)
+}
+
+function merge(left, right){
+    let i = 0;
+    let j = 0;
+    const result = []
+
+    while(i < left.length && j < right.length){
+        const leftItem = left[i]
+        const rightItem = right[j]
+        let item
+
+        if(leftItem < rightItem){
+            item = leftItem;
+            i++;
+        }else{
+            item = rightItem;
+            j++;
+        }
+        result.push(item)
+    }
+
+    return result.concat(i < left.length ? left.slice(i) : right.slice(j))
+}
+```
+
+### 快速排序
+
+快速排序是一种常用的排序算法，复杂度为O(nlog n)，且性能比其他复杂度为O(nlog n)的排序算法好。
+
+具体步骤如下：
 
 1. 从数组中选择中间一项作为基准值
 2. 划分，将数组分为大于基准值和小于基准值的两个数组
