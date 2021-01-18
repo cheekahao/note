@@ -55,6 +55,9 @@ module.exports = {
       }, {
           text: '数据结构',
           link: '/advance/algorithm',
+      }, {
+          text: 'LeetCode',
+          link: '/advance/leet_code',
       }]
     }, {
         text: '全栈',
@@ -97,7 +100,8 @@ module.exports = {
         '/fullStack/node': ['/fullStack/node'],
         "/cs/program": ['/cs/program'],
         '/cs/compiler': ['/cs/compiler'],
-        '/fe/css': ['/fe/css']
+        '/fe/css': ['/fe/css'],
+        '/advance/leet_code': ['/advance/leet_code']
     }
   }
 }
