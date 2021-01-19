@@ -25,3 +25,68 @@
 `C`可以放在`D`(500)和`M`(1000)的左边，来表示`400`和`900`。
 
 给定一个整数，将其转为罗马数字。输入确保在`1`到`3999`的范围内。
+
+```js
+function intToRoman(int) {
+    const list = [{
+        roman: 'M',
+        value: 1000,
+    }, {
+        roman: 'D',
+        value: 500,
+    }, {
+        roman: 'C',
+        value: 100,
+    }, {
+        roman: 'L',
+        value: 50,
+    }, {
+        roman: 'X',
+        value: 10,
+    }, {
+        roman: 'V',
+        value: 5,
+    }, {
+        roman: 'I',
+        value: 1,
+    }]
+    let rest = int
+    let isConvertNine = false
+
+    return list.reduce( (result, item, index) => {
+        const {
+            roman,
+            value,
+        } = item
+        const next = list[index + 1]
+        const prev = list[index - 1]
+        const ten = list[index - 2]
+        let current = Math.floor(rest / value)
+
+        if (!current) return result
+
+        rest = rest % value
+
+        switch (true) {
+            case current === 1 && next && Math.floor(rest / next.value) === 4: // 9 需要特殊表示为prev + next
+                isConvertNine = true
+                break;
+            case isConvertNine && current === 4: // 说明值为9或者其倍数
+                result += roman + ten.roman
+                isConvertNine = false
+                break;
+            case !isConvertNine && current === 4: // 说明值为4
+                result += roman + prev.roman
+                break;
+            default:
+                while (current) {
+                    result += roman
+                    current--
+                }
+                break;
+        }
+
+        return result
+    }, '')
+}
+```
