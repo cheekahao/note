@@ -1,5 +1,60 @@
 # LeetCode
 
+## 2.
+
+```js
+function ListNode(val, next) {
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
+}
+
+function addTwoNumbers(l1, l2) {
+    const stack1 = toStack(l1)
+    const stack2 = toStack(l2)
+    let stack1Length = stack1.length
+    let stack2Length = stack2.length
+    let isCarry = 0
+    let next, current
+
+    while (stack1Length || stack2Length || isCarry) {
+        const value1 = stack1Length ? stack1.pop() : 0
+        const value2 = stack2Length ? stack2.pop() : 0
+        let sum = value1 + value2 + isCarry
+        console.log('sum', sum, value1, value2, isCarry);
+        if (sum >= 10){
+            isCarry = 1
+            sum = sum % 10
+        }else{
+            isCarry = 0
+        }
+
+        if (!next) {
+            next = new ListNode(sum)
+        }else{
+            current = new ListNode(sum, next)
+
+            next = current
+        }
+
+        stack1Length = stack1.length
+        stack2Length = stack2.length
+    }
+
+    return current
+}
+
+function toStack(list) {
+    const stack = []
+
+    while (list) {
+        stack.push(list.val)
+        list = list.next
+    }
+    
+    return stack
+}
+```
+
 ## 12. 整数转罗马数字
 
 **题目：**
@@ -88,5 +143,32 @@ function intToRoman(int) {
 
         return result
     }, '')
+}
+```
+
+## 13. 罗马数字转整数
+
+```js
+function romanToInt(roman) {
+    const map = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    }
+    const romanArr = roman.split('')
+
+    return romanArr.reduce((result, item, index) => {
+        const value = map[item]
+        const next = romanArr[index + 1]
+
+        if (!next) return result + value
+        const nextValue = map[next]
+
+        return value < nextValue ? result - value : result + value
+    }, 0)
 }
 ```
