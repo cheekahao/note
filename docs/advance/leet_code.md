@@ -9,49 +9,34 @@ function ListNode(val, next) {
 }
 
 function addTwoNumbers(l1, l2) {
-    const stack1 = toStack(l1)
-    const stack2 = toStack(l2)
-    let stack1Length = stack1.length
-    let stack2Length = stack2.length
     let isCarry = 0
-    let next, current
+    let first, current
 
-    while (stack1Length || stack2Length || isCarry) {
-        const value1 = stack1Length ? stack1.pop() : 0
-        const value2 = stack2Length ? stack2.pop() : 0
+    while (l1 || l2 || isCarry) {
+        const value1 = l1 ? l1.val : 0
+        const value2 = l2 ? l2.val : 0
         let sum = value1 + value2 + isCarry
-        console.log('sum', sum, value1, value2, isCarry);
-        if (sum >= 10){
+
+        if (sum >= 10) {
             isCarry = 1
             sum = sum % 10
-        }else{
+        } else {
             isCarry = 0
         }
 
-        if (!next) {
-            next = new ListNode(sum)
+        if (!first){
+            first = new ListNode(sum)
+            current = first
         }else{
-            current = new ListNode(sum, next)
-
-            next = current
+            current.next = new ListNode(sum)
+            current = current.next
         }
 
-        stack1Length = stack1.length
-        stack2Length = stack2.length
+        l1 = l1 && l1.next
+        l2 = l2 && l2.next
     }
 
-    return current
-}
-
-function toStack(list) {
-    const stack = []
-
-    while (list) {
-        stack.push(list.val)
-        list = list.next
-    }
-    
-    return stack
+    return first
 }
 ```
 
