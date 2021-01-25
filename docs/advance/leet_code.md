@@ -1,5 +1,53 @@
 # LeetCode
 
+## 1. 整数转罗马数字
+
+在数组中找到`2`个数之和等于给定值的数字，结果返回`2`个数字在数组中的下标。例如：
+
+```js
+const nums = [2, 7, 11, 15]
+const target = 9
+
+// [0, 1]
+```
+
+解题思路：
+
+此题其实和数组去重类似，都是查询一个值是否在数组里去重是值本身，而此题是和`target`之差。
+
+一开想到的方式，是双指针循环两次：
+
+```js
+const {length} = nums
+    let j = length - 1
+    let i
+    let isFind = false
+    while(!isFind && j){
+        const end = nums[j]
+
+        for (i = 0; i < j; i++) {
+            const item = nums[i];
+
+            if(item + end === target){
+                isFind = true
+
+                break
+            }
+        }
+
+        if(isFind) break
+
+        j--
+    }
+
+    return isFind ? [i, j] : null
+}
+```
+
+```js
+
+```
+
 ## 2.
 
 ```js
