@@ -1,6 +1,17 @@
 # LeetCode
 
-## 1. 整数转罗马数字
+## 滑动窗口算法
+
+滑动窗口算法主要用于解决数组/字符串的子元素问题。可以将嵌套的循环问题，转换为单循环问题，降低时间复杂度。
+
+其主要过程是：维护一个队列或者两个指针，通过队列出队/入队或者左右两个指针的往右移动，使窗口不断向右滑动，直到最右面为止。
+
+用到该算法的有：
+
+* [3. 无重复字符的最长子串](#_3-无重复字符的最长子串)
+* [76. 最小覆盖子串](#_76-最小覆盖子串)
+
+## 1. 两数之和
 
 在数组中找到`2`个数之和等于给定值的数字，结果返回`2`个数字在数组中的下标。例如：
 
@@ -15,10 +26,11 @@ const target = 9
 
 此题其实和数组去重类似，都是查询一个值是否在数组里去重是值本身，而此题是和`target`之差。
 
-一开想到的方式，是双指针循环两次：
+一开始想到的方式，是双指针循环两次，算法复杂度为<code>O(n<sup>2</sup>)</code>：
 
 ```js
-const {length} = nums
+function twoSum(nums, target){
+    const {length} = nums
     let j = length - 1
     let i
     let isFind = false
@@ -44,11 +56,34 @@ const {length} = nums
 }
 ```
 
-```js
+深入思考后，其实与数组去重类似，可以用空间换时间，时间复杂度为`O(n)`：
 
+```js
+function twoSum(nums, target){
+    const {length} = nums
+    const map = {}
+
+    for (let index = 0; index < length; index++) {
+        const item = nums[index]
+        const diff = target - item
+        const diffIndex = map[diff]
+
+        if(diffIndex !== undefined){
+            return [diffIndex, index]
+        }else{
+            map[item] = index
+        }
+    }
+    
+    return null
+}
 ```
 
-## 2.
+## 2. 两数相加
+
+两个**非空**的链表，表示两个非负的整数。每位数字**逆序**存储的，且每个节点只存储**一位**数字。
+
+请你将两个数相加，并以相同形式返回一个表示和的链表。
 
 ```js
 function ListNode(val, next) {
@@ -85,6 +120,36 @@ function addTwoNumbers(l1, l2) {
     }
 
     return first
+}
+```
+
+## 3. 无重复字符的最长子串
+
+**题目：** 在一个字符串重寻找没有重复字母的最长子串
+
+```js
+function lengthOfLongestSubstring(s){
+    const arr = s.split('')
+    let maxLength = 0
+    const sub = []
+    const map = {}
+
+    while (arr.length) {
+        const item = arr.shift()
+
+        while (map[item] && sub.length) {
+            const first = sub.shift()
+
+            delete map[first]
+        }
+
+        map[item] = 1
+        sub.push(item)
+
+        maxLength = sub.length > maxLength ? sub.length : maxLength
+    }
+
+    return maxLength
 }
 ```
 
@@ -204,4 +269,12 @@ function romanToInt(roman) {
         return value < nextValue ? result - value : result + value
     }, 0)
 }
+```
+
+## 76. 最小覆盖子串
+
+**题目：** 给两个个字符串`s`和`t`。返回`s`中涵盖`t`所有字符的最小子串。如果不存在则返回空字符串`""`。
+
+```js
+
 ```
