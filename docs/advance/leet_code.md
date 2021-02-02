@@ -10,6 +10,7 @@
 
 * [3. 无重复字符的最长子串](#_3-无重复字符的最长子串)
 * [76. 最小覆盖子串](#_76-最小覆盖子串)
+* 
 
 ## 1. 两数之和
 
@@ -276,5 +277,91 @@ function romanToInt(roman) {
 **题目：** 给两个个字符串`s`和`t`。返回`s`中涵盖`t`所有字符的最小子串。如果不存在则返回空字符串`""`。
 
 ```js
+function minWindow(s, t) {
+    const {length} = s
+    const total = t.length
+    const leftSteps = getContainedSteps(s, t)
+    const rightSteps = leftSteps.slice(0)
+    let left = leftSteps.shift()
+    let right = rightSteps.shift()
+    let minSubStr = ''
+    const sourceCountMap = {}
+    const targetCountMap = getCountMap(t)
 
+    while (right <= length) {
+        let rightChat = s.charAt(right)
+        let leftChat = s.charAt(left)
+        updateCountMap(sourceCountMap, rightChat)
+
+        while (right - left >= total && sourceCountMap[leftChat] > targetCountMap[leftChat]) {
+            reduceCountMap(sourceCountMap, leftChat)
+            left = leftSteps.shift()
+            leftChat = s.charAt(left)
+        }
+
+        const subStr = s.substring(left, right + 1)
+
+        if ((!minSubStr || minSubStr.length > subStr.length) && hasContainedSource(sourceCountMap, targetCountMap)) minSubStr = subStr
+
+        if (rightSteps.length){
+            right = rightSteps.shift()
+        }else {
+            right++
+        }
+
+    }
+
+    return minSubStr
+}
+
+function getContainedSteps(source, target) {
+    const steps = []
+    const {length} = source
+
+    for (let index = 0; index < length; index++) {
+        const char = source.charAt(index)
+
+        if (target.indexOf(char) > -1) steps.push(index)
+    }
+
+    return steps
+}
+
+function getCountMap(str) {
+    const map = {}
+    const {
+        length
+    } = str
+
+    for (let index = 0; index < length; index++) {
+        const char = str.charAt(index)
+
+        updateCountMap(map, char)
+    }
+
+    return map
+}
+
+function updateCountMap(map, char) {
+    map[char] = (map[char] || 0) + 1
+}
+function reduceCountMap(map, char) {
+    map[char] = map[char] > 0 ? map[char] - 1 : 0
+}
+
+function hasContainedSource(sourceCountMap, targetCountMap) {
+    let hasContained = true
+    for (const key in targetCountMap) {
+        if (Object.hasOwnProperty.call(targetCountMap, key)) {
+            const sourceCount = sourceCountMap[key] || 0
+            if (sourceCount < targetCountMap[key]){
+                hasContained = false
+                break
+            }
+
+        }
+    }
+
+    return hasContained
+}
 ```
