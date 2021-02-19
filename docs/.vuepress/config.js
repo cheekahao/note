@@ -40,6 +40,9 @@ module.exports = {
         items: [{
             text: 'HTTP',
             link: '/network/http',
+        }, {
+            text: '缓存',
+            link: '/network/caching',
         }]
     }, {
         text: '工程化',
@@ -87,7 +90,8 @@ module.exports = {
         '/advance/functional': ['/advance/functional'],
         '/advance/patterns': ['/advance/patterns'],
         '/advance/algorithm': ['/advance/algorithm'],
-        '/network/http': ['/network/http'],
+        '/network/http': ['/network/http', ],
+        '/network/caching': ['/network/caching'],
         '/engineering/': ['', '/engineering/webpack'],
         "/framework/react": ['/framework/react'],
         '/framework/vue3/': [
