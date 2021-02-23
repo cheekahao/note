@@ -564,7 +564,13 @@ let proxy = new Proxy(target, {
         
         return Reflect.set(trapTarget, key, value, receiver)
     },
-    get
+    get(trapTarget, key, receiver){
+        if( !(key in receiver) ){
+            throw new Error(`属性 ${key} 不存在`)
+        }
+        
+        return Reflect.get(trapTarget, key, receiver)
+    }
 })
 
 proxy.name = "proxy"
