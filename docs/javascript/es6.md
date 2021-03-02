@@ -578,6 +578,10 @@ console.log(proxy.name) // "proxy"
 console.log(target.name) // "proxy"
 ```
 
+### 浏览器支持程度
+
+49以上版本Chrome支持`Proxy`。`IE`浏览器不支持。
+
 ## 模块
 
 模块(`Module`)是自动运行在严格模式下并且没有办法退出运行的`JavaScript`代码。
@@ -763,3 +767,8 @@ const moduleWorker = new Worker('module.js', {type: 'module'}) // 创建的Worke
 ```js
 import {multiply} from 'example.js'
 ```
+
+### ES Modules进阶
+
+* [精读《snowpack和vite》-ESM](https://www.yuque.com/xixiaobai/xomql8/ironhk#eSVOy)
+* [图说 ES Modules](https://segmentfault.com/a/1190000014318751)
