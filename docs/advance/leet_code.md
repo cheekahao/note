@@ -126,31 +126,47 @@ function addTwoNumbers(l1, l2) {
 
 ## 3. 无重复字符的最长子串
 
-**题目：** 在一个字符串重寻找没有重复字母的最长子串
+**题目：** 在一个字符串中寻找没有重复字母的最长子串
 
 ```js
 function lengthOfLongestSubstring(s){
-    const arr = s.split('')
+    let left = 0
+    let right = 0
     let maxLength = 0
-    const sub = []
-    const map = {}
+    const {length} = s
 
-    while (arr.length) {
-        const item = arr.shift()
-
-        while (map[item] && sub.length) {
-            const first = sub.shift()
-
-            delete map[first]
+    while (right < length) {
+        right ++
+        let sub = s.substring(left, right)
+        while(hasRepeted(sub)){
+            left++
+            sub = s.substring(left, right)
         }
 
-        map[item] = 1
-        sub.push(item)
-
-        maxLength = sub.length > maxLength ? sub.length : maxLength
+        const subLength = sub.length
+        if(subLength > maxLength) maxLength = subLength
     }
 
     return maxLength
+}
+
+function hasRepeted(str){
+    const set = new Set()
+    const {length} = str
+    let result = false
+
+    for (let index = 0; index < length; index++) {
+        const char = str.charAt(index)
+
+        if(set.has(char)){
+            result = true
+            break
+        }
+
+        set.add(char)
+    }
+
+    return result
 }
 ```
 
