@@ -13,7 +13,15 @@ git init
 git add -A
 git commit -m 'deploy'
 
+git_url="git@github.com:cheekahao"
+
+if [ $1 == "gitee" ]
+then
+    git_url="git@gitee.com:cheeka"
+    echo "第一个参数为：$1"
+fi
+
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:cheekahao/note.git master:gh-pages
+git push -f $git_url/note.git master:gh-pages
 
 cd -
