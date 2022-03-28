@@ -15,7 +15,7 @@ module.exports = {
             text: 'JavaScript',
             items: [{
                 text: 'ES6',
-                link: '/javascript/es6',
+                link: '/javascript/es6/',
             }, {
                 text: 'JS拾遗',
                 link: '/javascript/omission',
@@ -87,7 +87,12 @@ module.exports = {
         }],
         sidebarDepth: 2,
         sidebar: {
-            '/javascript/es6': ['/javascript/es6'],
+            '/javascript/es6': [
+                '/javascript/es6/',
+                '/javascript/es6/set-map',
+                '/javascript/es6/proxy',
+                '/javascript/es6/module',
+            ],
             '/javascript/omission': ['/javascript/omission'],
             '/javascript/ts': ['/javascript/ts'],
             '/advance/functional': ['/advance/functional'],
