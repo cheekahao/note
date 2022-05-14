@@ -66,10 +66,10 @@ module.exports = {
                 link: '/advance/leet_code',
             }]
         }, {
-            text: '全栈',
+            text: 'Node',
             items: [{
-                text: 'Node',
-                link: '/fullStack/node',
+                text: '垃圾回收',
+                link: '/node/garbage-collection',
             }]
         }, {
             text: '计算机科学',

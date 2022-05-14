@@ -55,7 +55,9 @@ const handlers = {
 
 ## 依赖收集与触发
 
-`track`和`trigger`主要负责依赖的收集和触发，类似于`Vue2`中的`Dep`。
+`Vue3`中的依赖以副作用函数`effect`的方式体现。副作用函数就是指会产生副作用的函数，就是该函数的执行会直接或者间接影响其他的函数的执行，例如更新`DOM`，修改作用域以外的变量等。
+
+`track`和`trigger`主要负责依赖的收集(追踪)和触发，类似于`Vue2`中的`Dep`，分别在响应式数据`get`和`set`操作中被执行。用于将响应式数据和`effect`关联起来。
 
 这两个方法位于`@vue/reactivity/src/effect.ts`文件中，在解析这两个方法之前，需要先对这两个方法依赖的几个局部变量做下说明：
 
@@ -235,7 +237,7 @@ function createReactiveEffect<T = any>(
     effect._isEffect = true
     effect.active = true
     effect.raw = fn
-    effect.deps = []
+    effect.deps = [] // 与该副作用函数存在联系的依赖的集合，在该effect执行时，会先将对应的deps清空，即cleanup函数的作用，以便effect执行后，在track过程中重新建立联系，从而避免副作用函数产生遗留
     effect.options = options
     return effect
 }
