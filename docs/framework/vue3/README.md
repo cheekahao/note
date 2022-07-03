@@ -10,3 +10,7 @@
 * `Vue2`使用`JavaScript` + `Flow`开发，而`Vue3`使用`TypeScript`开发
 * `Vue2`采用面向对象的编程范式，而`Vue3`采用的是函数式编程
 * `Vue3`新增了组合式`API`(`Composition API`)，兼容了原来的`Option API`，而`Vue2`是基于`Option API`的
+
+## Vue3的整体结构
+
+`Vue3`主要由数据响应系统`reactivity`、渲染器`renderer`、编译器`compiler`这几部分组成 

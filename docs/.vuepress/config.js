@@ -107,6 +107,8 @@ module.exports = {
                 '/framework/vue3/',
                 '/framework/vue3/reactivity',
                 '/framework/vue3/render',
+                '/framework/vue3/component',
+                '/framework/vue3/compiler',
                 '/framework/vue3/api',
             ],
             '/framework/vue': ['/framework/vue'],

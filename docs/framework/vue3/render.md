@@ -1,5 +1,7 @@
 # 渲染器
 
+**渲染器**的作用是将**虚拟`DOM`**渲染为**真实DOM**。
+
 ## VNode
 
 ### VNode的类型
@@ -160,6 +162,79 @@ function _createVNode(
 }
 ```
 
+
+
+
+## 渲染器的基本结构
+
+在`Vue3`中渲染器被抽象成了一个对象，其`TypeScript`类型定义位于`@vue/runtime-core/renderer.ts`中：
+
+```ts
+export interface Renderer<HostElement = RendererElement> {
+  render: RootRenderFunction<HostElement>
+  createApp: CreateAppFunction<HostElement>
+}
+```
+
+主要就是一个拥有`render`和`createApp`方法的对象。
+
+在`Vue3`中可以通过`createRenderer`自定义渲染器，浏览器平台的`DOM`渲染器就是自定义渲染器的一个实现。
+
+```ts
+export function createRenderer<
+  HostNode = RendererNode,
+  HostElement = RendererElement
+>(options: RendererOptions<HostNode, HostElement>) {
+  return baseCreateRenderer<HostNode, HostElement>(options)
+}
+```
+
+`createRenderer`函数将自定义渲染器的依赖抽象成了`RendererOptions`，其`TypeScript`类型定义如下：
+
+```ts
+export interface RendererOptions<
+  HostNode = RendererNode,
+  HostElement = RendererElement
+> {
+  patchProp(
+    el: HostElement,
+    key: string,
+    prevValue: any,
+    nextValue: any,
+    isSVG?: boolean,
+    prevChildren?: VNode<HostNode, HostElement>[],
+    parentComponent?: ComponentInternalInstance | null,
+    parentSuspense?: SuspenseBoundary | null,
+    unmountChildren?: UnmountChildrenFn
+  ): void
+  insert(el: HostNode, parent: HostElement, anchor?: HostNode | null): void
+  remove(el: HostNode): void
+  createElement(
+    type: string,
+    isSVG?: boolean,
+    isCustomizedBuiltIn?: string,
+    vnodeProps?: (VNodeProps & { [key: string]: any }) | null
+  ): HostElement
+  createText(text: string): HostNode
+  createComment(text: string): HostNode
+  setText(node: HostNode, text: string): void
+  setElementText(node: HostElement, text: string): void
+  parentNode(node: HostNode): HostElement | null
+  nextSibling(node: HostNode): HostNode | null
+  querySelector?(selector: string): HostElement | null
+  setScopeId?(el: HostElement, id: string): void
+  cloneNode?(node: HostNode): HostNode
+  insertStaticContent?(
+    content: string,
+    parent: HostElement,
+    anchor: HostNode | null,
+    isSVG: boolean,
+    start?: HostNode | null,
+    end?: HostNode | null
+  ): [HostNode, HostNode]
+}
+```
+
 ## mount
 
 `app`的`mount`方法中的`render`由`createAppAPI`作为参数传入，来源于`@vue/runtime-core/renderer.ts`中的`baseCreateRenderer`方法定义：
@@ -181,6 +256,8 @@ const render: RootRenderFunction = (vnode, container) => {
 `render`方法主要有两个逻辑分支，如果`vnode`不为`null`时，为新建或者更新逻辑，调用`patch`方法；如果`vnode`为`null`，，并且`container._vnode`不为`null`，即`vnode`从有值变为`null`，调用`unmount`方法。
 
 ### patch
+
+`patch`函数是整个渲染器的核心入口，承载了最重要的渲染逻辑
 
 #### patch的类型
 
