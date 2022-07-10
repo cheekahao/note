@@ -1,3 +1,4 @@
+
 module.exports = {
     title: '前端笔记',
     description: 'learning notebook of cheeka',
@@ -118,5 +119,13 @@ module.exports = {
             '/fe/css': ['/fe/css'],
             '/advance/leet_code': ['/advance/leet_code']
         }
-    }
+    },
+    plugins: [
+        [
+            "md-enhance",
+            {
+                mermaid: true,
+            },
+        ],
+    ],
 }
