@@ -9,7 +9,7 @@
 * 遵循当前以及未来的`ECMAScript`规范。
 * 开源。
 
-## 类型
+## TypeScript的类型系统
 
 `TypeScript`为`JavaScript`增加了可选的静态类型说明，用以约束函数、变量、属性等程序实体。以便编译器和相应的开发工具可以在开发过程中提供更好的正确性校验和帮助提示。
 
@@ -69,3 +69,13 @@ notSure.ifItExists(); // okay, ifItExists might exist at runtime
 let prettySure: Object = 4;
 prettySure.toFixed(); // Error: Property 'toFixed' doesn't exist on type 'Object'.
 ```
+
+## TypeScript的编译原理
+
+`TypeScript`编译器由以下几个部分组成：
+
+* `Scanner`扫描器
+* `Parser`解析器
+* `Binder`绑定器
+* `Checker`检查器
+* `Emitter`发射器
