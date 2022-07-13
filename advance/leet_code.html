@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LeetCode | 前端笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="learning notebook of cheeka">
+    
+    <link rel="preload" href="/assets/css/0.styles.89a87d7c.css" as="style"><link rel="preload" href="/assets/js/app.4ffcedcb.js" as="script"><link rel="preload" href="/assets/js/3.a213aa8f.js" as="script"><link rel="preload" href="/assets/js/13.9bfac093.js" as="script"><link rel="prefetch" href="/assets/js/10.3c347e54.js"><link rel="prefetch" href="/assets/js/11.9adc9c77.js"><link rel="prefetch" href="/assets/js/12.c74c6a2c.js"><link rel="prefetch" href="/assets/js/14.8201ea59.js"><link rel="prefetch" href="/assets/js/15.b893f62b.js"><link rel="prefetch" href="/assets/js/16.fe2643ba.js"><link rel="prefetch" href="/assets/js/17.7711ce1c.js"><link rel="prefetch" href="/assets/js/18.8355d792.js"><link rel="prefetch" href="/assets/js/19.10d660f8.js"><link rel="prefetch" href="/assets/js/20.b252f2f1.js"><link rel="prefetch" href="/assets/js/21.72cd72b5.js"><link rel="prefetch" href="/assets/js/22.36e20d02.js"><link rel="prefetch" href="/assets/js/23.36e1d6bf.js"><link rel="prefetch" href="/assets/js/24.fa1933ff.js"><link rel="prefetch" href="/assets/js/25.7e9f2526.js"><link rel="prefetch" href="/assets/js/26.502733bd.js"><link rel="prefetch" href="/assets/js/27.37687208.js"><link rel="prefetch" href="/assets/js/28.47ac5267.js"><link rel="prefetch" href="/assets/js/29.2ea8973e.js"><link rel="prefetch" href="/assets/js/30.63a8a364.js"><link rel="prefetch" href="/assets/js/31.a0e0a094.js"><link rel="prefetch" href="/assets/js/32.3ffc993b.js"><link rel="prefetch" href="/assets/js/33.53d493cc.js"><link rel="prefetch" href="/assets/js/34.885e33aa.js"><link rel="prefetch" href="/assets/js/35.0b5bb67c.js"><link rel="prefetch" href="/assets/js/36.8b840a3d.js"><link rel="prefetch" href="/assets/js/37.c9149af4.js"><link rel="prefetch" href="/assets/js/38.af7e0ce7.js"><link rel="prefetch" href="/assets/js/39.4d90f037.js"><link rel="prefetch" href="/assets/js/4.212f9d7f.js"><link rel="prefetch" href="/assets/js/40.3272e3fd.js"><link rel="prefetch" href="/assets/js/5.9d6b8bce.js"><link rel="prefetch" href="/assets/js/6.f8a656cd.js"><link rel="prefetch" href="/assets/js/7.26d11c39.js"><link rel="prefetch" href="/assets/js/8.365efa03.js"><link rel="prefetch" href="/assets/js/9.60a6bc0a.js"><link rel="prefetch" href="/assets/js/vendors~mermaid.d4b5f89a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.89a87d7c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/advance/leet_code.html" aria-current="page" class="active sidebar-link">LeetCode</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/advance/leet_code.html#滑动窗口算法" class="sidebar-link">滑动窗口算法</a></li><li class="sidebar-sub-header"><a href="/advance/leet_code.html#_1-两数之和" class="sidebar-link">1. 两数之和</a></li><li class="sidebar-sub-header"><a href="/advance/leet_code.html#_2-两数相加" class="sidebar-link">2. 两数相加</a></li><li class="sidebar-sub-header"><a href="/advance/leet_code.html#_3-无重复字符的最长子串" class="sidebar-link">3. 无重复字符的最长子串</a></li><li class="sidebar-sub-header"><a href="/advance/leet_code.html#_12-整数转罗马数字" class="sidebar-link">12. 整数转罗马数字</a></li><li class="sidebar-sub-header"><a href="/advance/leet_code.html#_13-罗马数字转整数" class="sidebar-link">13. 罗马数字转整数</a></li><li class="sidebar-sub-header"><a href="/advance/leet_code.html#_76-最小覆盖子串" class="sidebar-link">76. 最小覆盖子串</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="leetcode"><a href="#leetcode" class="header-anchor">#</a> LeetCode</h1> <h2 id="滑动窗口算法"><a href="#滑动窗口算法" class="header-anchor">#</a> 滑动窗口算法</h2> <p>滑动窗口算法主要用于解决数组/字符串的子元素问题。可以将嵌套的循环问题，转换为单循环问题，降低时间复杂度。</p> <p>其主要过程是：维护一个队列或者两个指针，通过队列出队/入队或者左右两个指针的往右移动，使窗口不断向右滑动，直到最右面为止。</p> <p>用到该算法的有：</p> <ul><li><a href="#_3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2">3. 无重复字符的最长子串</a></li> <li><a href="#_76-%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2">76. 最小覆盖子串</a></li> <li></li></ul> <h2 id="_1-两数之和"><a href="#_1-两数之和" class="header-anchor">#</a> 1. 两数之和</h2> <p>在数组中找到<code>2</code>个数之和等于给定值的数字，结果返回<code>2</code>个数字在数组中的下标。例如：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> target <span class="token operator">=</span> <span class="token number">9</span>
+
+<span class="token comment">// [0, 1]</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>解题思路：</p> <p>此题其实和数组去重类似，都是查询一个值是否在数组里去重是值本身，而此题是和<code>target</code>之差。</p> <p>一开始想到的方式，是双指针循环两次，算法复杂度为<code>O(n<sup>2</sup>)</code>：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> target</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>length<span class="token punctuation">}</span> <span class="token operator">=</span> nums
+    <span class="token keyword">let</span> j <span class="token operator">=</span> length <span class="token operator">-</span> <span class="token number">1</span>
+    <span class="token keyword">let</span> i
+    <span class="token keyword">let</span> isFind <span class="token operator">=</span> <span class="token boolean">false</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>isFind <span class="token operator">&amp;&amp;</span> j<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">const</span> end <span class="token operator">=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> item <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span>item <span class="token operator">+</span> end <span class="token operator">===</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                isFind <span class="token operator">=</span> <span class="token boolean">true</span>
+
+                <span class="token keyword">break</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>isFind<span class="token punctuation">)</span> <span class="token keyword">break</span>
+
+        j<span class="token operator">--</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> isFind <span class="token operator">?</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span> j<span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>深入思考后，其实与数组去重类似，可以用空间换时间，时间复杂度为<code>O(n)</code>：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> target</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>length<span class="token punctuation">}</span> <span class="token operator">=</span> nums
+    <span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> item <span class="token operator">=</span> nums<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+        <span class="token keyword">const</span> diff <span class="token operator">=</span> target <span class="token operator">-</span> item
+        <span class="token keyword">const</span> diffIndex <span class="token operator">=</span> map<span class="token punctuation">[</span>diff<span class="token punctuation">]</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>diffIndex <span class="token operator">!==</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">[</span>diffIndex<span class="token punctuation">,</span> index<span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            map<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> index
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">return</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="_2-两数相加"><a href="#_2-两数相加" class="header-anchor">#</a> 2. 两数相加</h2> <p>两个<strong>非空</strong>的链表，表示两个非负的整数。每位数字<strong>逆序</strong>存储的，且每个节点只存储<strong>一位</strong>数字。</p> <p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token parameter">val<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> <span class="token punctuation">(</span>val <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> val<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token punctuation">(</span>next <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> next<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span><span class="token parameter">l1<span class="token punctuation">,</span> l2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> isCarry <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> first<span class="token punctuation">,</span> current
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>l1 <span class="token operator">||</span> l2 <span class="token operator">||</span> isCarry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> value1 <span class="token operator">=</span> l1 <span class="token operator">?</span> l1<span class="token punctuation">.</span>val <span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token keyword">const</span> value2 <span class="token operator">=</span> l2 <span class="token operator">?</span> l2<span class="token punctuation">.</span>val <span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token keyword">let</span> sum <span class="token operator">=</span> value1 <span class="token operator">+</span> value2 <span class="token operator">+</span> isCarry
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">&gt;=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            isCarry <span class="token operator">=</span> <span class="token number">1</span>
+            sum <span class="token operator">=</span> sum <span class="token operator">%</span> <span class="token number">10</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            isCarry <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>first<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span>
+            current <span class="token operator">=</span> first
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            current<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span>
+            current <span class="token operator">=</span> current<span class="token punctuation">.</span>next
+        <span class="token punctuation">}</span>
+
+        l1 <span class="token operator">=</span> l1 <span class="token operator">&amp;&amp;</span> l1<span class="token punctuation">.</span>next
+        l2 <span class="token operator">=</span> l2 <span class="token operator">&amp;&amp;</span> l2<span class="token punctuation">.</span>next
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> first
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h2 id="_3-无重复字符的最长子串"><a href="#_3-无重复字符的最长子串" class="header-anchor">#</a> 3. 无重复字符的最长子串</h2> <p><strong>题目：</strong> 在一个字符串中寻找没有重复字母的最长子串</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> left <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> right <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> maxLength <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>length<span class="token punctuation">}</span> <span class="token operator">=</span> s
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">&lt;</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        right <span class="token operator">++</span>
+        <span class="token keyword">let</span> sub <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">hasRepeted</span><span class="token punctuation">(</span>sub<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            left<span class="token operator">++</span>
+            sub <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> subLength <span class="token operator">=</span> sub<span class="token punctuation">.</span>length
+        <span class="token keyword">if</span><span class="token punctuation">(</span>subLength <span class="token operator">&gt;</span> maxLength<span class="token punctuation">)</span> maxLength <span class="token operator">=</span> subLength
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> maxLength
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">hasRepeted</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>length<span class="token punctuation">}</span> <span class="token operator">=</span> str
+    <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token boolean">false</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> char <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>set<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            result <span class="token operator">=</span> <span class="token boolean">true</span>
+            <span class="token keyword">break</span>
+        <span class="token punctuation">}</span>
+
+        set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><h2 id="_12-整数转罗马数字"><a href="#_12-整数转罗马数字" class="header-anchor">#</a> 12. 整数转罗马数字</h2> <p><strong>题目：</strong></p> <p>罗马数字包含以下七种字符：<code>I</code>、<code>V</code>、<code>X</code>、<code>L</code>、<code>C</code>、<code>D</code>和<code>M</code>。</p> <table><thead><tr><th>符号</th> <th>十进制对应的值</th></tr></thead> <tbody><tr><td><code>I</code></td> <td><code>1</code></td></tr> <tr><td><code>V</code></td> <td><code>5</code></td></tr> <tr><td><code>X</code></td> <td><code>10</code></td></tr> <tr><td><code>L</code></td> <td><code>50</code></td></tr> <tr><td><code>C</code></td> <td><code>100</code></td></tr> <tr><td><code>D</code></td> <td><code>500</code></td></tr> <tr><td><code>M</code></td> <td><code>1000</code></td></tr></tbody></table> <p>例如，罗马数字<code>2</code>写做<code>II</code>，即为两个并列的<code>1</code>。<code>12</code>写做<code>XII</code>，即为<code>X + II</code>。<code>27</code>写做<code>XXVII</code>，即为<code>XX + V + II</code>。</p> <p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如<code>4</code>不写做<code>IIII</code>，而是<code>IV</code>。数字<code>1</code>在数字<code>5</code>的左边，所表示的数等于大数<code>5</code>减小数<code>1</code>得到的数值<code>4</code>。同样地，数字<code>9</code>表示为<code>IX</code>。这个特殊的规则只适用于以下六种情况：</p> <p><code>I</code>可以放在<code>V</code>(5)和<code>X</code>(10)的左边，来表示<code>4</code>和<code>9</code>。
+<code>X</code>可以放在<code>L</code>(50)和<code>C</code>(100)的左边，来表示<code>40</code>和<code>90</code>。 
+<code>C</code>可以放在<code>D</code>(500)和<code>M</code>(1000)的左边，来表示<code>400</code>和<code>900</code>。</p> <p>给定一个整数，将其转为罗马数字。输入确保在<code>1</code>到<code>3999</code>的范围内。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">intToRoman</span><span class="token punctuation">(</span><span class="token parameter">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">roman</span><span class="token operator">:</span> <span class="token string">'M'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">roman</span><span class="token operator">:</span> <span class="token string">'D'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">roman</span><span class="token operator">:</span> <span class="token string">'C'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">roman</span><span class="token operator">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">roman</span><span class="token operator">:</span> <span class="token string">'X'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">roman</span><span class="token operator">:</span> <span class="token string">'V'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">roman</span><span class="token operator">:</span> <span class="token string">'I'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token keyword">let</span> rest <span class="token operator">=</span> int
+    <span class="token keyword">let</span> isConvertNine <span class="token operator">=</span> <span class="token boolean">false</span>
+
+    <span class="token keyword">return</span> list<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token parameter">result<span class="token punctuation">,</span> item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span>
+            roman<span class="token punctuation">,</span>
+            value<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span> <span class="token operator">=</span> item
+        <span class="token keyword">const</span> next <span class="token operator">=</span> list<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">const</span> prev <span class="token operator">=</span> list<span class="token punctuation">[</span>index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">const</span> ten <span class="token operator">=</span> list<span class="token punctuation">[</span>index <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span>
+        <span class="token keyword">let</span> current <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>rest <span class="token operator">/</span> value<span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>current<span class="token punctuation">)</span> <span class="token keyword">return</span> result
+
+        rest <span class="token operator">=</span> rest <span class="token operator">%</span> value
+
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> current <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> next <span class="token operator">&amp;&amp;</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>rest <span class="token operator">/</span> next<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">4</span><span class="token operator">:</span> <span class="token comment">// 9 需要特殊表示为prev + next</span>
+                isConvertNine <span class="token operator">=</span> <span class="token boolean">true</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> isConvertNine <span class="token operator">&amp;&amp;</span> current <span class="token operator">===</span> <span class="token number">4</span><span class="token operator">:</span> <span class="token comment">// 说明值为9或者其倍数</span>
+                result <span class="token operator">+=</span> roman <span class="token operator">+</span> ten<span class="token punctuation">.</span>roman
+                isConvertNine <span class="token operator">=</span> <span class="token boolean">false</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token operator">!</span>isConvertNine <span class="token operator">&amp;&amp;</span> current <span class="token operator">===</span> <span class="token number">4</span><span class="token operator">:</span> <span class="token comment">// 说明值为4</span>
+                result <span class="token operator">+=</span> roman <span class="token operator">+</span> prev<span class="token punctuation">.</span>roman
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    result <span class="token operator">+=</span> roman
+                    current<span class="token operator">--</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> result
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><h2 id="_13-罗马数字转整数"><a href="#_13-罗马数字转整数" class="header-anchor">#</a> 13. 罗马数字转整数</h2> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">romanToInt</span><span class="token punctuation">(</span><span class="token parameter">roman</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token constant">I</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token constant">V</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+        <span class="token constant">X</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+        <span class="token constant">L</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+        <span class="token constant">C</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+        <span class="token constant">D</span><span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+        <span class="token constant">M</span><span class="token operator">:</span> <span class="token number">1000</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> romanArr <span class="token operator">=</span> roman<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> romanArr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result<span class="token punctuation">,</span> item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> value <span class="token operator">=</span> map<span class="token punctuation">[</span>item<span class="token punctuation">]</span>
+        <span class="token keyword">const</span> next <span class="token operator">=</span> romanArr<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>next<span class="token punctuation">)</span> <span class="token keyword">return</span> result <span class="token operator">+</span> value
+        <span class="token keyword">const</span> nextValue <span class="token operator">=</span> map<span class="token punctuation">[</span>next<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> value <span class="token operator">&lt;</span> nextValue <span class="token operator">?</span> result <span class="token operator">-</span> value <span class="token operator">:</span> result <span class="token operator">+</span> value
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="_76-最小覆盖子串"><a href="#_76-最小覆盖子串" class="header-anchor">#</a> 76. 最小覆盖子串</h2> <p><strong>题目：</strong> 给两个个字符串<code>s</code>和<code>t</code>。返回<code>s</code>中涵盖<code>t</code>所有字符的最小子串。如果不存在则返回空字符串<code>&quot;&quot;</code>。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">minWindow</span><span class="token punctuation">(</span><span class="token parameter">s<span class="token punctuation">,</span> t</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>length<span class="token punctuation">}</span> <span class="token operator">=</span> s
+    <span class="token keyword">const</span> total <span class="token operator">=</span> t<span class="token punctuation">.</span>length
+    <span class="token keyword">const</span> leftSteps <span class="token operator">=</span> <span class="token function">getContainedSteps</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> t<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> rightSteps <span class="token operator">=</span> leftSteps<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> left <span class="token operator">=</span> leftSteps<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> right <span class="token operator">=</span> rightSteps<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> minSubStr <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">const</span> sourceCountMap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">const</span> targetCountMap <span class="token operator">=</span> <span class="token function">getCountMap</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">&lt;=</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> rightChat <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span>
+        <span class="token keyword">let</span> leftChat <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span>
+        <span class="token function">updateCountMap</span><span class="token punctuation">(</span>sourceCountMap<span class="token punctuation">,</span> rightChat<span class="token punctuation">)</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">&gt;=</span> total <span class="token operator">&amp;&amp;</span> sourceCountMap<span class="token punctuation">[</span>leftChat<span class="token punctuation">]</span> <span class="token operator">&gt;</span> targetCountMap<span class="token punctuation">[</span>leftChat<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">reduceCountMap</span><span class="token punctuation">(</span>sourceCountMap<span class="token punctuation">,</span> leftChat<span class="token punctuation">)</span>
+            left <span class="token operator">=</span> leftSteps<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            leftChat <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> subStr <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span>minSubStr <span class="token operator">||</span> minSubStr<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> subStr<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">hasContainedSource</span><span class="token punctuation">(</span>sourceCountMap<span class="token punctuation">,</span> targetCountMap<span class="token punctuation">)</span><span class="token punctuation">)</span> minSubStr <span class="token operator">=</span> subStr
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>rightSteps<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            right <span class="token operator">=</span> rightSteps<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            right<span class="token operator">++</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> minSubStr
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getContainedSteps</span><span class="token punctuation">(</span><span class="token parameter">source<span class="token punctuation">,</span> target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> steps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>length<span class="token punctuation">}</span> <span class="token operator">=</span> source
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> char <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> steps<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> steps
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getCountMap</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        length
+    <span class="token punctuation">}</span> <span class="token operator">=</span> str
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> char <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+
+        <span class="token function">updateCountMap</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span> char<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> map
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">updateCountMap</span><span class="token punctuation">(</span><span class="token parameter">map<span class="token punctuation">,</span> char</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    map<span class="token punctuation">[</span>char<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>map<span class="token punctuation">[</span>char<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">reduceCountMap</span><span class="token punctuation">(</span><span class="token parameter">map<span class="token punctuation">,</span> char</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    map<span class="token punctuation">[</span>char<span class="token punctuation">]</span> <span class="token operator">=</span> map<span class="token punctuation">[</span>char<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> map<span class="token punctuation">[</span>char<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">hasContainedSource</span><span class="token punctuation">(</span><span class="token parameter">sourceCountMap<span class="token punctuation">,</span> targetCountMap</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> hasContained <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> targetCountMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>targetCountMap<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> sourceCount <span class="token operator">=</span> sourceCountMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>sourceCount <span class="token operator">&lt;</span> targetCountMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                hasContained <span class="token operator">=</span> <span class="token boolean">false</span>
+                <span class="token keyword">break</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> hasContained
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4ffcedcb.js" defer></script><script src="/assets/js/3.a213aa8f.js" defer></script><script src="/assets/js/13.9bfac093.js" defer></script>
+  </body>
+</html>

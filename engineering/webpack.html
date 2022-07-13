@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack | 前端笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="learning notebook of cheeka">
+    
+    <link rel="preload" href="/assets/css/0.styles.89a87d7c.css" as="style"><link rel="preload" href="/assets/js/app.4ffcedcb.js" as="script"><link rel="preload" href="/assets/js/3.a213aa8f.js" as="script"><link rel="preload" href="/assets/js/20.b252f2f1.js" as="script"><link rel="prefetch" href="/assets/js/10.3c347e54.js"><link rel="prefetch" href="/assets/js/11.9adc9c77.js"><link rel="prefetch" href="/assets/js/12.c74c6a2c.js"><link rel="prefetch" href="/assets/js/13.9bfac093.js"><link rel="prefetch" href="/assets/js/14.8201ea59.js"><link rel="prefetch" href="/assets/js/15.b893f62b.js"><link rel="prefetch" href="/assets/js/16.fe2643ba.js"><link rel="prefetch" href="/assets/js/17.7711ce1c.js"><link rel="prefetch" href="/assets/js/18.8355d792.js"><link rel="prefetch" href="/assets/js/19.10d660f8.js"><link rel="prefetch" href="/assets/js/21.72cd72b5.js"><link rel="prefetch" href="/assets/js/22.36e20d02.js"><link rel="prefetch" href="/assets/js/23.36e1d6bf.js"><link rel="prefetch" href="/assets/js/24.fa1933ff.js"><link rel="prefetch" href="/assets/js/25.7e9f2526.js"><link rel="prefetch" href="/assets/js/26.502733bd.js"><link rel="prefetch" href="/assets/js/27.37687208.js"><link rel="prefetch" href="/assets/js/28.47ac5267.js"><link rel="prefetch" href="/assets/js/29.2ea8973e.js"><link rel="prefetch" href="/assets/js/30.63a8a364.js"><link rel="prefetch" href="/assets/js/31.a0e0a094.js"><link rel="prefetch" href="/assets/js/32.3ffc993b.js"><link rel="prefetch" href="/assets/js/33.53d493cc.js"><link rel="prefetch" href="/assets/js/34.885e33aa.js"><link rel="prefetch" href="/assets/js/35.0b5bb67c.js"><link rel="prefetch" href="/assets/js/36.8b840a3d.js"><link rel="prefetch" href="/assets/js/37.c9149af4.js"><link rel="prefetch" href="/assets/js/38.af7e0ce7.js"><link rel="prefetch" href="/assets/js/39.4d90f037.js"><link rel="prefetch" href="/assets/js/4.212f9d7f.js"><link rel="prefetch" href="/assets/js/40.3272e3fd.js"><link rel="prefetch" href="/assets/js/5.9d6b8bce.js"><link rel="prefetch" href="/assets/js/6.f8a656cd.js"><link rel="prefetch" href="/assets/js/7.26d11c39.js"><link rel="prefetch" href="/assets/js/8.365efa03.js"><link rel="prefetch" href="/assets/js/9.60a6bc0a.js"><link rel="prefetch" href="/assets/js/vendors~mermaid.d4b5f89a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.89a87d7c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link router-link-active">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link router-link-active">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/engineering/" aria-current="page" class="sidebar-link">前端工程化</a></li><li><a href="/engineering/webpack.html" aria-current="page" class="active sidebar-link">webpack</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/engineering/webpack.html#工作原理" class="sidebar-link">工作原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/engineering/webpack.html#基本概念" class="sidebar-link">基本概念</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#流程" class="sidebar-link">流程</a></li></ul></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#模块module" class="sidebar-link">模块Module</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#loader" class="sidebar-link">Loader</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/engineering/webpack.html#基本写法" class="sidebar-link">基本写法</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#可调用的webpack-api" class="sidebar-link">可调用的Webpack API</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#处理二进制数据" class="sidebar-link">处理二进制数据</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#缓存加速" class="sidebar-link">缓存加速</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#其他loader-api" class="sidebar-link">其他Loader API</a></li></ul></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#plugin" class="sidebar-link">Plugin</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/engineering/webpack.html#compiler和compilation" class="sidebar-link">Compiler和Compilation</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#tapable" class="sidebar-link">Tapable</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#基本写法-2" class="sidebar-link">基本写法</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#常用api" class="sidebar-link">常用API</a></li><li class="sidebar-sub-header"><a href="/engineering/webpack.html#热更新原理" class="sidebar-link">热更新原理</a></li></ul></li></ul></li><li><a href="/engineering/rollup.html" class="sidebar-link">Rollup</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="webpack"><a href="#webpack" class="header-anchor">#</a> webpack</h1> <h2 id="工作原理"><a href="#工作原理" class="header-anchor">#</a> 工作原理</h2> <h3 id="基本概念"><a href="#基本概念" class="header-anchor">#</a> 基本概念</h3> <ul><li><code>Entry</code>: 入口，执行构建的输入</li> <li><code>Module</code>: 模块，在<code>Webpack</code>里一切皆模块，<code>Webpack</code>会从<code>Entry</code>开始，递归找出所有依赖的模块</li> <li><code>Chunk</code>: 代码块，一个<code>Chunk</code>由多个模块合成，用于代码合并和分割</li> <li><code>Loader</code>: 模块转换器，用于将模块的源内容按照需求转换成新内容</li> <li><code>Plugin</code>: 扩展插件，在构建流程中的特定时机会广播对应的事件，插件可以监听这些事件，做出对应的事情</li></ul> <h3 id="流程"><a href="#流程" class="header-anchor">#</a> 流程</h3> <p><code>Webpack</code>的运行流程是一个串行的过程，从启动开始依次是：</p> <ol><li>初始化参数：从配置文件和<code>Shell</code>语句中读取与合并参数，得出最终参数</li> <li>开始编译：基于最终的参数初始化<code>Compiler</code>对象，加载所有配置的插件，通过执行对象的<code>run</code>方法开始编译</li> <li>确定入口：根据配置中的<code>Entry</code>找出所有入口文件</li> <li>编译模块：从入口文件出发，调用所有配置的<code>Loader</code>对模块递归的进行编译</li> <li>完成模块编译：得到每个模块编译后的内容及之间的依赖关系</li> <li>输出资源：根据入口及模块之前的依赖关系，组装成一个个包含多个模块的<code>Chunk</code>，再将每个<code>Chunk</code>转换成一个单独的文件加入输出列表，这是修改输出内容的最后机会</li> <li>输出完成：根据配置的输出路径和文件名，将文件内容写入文件系统中</li></ol> <p>在以上过程中，<code>Webpack</code>会在特定的时间广播特定的事件，插件在监听到特定事件后可以执行对应的逻辑，并且可以调用<code>Webpack</code>提供的<code>API</code>改变<code>Webpack</code>的运行结果。</p> <p>整体构建流程可以分为以下三大阶段：</p> <ul><li>初始化，启动构建，处理配置参数，加载<code>Plugin</code>，实例化<code>Compiler</code></li> <li>编译，从<code>Entry</code>开始，针对每个<code>Module</code>串行调用对应<code>Loader</code>去编译内容，并依据<code>Module</code>之间的依赖关系，递归的进行编译处理</li> <li>输出，将编译后的<code>Module</code>组合成<code>Chunk</code>，然后转换成文件，输出到文件系统</li></ul> <p><code>build</code>时，只执行上述阶段一次。监听模式下，将不断的执行编译，输出阶段</p> <h2 id="模块module"><a href="#模块module" class="header-anchor">#</a> 模块Module</h2> <p>在模块化编程中，开发者将程序分解成离散功能块(discrete chunks of functionality)，并称之为模块。</p> <p>Webpack模块能够以各种方式表达他们的依赖关系，例如：</p> <ul><li><code>ES6``import</code>语句</li> <li><code>CommonJS``require()</code>语句</li> <li><code>AMD``define</code>和<code>require</code>语句</li> <li><code>css/sass/less</code>文件中的<code>@import</code>语句</li> <li>样式(<code>url(...)</code>)或<code>HTML</code>文件(<code>&lt;img src=...&gt;</code>)中的图片链接(image url)</li></ul> <h2 id="loader"><a href="#loader" class="header-anchor">#</a> Loader</h2> <p>以处理<code>SCSS</code>文件为例：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">module</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.scss</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+            <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">'style-loader'</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+                    <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token literal-property property">minimize</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token string">'sass-loader'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>一个<code>Loader</code>的职责是单一的，只负责一种转换。一个源文件需要多次转换，需要配置多个<code>Loader</code>。在调用多个<code>Loader</code>时，执行顺序是<strong>从后往前</strong>依次执行</p> <h3 id="基本写法"><a href="#基本写法" class="header-anchor">#</a> 基本写法</h3> <p><code>Loader</code>就是一个函数，获取处理前的内容，返回处理后的内容</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 转换逻辑省略</span>
+
+    <span class="token keyword">return</span> source
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="可调用的webpack-api"><a href="#可调用的webpack-api" class="header-anchor">#</a> 可调用的Webpack API</h3> <h4 id="获取loader的options"><a href="#获取loader的options" class="header-anchor">#</a> 获取<code>Loader</code>的<code>options</code></h4> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> loaderUtils <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'loader-utils'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> options <span class="token operator">=</span> loaderUtils<span class="token punctuation">.</span><span class="token function">getOptions</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 转换逻辑省略</span>
+
+    <span class="token keyword">return</span> source
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="返回其他结果"><a href="#返回其他结果" class="header-anchor">#</a> 返回其他结果</h4> <p>直接<code>return</code>可以返回原内容转换后的内容，返回其他内容需要用到this.callback函数：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span>
+    <span class="token comment">// 当无法转换原内容时，为Webpack返回一个Error</span>
+    <span class="token literal-property property">error</span><span class="token operator">:</span> Error <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    <span class="token comment">// 原内容转换后的内容</span>
+    <span class="token literal-property property">content</span><span class="token operator">:</span> String <span class="token operator">|</span> Buffer<span class="token punctuation">,</span>
+    <span class="token comment">// 用于通过转换后的内容得出原内容的Source Map，以方便测试</span>
+    sourceMap<span class="token operator">?</span><span class="token operator">:</span> SourceMap<span class="token punctuation">,</span>
+    <span class="token comment">// 如果本次转换为原内容生产了AST语法树，则可以将这个AST返回，以方便之后需要AST的Loader复用</span>
+    abstractSyntaxTree<span class="token operator">?</span><span class="token operator">:</span> <span class="token constant">AST</span>
+<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>此外，由于<code>Source Map</code>生产很耗时，通常在开发环境下才生成。因此可以通过<code>this.sourceMap</code>API来配置是否生成<code>Source Map</code>。</p> <h4 id="同步与异步"><a href="#同步与异步" class="header-anchor">#</a> 同步与异步</h4> <p>异步转换流程如下：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> callback <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">async</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// 转换逻辑省略</span>
+    <span class="token function">someAsyncOperation</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> result<span class="token punctuation">,</span> sourceMap<span class="token punctuation">,</span> ast</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">callback</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> result<span class="token punctuation">,</span> sourceMap<span class="token punctuation">,</span> ast<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> source
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="处理二进制数据"><a href="#处理二进制数据" class="header-anchor">#</a> 处理二进制数据</h3> <p>对于二进制数据，需要将<code>exports.raw = ture</code>:</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> source
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 通过exports.raw属性告诉Webpack该Loader是否需要二进制数据</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>raw <span class="token operator">=</span> <span class="token boolean">true</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="缓存加速"><a href="#缓存加速" class="header-anchor">#</a> 缓存加速</h3> <p>可以通过<code>this.cacheable()</code>方法设置是否缓存计算结果，默认是开启的</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token comment">// 关闭缓存</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">cacheable</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> source
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="其他loader-api"><a href="#其他loader-api" class="header-anchor">#</a> 其他Loader API</h3> <table><thead><tr><th><code>API</code></th> <th>简介</th></tr></thead> <tbody><tr><td><code>this.context</code></td> <td>当前处理的文件所在目录，以<code>/src/main.js</code>为例，为<code>/src</code></td></tr> <tr><td><code>this.resoure</code></td> <td>当前处理的完整请求路径，包括<code>query string</code>，例如<code>/src/main.js?name=1</code></td></tr> <tr><td><code>this.resourePath</code></td> <td>当前处理文件的路径，例如<code>/src/main.js</code></td></tr> <tr><td><code>this.resoureQuery</code></td> <td>当前处理文件的<code>query string</code></td></tr> <tr><td><code>this.target</code></td> <td><code>Webpack</code>中配置的<code>Target</code></td></tr> <tr><td><code>this.loadModule(request: string, callback: function(err, source, sourceMap, ast))</code></td> <td><code>Loader</code>在处理一个文件时，需要加入依赖时，用于获取对应文件的处理结果</td></tr> <tr><td><code>this.addDependency(file: string)</code></td> <td>为当前处理的文件添加依赖。其依赖文件发生变化时，会重新调用loader处理该文件</td></tr> <tr><td><code>this.addContextDependency(directory: string)</code></td> <td>将整个目录加入到正在处理的文件依赖中</td></tr> <tr><td><code>this.clearDependencies()</code></td> <td>清除当前处理文件的多有依赖</td></tr> <tr><td><code>this.emitFile(name: string, content: Buffer | string, sourceMap)</code></td> <td>清除当前处理文件的多有依赖</td></tr></tbody></table> <h2 id="plugin"><a href="#plugin" class="header-anchor">#</a> Plugin</h2> <h3 id="compiler和compilation"><a href="#compiler和compilation" class="header-anchor">#</a> Compiler和Compilation</h3> <p>开发<code>Plugin</code>最常用的两个对象就是<code>Compiler</code>和<code>Compilation</code>，他们是<code>Plugin</code>和<code>Webpack</code>之间的桥梁。</p> <ul><li><code>Compiler</code>包含所有配置信息(<code>options</code>、<code>loaders</code>和<code>plugins</code>等)，在<code>Webpack</code>启动时被实例化，全局唯一。代表了整个<code>Webpack</code>从启动到关闭的生命周期</li> <li><code>Compilation</code>包含当前的模块资源、编译生成资源和变化的文件等。在开发模式下，每当有文件变化时，就有一次新的<code>Compilation</code>被创建。代表了一次编译过程</li></ul> <h3 id="tapable"><a href="#tapable" class="header-anchor">#</a> Tapable</h3> <p><code>Webpack</code>通过<code>Tapable</code>来组织构建的事件流。<code>Webpack</code>中许多对象(包括<code>Compiler</code>和<code>Compilation</code>)都继承自<code>Tapable</code>。</p> <p><code>Tapable</code>暴露了<code>tap</code>, <code>tapAsync</code>和<code>tapPromise</code>方法。可以使用这些方法，注入自定义的构建步骤，这些步骤将在整个编译过程中不同时机触发。</p> <p>都自<code>Tapable</code>，可以广播和监听事件：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">/**
+ * eventName 事件名，不要跟现有事件重名
+ * params    附带参数
+ */</span>
+<span class="token function">compiler</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+
+<span class="token comment">// 监听事件</span>
+compiler<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>每个插件的<code>Compiler</code>和<code>Compilation</code>对象都是同一个引用。修改<code>Compiler</code>和<code>Compilation</code>对象上的属性就会影响后面的插件。有些事件是异步的，插件处理完成时调用回调函数通知<code>Webpack</code>，才能进入下一个流程。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>compiler<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'emit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token parameter">compilation<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 处理逻辑省略</span>
+
+    <span class="token comment">// 调用callback通知Webpack进入下一个流程</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="基本写法-2"><a href="#基本写法-2" class="header-anchor">#</a> 基本写法</h3> <p><code>Plugin</code>主要通过监听<code>Webpack</code>在运行的生命周期中广播的特定事件，在合适的时机通过<code>Webpack</code>提供的<code>API</code>做出对应的处理，改变输出结果</p> <p>一个<code>Plugin</code>就是一个类，具体写法如下：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">TestPlugin</span><span class="token punctuation">{</span>
+
+    <span class="token comment">// 在构造函数中可以获取用户对Plugin的配置</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Webpack会调用实例的apply方法，并传入compiler对象</span>
+    <span class="token function">apply</span><span class="token punctuation">(</span><span class="token parameter">compiler</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        compiler<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'compilation'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token parameter">compilation</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> TestPlugin
+
+<span class="token comment">// 配置代码如下：</span>
+
+<span class="token keyword">const</span> TestPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./TestPlugin.js'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">TestPlugin</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p><code>Webpack</code>启动后，读取配置过程中会初始化插件实例。在初始化<code>compiler</code>对象之后，在调用插件的<code>apply</code>方法，为实例传入<code>compiler</code>对象。插件实例在获取到<code>compiler</code>对象后，通过
+<code>compiler.plugin(event: string, callback: function(compilation))</code>监听<code>Webpack</code>广播的事件，通过<code>compiler</code>对象去操作<code>Webpack</code></p> <h3 id="常用api"><a href="#常用api" class="header-anchor">#</a> 常用API</h3> <p>插件可以用来修改输出文件和增加输出文件，甚至提升<code>Webpack</code>性能</p> <h4 id="读取输出资源、代码块、模块及依赖"><a href="#读取输出资源、代码块、模块及依赖" class="header-anchor">#</a> 读取输出资源、代码块、模块及依赖</h4> <p><code>emit</code>事件发生时，代表源文件的转换和组装已经完成，可以读取到最终输出的资源、代码块、模块及其依赖，并修改输出资源的内容</p> <div class="language- line-numbers-mode"><pre class="language-text"><code></code></pre> <div class="line-numbers-wrapper"></div></div><h3 id="热更新原理"><a href="#热更新原理" class="header-anchor">#</a> 热更新原理</h3> <p>SSE</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/engineering/" class="prev router-link-active">
+          前端工程化
+        </a></span> <span class="next"><a href="/engineering/rollup.html">
+          Rollup
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4ffcedcb.js" defer></script><script src="/assets/js/3.a213aa8f.js" defer></script><script src="/assets/js/20.b252f2f1.js" defer></script>
+  </body>
+</html>

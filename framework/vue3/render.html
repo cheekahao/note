@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>渲染器 | 前端笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="learning notebook of cheeka">
+    
+    <link rel="preload" href="/assets/css/0.styles.89a87d7c.css" as="style"><link rel="preload" href="/assets/js/app.4ffcedcb.js" as="script"><link rel="preload" href="/assets/js/3.a213aa8f.js" as="script"><link rel="preload" href="/assets/js/29.2ea8973e.js" as="script"><link rel="prefetch" href="/assets/js/10.3c347e54.js"><link rel="prefetch" href="/assets/js/11.9adc9c77.js"><link rel="prefetch" href="/assets/js/12.c74c6a2c.js"><link rel="prefetch" href="/assets/js/13.9bfac093.js"><link rel="prefetch" href="/assets/js/14.8201ea59.js"><link rel="prefetch" href="/assets/js/15.b893f62b.js"><link rel="prefetch" href="/assets/js/16.fe2643ba.js"><link rel="prefetch" href="/assets/js/17.7711ce1c.js"><link rel="prefetch" href="/assets/js/18.8355d792.js"><link rel="prefetch" href="/assets/js/19.10d660f8.js"><link rel="prefetch" href="/assets/js/20.b252f2f1.js"><link rel="prefetch" href="/assets/js/21.72cd72b5.js"><link rel="prefetch" href="/assets/js/22.36e20d02.js"><link rel="prefetch" href="/assets/js/23.36e1d6bf.js"><link rel="prefetch" href="/assets/js/24.fa1933ff.js"><link rel="prefetch" href="/assets/js/25.7e9f2526.js"><link rel="prefetch" href="/assets/js/26.502733bd.js"><link rel="prefetch" href="/assets/js/27.37687208.js"><link rel="prefetch" href="/assets/js/28.47ac5267.js"><link rel="prefetch" href="/assets/js/30.63a8a364.js"><link rel="prefetch" href="/assets/js/31.a0e0a094.js"><link rel="prefetch" href="/assets/js/32.3ffc993b.js"><link rel="prefetch" href="/assets/js/33.53d493cc.js"><link rel="prefetch" href="/assets/js/34.885e33aa.js"><link rel="prefetch" href="/assets/js/35.0b5bb67c.js"><link rel="prefetch" href="/assets/js/36.8b840a3d.js"><link rel="prefetch" href="/assets/js/37.c9149af4.js"><link rel="prefetch" href="/assets/js/38.af7e0ce7.js"><link rel="prefetch" href="/assets/js/39.4d90f037.js"><link rel="prefetch" href="/assets/js/4.212f9d7f.js"><link rel="prefetch" href="/assets/js/40.3272e3fd.js"><link rel="prefetch" href="/assets/js/5.9d6b8bce.js"><link rel="prefetch" href="/assets/js/6.f8a656cd.js"><link rel="prefetch" href="/assets/js/7.26d11c39.js"><link rel="prefetch" href="/assets/js/8.365efa03.js"><link rel="prefetch" href="/assets/js/9.60a6bc0a.js"><link rel="prefetch" href="/assets/js/vendors~mermaid.d4b5f89a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.89a87d7c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link router-link-active">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link router-link-active">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/framework/vue3/" aria-current="page" class="sidebar-link">概述</a></li><li><a href="/framework/vue3/reactivity.html" class="sidebar-link">数据响应式系统</a></li><li><a href="/framework/vue3/render.html" aria-current="page" class="active sidebar-link">渲染器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#vnode" class="sidebar-link">VNode</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#vnode的类型" class="sidebar-link">VNode的类型</a></li></ul></li><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#渲染器的基本结构" class="sidebar-link">渲染器的基本结构</a></li><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#mount" class="sidebar-link">mount</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#patch" class="sidebar-link">patch</a></li><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#create" class="sidebar-link">create</a></li><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#setup" class="sidebar-link">setup</a></li><li class="sidebar-sub-header"><a href="/framework/vue3/render.html#update" class="sidebar-link">update</a></li></ul></li></ul></li><li><a href="/framework/vue3/component.html" class="sidebar-link">组件</a></li><li><a href="/framework/vue3/compiler.html" class="sidebar-link">编译器</a></li><li><a href="/framework/vue3/api.html" class="sidebar-link">全局API</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="渲染器"><a href="#渲染器" class="header-anchor">#</a> 渲染器</h1> <p><strong>渲染器</strong>的作用是将<strong>虚拟<code>DOM</code><strong>渲染为</strong>真实DOM</strong>。</p> <h2 id="vnode"><a href="#vnode" class="header-anchor">#</a> VNode</h2> <h3 id="vnode的类型"><a href="#vnode的类型" class="header-anchor">#</a> VNode的类型</h3> <p>常规的<code>VNode</code>包括<code>Text</code>、<code>Comment</code>、<code>Static</code>、<code>Fragment</code>这几种类型。</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token comment">// 所有VNode类型</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">VNodeTypes</span> <span class="token operator">=</span>
+  <span class="token operator">|</span> <span class="token builtin">string</span>
+  <span class="token operator">|</span> VNode
+  <span class="token operator">|</span> Component
+  <span class="token operator">|</span> <span class="token keyword">typeof</span> Text
+  <span class="token operator">|</span> <span class="token keyword">typeof</span> Static
+  <span class="token operator">|</span> <span class="token keyword">typeof</span> Comment
+  <span class="token operator">|</span> <span class="token keyword">typeof</span> Fragment
+  <span class="token operator">|</span> <span class="token keyword">typeof</span> TeleportImpl
+  <span class="token operator">|</span> <span class="token keyword">typeof</span> SuspenseImpl
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> Text <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span>__DEV__ <span class="token operator">?</span> <span class="token string">'Text'</span> <span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span>  <span class="token comment">// 纯文本</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> Comment <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span>__DEV__ <span class="token operator">?</span> <span class="token string">'Comment'</span> <span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token comment">// 注释类</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> Static <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span>__DEV__ <span class="token operator">?</span> <span class="token string">'Static'</span> <span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token comment">// 静态html</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> Fragment <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">Symbol</span><span class="token punctuation">(</span>__DEV__ <span class="token operator">?</span> <span class="token string">'Fragment'</span> <span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token punctuation">{</span>
+  __isFragment<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token keyword">new</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    $props<span class="token operator">:</span> VNodeProps
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>  <span class="token comment">// fragment html片段，根节点是多个节点</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p><code>VNode</code>的内容：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">const</span> vnode<span class="token operator">:</span> VNode <span class="token operator">=</span> <span class="token punctuation">{</span>
+  __v_isVNode<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>ReactiveFlags<span class="token punctuation">.</span><span class="token constant">SKIP</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">,</span>
+  props<span class="token punctuation">,</span>
+  key<span class="token operator">:</span> props <span class="token operator">&amp;&amp;</span> <span class="token function">normalizeKey</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  ref<span class="token operator">:</span> props <span class="token operator">&amp;&amp;</span> <span class="token function">normalizeRef</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  scopeId<span class="token operator">:</span> currentScopeId<span class="token punctuation">,</span>
+  children<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  component<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  suspense<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  ssContent<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  ssFallback<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  dirs<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  transition<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  el<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  anchor<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  target<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  targetAnchor<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  staticCount<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  shapeFlag<span class="token punctuation">,</span>  <span class="token comment">// 用于</span>
+  patchFlag<span class="token punctuation">,</span>
+  dynamicProps<span class="token punctuation">,</span>
+  dynamicChildren<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  appContext<span class="token operator">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p><code>createVNode</code>位于<code>@vue/runtime-core/vnode.ts</code>，在生产环境调用了第317行的<code>_createVNode</code>，其代码如下：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">function</span> <span class="token function">_createVNode</span><span class="token punctuation">(</span>
+  type<span class="token operator">:</span> VNodeTypes <span class="token operator">|</span> ClassComponent <span class="token operator">|</span> <span class="token keyword">typeof</span> <span class="token constant">NULL_DYNAMIC_COMPONENT</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">(</span>Data <span class="token operator">&amp;</span> VNodeProps<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  children<span class="token operator">:</span> <span class="token builtin">unknown</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  patchFlag<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  dynamicProps<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  isBlockNode <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">)</span><span class="token operator">:</span> VNode <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>type <span class="token operator">||</span> type <span class="token operator">===</span> <span class="token constant">NULL_DYNAMIC_COMPONENT</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    type <span class="token operator">=</span> Comment
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isVNode</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// createVNode receiving an existing vnode. This happens in cases like</span>
+    <span class="token comment">// &lt;component :is=&quot;vnode&quot;/&gt;</span>
+    <span class="token comment">// #2078 make sure to merge refs during the clone instead of overwriting it</span>
+    <span class="token keyword">const</span> cloned <span class="token operator">=</span> <span class="token function">cloneVNode</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> props<span class="token punctuation">,</span> <span class="token boolean">true</span> <span class="token comment">/* mergeRef: true */</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>children<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">normalizeChildren</span><span class="token punctuation">(</span>cloned<span class="token punctuation">,</span> children<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> cloned
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// class component normalization.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isClassComponent</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    type <span class="token operator">=</span> type<span class="token punctuation">.</span>__vccOpts
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// class &amp; style normalization.</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// for reactive or proxy objects, we need to clone it to enable mutation.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isProxy</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token operator">||</span> InternalObjectKey <span class="token keyword">in</span> props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      props <span class="token operator">=</span> <span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> <span class="token punctuation">{</span> <span class="token keyword">class</span><span class="token operator">:</span> klass<span class="token punctuation">,</span> style <span class="token punctuation">}</span> <span class="token operator">=</span> props
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>klass <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isString</span><span class="token punctuation">(</span>klass<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      props<span class="token punctuation">.</span>class <span class="token operator">=</span> <span class="token function">normalizeClass</span><span class="token punctuation">(</span>klass<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isObject</span><span class="token punctuation">(</span>style<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// reactive state objects need to be cloned since they are likely to be</span>
+      <span class="token comment">// mutated</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isProxy</span><span class="token punctuation">(</span>style<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isArray</span><span class="token punctuation">(</span>style<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        style <span class="token operator">=</span> <span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> style<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      props<span class="token punctuation">.</span>style <span class="token operator">=</span> <span class="token function">normalizeStyle</span><span class="token punctuation">(</span>style<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// encode the vnode type information into a bitmap</span>
+  <span class="token keyword">const</span> shapeFlag <span class="token operator">=</span> <span class="token function">isString</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+    <span class="token operator">?</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">ELEMENT</span>
+    <span class="token operator">:</span> __FEATURE_SUSPENSE__ <span class="token operator">&amp;&amp;</span> <span class="token function">isSuspense</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+      <span class="token operator">?</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">SUSPENSE</span>
+      <span class="token operator">:</span> <span class="token function">isTeleport</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+        <span class="token operator">?</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">TELEPORT</span>
+        <span class="token operator">:</span> <span class="token function">isObject</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+          <span class="token operator">?</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">STATEFUL_COMPONENT</span>
+          <span class="token operator">:</span> <span class="token function">isFunction</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+            <span class="token operator">?</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">FUNCTIONAL_COMPONENT</span>
+            <span class="token operator">:</span> <span class="token number">0</span>
+
+  <span class="token keyword">const</span> vnode<span class="token operator">:</span> VNode <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ... 省略VNode内容</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">normalizeChildren</span><span class="token punctuation">(</span>vnode<span class="token punctuation">,</span> children<span class="token punctuation">)</span>
+
+  <span class="token comment">// normalize suspense children</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>__FEATURE_SUSPENSE__ <span class="token operator">&amp;&amp;</span> shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">SUSPENSE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> content<span class="token punctuation">,</span> fallback <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">normalizeSuspenseChildren</span><span class="token punctuation">(</span>vnode<span class="token punctuation">)</span>
+    vnode<span class="token punctuation">.</span>ssContent <span class="token operator">=</span> content
+    vnode<span class="token punctuation">.</span>ssFallback <span class="token operator">=</span> fallback
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    shouldTrack <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">// avoid a block node from tracking itself</span>
+    <span class="token operator">!</span>isBlockNode <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">// has current parent block</span>
+    currentBlock <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">// presence of a patch flag indicates this node needs patching on updates.</span>
+    <span class="token comment">// component nodes also should always be patched, because even if the</span>
+    <span class="token comment">// component doesn't need to update, it needs to persist the instance on to</span>
+    <span class="token comment">// the next vnode so that it can be properly unmounted later.</span>
+    <span class="token punctuation">(</span>patchFlag <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">||</span> shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">COMPONENT</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token comment">// the EVENTS flag is only for hydration and if it is the only flag, the</span>
+    <span class="token comment">// vnode should not be considered dynamic due to handler caching.</span>
+    patchFlag <span class="token operator">!==</span> PatchFlags<span class="token punctuation">.</span><span class="token constant">HYDRATE_EVENTS</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    currentBlock<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>vnode<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> vnode
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br></div></div><h2 id="渲染器的基本结构"><a href="#渲染器的基本结构" class="header-anchor">#</a> 渲染器的基本结构</h2> <p>在<code>Vue3</code>中渲染器被抽象成了一个对象，其<code>TypeScript</code>类型定义位于<code>@vue/runtime-core/renderer.ts</code>中：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">Renderer<span class="token operator">&lt;</span>HostElement <span class="token operator">=</span> RendererElement<span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+  render<span class="token operator">:</span> RootRenderFunction<span class="token operator">&lt;</span>HostElement<span class="token operator">&gt;</span>
+  createApp<span class="token operator">:</span> CreateAppFunction<span class="token operator">&lt;</span>HostElement<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>主要就是一个拥有<code>render</code>和<code>createApp</code>方法的对象。</p> <p>在<code>Vue3</code>中可以通过<code>createRenderer</code>自定义渲染器，浏览器平台的<code>DOM</code>渲染器就是自定义渲染器的一个实现。</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token generic-function"><span class="token function">createRenderer</span><span class="token generic class-name"><span class="token operator">&lt;</span>
+  HostNode <span class="token operator">=</span> RendererNode<span class="token punctuation">,</span>
+  HostElement <span class="token operator">=</span> RendererElement
+<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>options<span class="token operator">:</span> RendererOptions<span class="token operator">&lt;</span>HostNode<span class="token punctuation">,</span> HostElement<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token generic-function"><span class="token function">baseCreateRenderer</span><span class="token generic class-name"><span class="token operator">&lt;</span>HostNode<span class="token punctuation">,</span> HostElement<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>options<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><code>createRenderer</code>函数将自定义渲染器的依赖抽象成了<code>RendererOptions</code>，其<code>TypeScript</code>类型定义如下：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">RendererOptions<span class="token operator">&lt;</span>
+  HostNode <span class="token operator">=</span> RendererNode<span class="token punctuation">,</span>
+  HostElement <span class="token operator">=</span> RendererElement
+<span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+  <span class="token function">patchProp</span><span class="token punctuation">(</span>
+    el<span class="token operator">:</span> HostElement<span class="token punctuation">,</span>
+    key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    prevValue<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span>
+    nextValue<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span>
+    isSVG<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    prevChildren<span class="token operator">?</span><span class="token operator">:</span> VNode<span class="token operator">&lt;</span>HostNode<span class="token punctuation">,</span> HostElement<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    parentComponent<span class="token operator">?</span><span class="token operator">:</span> ComponentInternalInstance <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    parentSuspense<span class="token operator">?</span><span class="token operator">:</span> SuspenseBoundary <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    unmountChildren<span class="token operator">?</span><span class="token operator">:</span> UnmountChildrenFn
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+  <span class="token function">insert</span><span class="token punctuation">(</span>el<span class="token operator">:</span> HostNode<span class="token punctuation">,</span> parent<span class="token operator">:</span> HostElement<span class="token punctuation">,</span> anchor<span class="token operator">?</span><span class="token operator">:</span> HostNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+  <span class="token function">remove</span><span class="token punctuation">(</span>el<span class="token operator">:</span> HostNode<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+  <span class="token function">createElement</span><span class="token punctuation">(</span>
+    type<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    isSVG<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    isCustomizedBuiltIn<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    vnodeProps<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>VNodeProps <span class="token operator">&amp;</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">any</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token keyword">null</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> HostElement
+  <span class="token function">createText</span><span class="token punctuation">(</span>text<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> HostNode
+  <span class="token function">createComment</span><span class="token punctuation">(</span>text<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> HostNode
+  <span class="token function">setText</span><span class="token punctuation">(</span>node<span class="token operator">:</span> HostNode<span class="token punctuation">,</span> text<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+  <span class="token function">setElementText</span><span class="token punctuation">(</span>node<span class="token operator">:</span> HostElement<span class="token punctuation">,</span> text<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+  <span class="token function">parentNode</span><span class="token punctuation">(</span>node<span class="token operator">:</span> HostNode<span class="token punctuation">)</span><span class="token operator">:</span> HostElement <span class="token operator">|</span> <span class="token keyword">null</span>
+  <span class="token function">nextSibling</span><span class="token punctuation">(</span>node<span class="token operator">:</span> HostNode<span class="token punctuation">)</span><span class="token operator">:</span> HostNode <span class="token operator">|</span> <span class="token keyword">null</span>
+  querySelector<span class="token operator">?</span><span class="token punctuation">(</span>selector<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> HostElement <span class="token operator">|</span> <span class="token keyword">null</span>
+  setScopeId<span class="token operator">?</span><span class="token punctuation">(</span>el<span class="token operator">:</span> HostElement<span class="token punctuation">,</span> id<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+  cloneNode<span class="token operator">?</span><span class="token punctuation">(</span>node<span class="token operator">:</span> HostNode<span class="token punctuation">)</span><span class="token operator">:</span> HostNode
+  insertStaticContent<span class="token operator">?</span><span class="token punctuation">(</span>
+    content<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    parent<span class="token operator">:</span> HostElement<span class="token punctuation">,</span>
+    anchor<span class="token operator">:</span> HostNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    isSVG<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+    start<span class="token operator">?</span><span class="token operator">:</span> HostNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    end<span class="token operator">?</span><span class="token operator">:</span> HostNode <span class="token operator">|</span> <span class="token keyword">null</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">[</span>HostNode<span class="token punctuation">,</span> HostNode<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h2 id="mount"><a href="#mount" class="header-anchor">#</a> mount</h2> <p><code>app</code>的<code>mount</code>方法中的<code>render</code>由<code>createAppAPI</code>作为参数传入，来源于<code>@vue/runtime-core/renderer.ts</code>中的<code>baseCreateRenderer</code>方法定义：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">const</span> render<span class="token operator">:</span> <span class="token function-variable function">RootRenderFunction</span> <span class="token operator">=</span> <span class="token punctuation">(</span>vnode<span class="token punctuation">,</span> container<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>vnode <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>container<span class="token punctuation">.</span>_vnode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">unmount</span><span class="token punctuation">(</span>container<span class="token punctuation">.</span>_vnode<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">patch</span><span class="token punctuation">(</span>container<span class="token punctuation">.</span>_vnode <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span> vnode<span class="token punctuation">,</span> container<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">flushPostFlushCbs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// TODO 待解析</span>
+  container<span class="token punctuation">.</span>_vnode <span class="token operator">=</span> vnode
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><code>render</code>方法主要有两个逻辑分支，如果<code>vnode</code>不为<code>null</code>时，为新建或者更新逻辑，调用<code>patch</code>方法；如果<code>vnode</code>为<code>null</code>，，并且<code>container._vnode</code>不为<code>null</code>，即<code>vnode</code>从有值变为<code>null</code>，调用<code>unmount</code>方法。</p> <h3 id="patch"><a href="#patch" class="header-anchor">#</a> patch</h3> <p><code>patch</code>函数是整个渲染器的核心入口，承载了最重要的渲染逻辑</p> <h4 id="patch的类型"><a href="#patch的类型" class="header-anchor">#</a> patch的类型</h4> <p>不同类型的元素或组件，有不同的patch策略</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token keyword">enum</span> PatchFlags <span class="token punctuation">{</span>
+  <span class="token comment">// 表明元素具有动态文本</span>
+  <span class="token constant">TEXT</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token comment">// 表明元素具有动态class绑定</span>
+  <span class="token constant">CLASS</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">// 2</span>
+  <span class="token comment">// 表明元素具有动态样式style，编译器会将静态对象字符串编译为静态对象，并做变量提升优化</span>
+  <span class="token comment">// 例如：</span>
+  <span class="token comment">// style=&quot;color: red&quot; 或 :style=&quot;{ color: 'red' }&quot;</span>
+  <span class="token comment">// 将被编译为：</span>
+  <span class="token comment">// const style = { color: 'red' }</span>
+  <span class="token comment">// render() { return e('div', { style }) }</span>
+  <span class="token constant">STYLE</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token comment">// 4</span>
+  <span class="token comment">// 表明元素或者组件具有class/style以外的动态属性props</span>
+  <span class="token comment">// Can also be on a component that has any dynamic props (includes</span>
+  <span class="token comment">// class/style). when this flag is present, the vnode also has a dynamicProps</span>
+  <span class="token comment">// array that contains the keys of the props that may change so the runtime</span>
+  <span class="token comment">// can diff them faster (without having to worry about removed props)</span>
+  <span class="token constant">PROPS</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 8</span>
+  <span class="token comment">// Indicates an element with props with dynamic keys. When keys change, a full</span>
+  <span class="token comment">// diff is always needed to remove the old key. This flag is mutually</span>
+  <span class="token comment">// exclusive with CLASS, STYLE and PROPS.</span>
+  <span class="token constant">FULL_PROPS</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">4</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Indicates an element with event listeners (which need to be attached</span>
+  <span class="token comment">// during hydration)</span>
+  <span class="token constant">HYDRATE_EVENTS</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">5</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Indicates a fragment whose children order doesn't change.</span>
+  <span class="token constant">STABLE_FRAGMENT</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">6</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Indicates a fragment with keyed or partially keyed children</span>
+  <span class="token constant">KEYED_FRAGMENT</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">7</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Indicates a fragment with unkeyed children.</span>
+  <span class="token constant">UNKEYED_FRAGMENT</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Indicates an element that only needs non-props patching, e.g. ref or</span>
+  <span class="token comment">// directives (onVnodeXXX hooks). since every patched vnode checks for refs</span>
+  <span class="token comment">// and onVnodeXXX hooks, it simply marks the vnode so that a parent block</span>
+  <span class="token comment">// will track it.</span>
+  <span class="token constant">NEED_PATCH</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">9</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Indicates a component with dynamic slots (e.g. slot that references a v-for</span>
+  <span class="token comment">// iterated value, or dynamic slot names).</span>
+  <span class="token comment">// Components with this flag are always force updated.</span>
+  <span class="token constant">DYNAMIC_SLOTS</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">10</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// SPECIAL FLAGS -------------------------------------------------------------</span>
+
+  <span class="token comment">// Special flags are negative integers. They are never matched against using</span>
+  <span class="token comment">// bitwise operators (bitwise matching should only happen in branches where</span>
+  <span class="token comment">// patchFlag &gt; 0), and are mutually exclusive. When checking for a special</span>
+  <span class="token comment">// flag, simply check patchFlag === FLAG.</span>
+
+  <span class="token comment">// Indicates a hoisted static vnode. This is a hint for hydration to skip</span>
+  <span class="token comment">// the entire sub tree since static content never needs to be updated.</span>
+  <span class="token constant">HOISTED</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// A special flag that indicates that the diffing algorithm should bail out</span>
+  <span class="token comment">// of optimized mode. For example, on block fragments created by renderSlot()</span>
+  <span class="token comment">// when encountering non-compiler generated slots (i.e. manually written</span>
+  <span class="token comment">// render functions, which should always be fully diffed)</span>
+  <span class="token comment">// OR manually cloneVNodes</span>
+  <span class="token constant">BAIL</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">2</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br></div></div><p><code>patch</code>方法位于同文件的452行：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">const</span> patch<span class="token operator">:</span> PatchFn <span class="token operator">=</span> <span class="token punctuation">(</span>
+  n1<span class="token punctuation">,</span> <span class="token comment">// prev vnode </span>
+  n2<span class="token punctuation">,</span> <span class="token comment">// current vnode </span>
+  container<span class="token punctuation">,</span>
+  anchor <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  parentComponent <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  parentSuspense <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  isSVG <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  optimized <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// patching &amp; not same type, unmount old tree</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n1 <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isSameVNodeType</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> n2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    anchor <span class="token operator">=</span> <span class="token function">getNextHostNode</span><span class="token punctuation">(</span>n1<span class="token punctuation">)</span>
+    <span class="token function">unmount</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> parentComponent<span class="token punctuation">,</span> parentSuspense<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    n1 <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n2<span class="token punctuation">.</span>patchFlag <span class="token operator">===</span> PatchFlags<span class="token punctuation">.</span><span class="token constant">BAIL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    optimized <span class="token operator">=</span> <span class="token boolean">false</span>
+    n2<span class="token punctuation">.</span>dynamicChildren <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> type<span class="token punctuation">,</span> ref<span class="token punctuation">,</span> shapeFlag <span class="token punctuation">}</span> <span class="token operator">=</span> n2
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> Text<span class="token operator">:</span>
+      <span class="token function">processText</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> n2<span class="token punctuation">,</span> container<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span> <span class="token comment">// 纯文本</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> Comment<span class="token operator">:</span>
+      <span class="token function">processCommentNode</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> n2<span class="token punctuation">,</span> container<span class="token punctuation">,</span> anchor<span class="token punctuation">)</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> Static<span class="token operator">:</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>n1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">mountStaticNode</span><span class="token punctuation">(</span>n2<span class="token punctuation">,</span> container<span class="token punctuation">,</span> anchor<span class="token punctuation">,</span> isSVG<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">patchStaticNode</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> n2<span class="token punctuation">,</span> container<span class="token punctuation">,</span> isSVG<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> Fragment<span class="token operator">:</span>
+      <span class="token function">processFragment</span><span class="token punctuation">(</span>
+        n1<span class="token punctuation">,</span>
+        n2<span class="token punctuation">,</span>
+        container<span class="token punctuation">,</span>
+        anchor<span class="token punctuation">,</span>
+        parentComponent<span class="token punctuation">,</span>
+        parentSuspense<span class="token punctuation">,</span>
+        isSVG<span class="token punctuation">,</span>
+        optimized
+      <span class="token punctuation">)</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">ELEMENT</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// VNode 是普通标签</span>
+        <span class="token function">processElement</span><span class="token punctuation">(</span>
+          n1<span class="token punctuation">,</span>
+          n2<span class="token punctuation">,</span>
+          container<span class="token punctuation">,</span>
+          anchor<span class="token punctuation">,</span>
+          parentComponent<span class="token punctuation">,</span>
+          parentSuspense<span class="token punctuation">,</span>
+          isSVG<span class="token punctuation">,</span>
+          optimized
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">COMPONENT</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// VNode 是组件</span>
+        <span class="token function">processComponent</span><span class="token punctuation">(</span>
+          n1<span class="token punctuation">,</span>
+          n2<span class="token punctuation">,</span>
+          container<span class="token punctuation">,</span>
+          anchor<span class="token punctuation">,</span>
+          parentComponent<span class="token punctuation">,</span>
+          parentSuspense<span class="token punctuation">,</span>
+          isSVG<span class="token punctuation">,</span>
+          optimized
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">TELEPORT</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+        <span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">type</span> <span class="token class-name"><span class="token keyword">as</span></span> <span class="token keyword">typeof</span> TeleportImpl<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">process</span><span class="token punctuation">(</span>
+          n1 <span class="token keyword">as</span> TeleportVNode<span class="token punctuation">,</span>
+          n2 <span class="token keyword">as</span> TeleportVNode<span class="token punctuation">,</span>
+          container<span class="token punctuation">,</span>
+          anchor<span class="token punctuation">,</span>
+          parentComponent<span class="token punctuation">,</span>
+          parentSuspense<span class="token punctuation">,</span>
+          isSVG<span class="token punctuation">,</span>
+          optimized<span class="token punctuation">,</span>
+          internals
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>__FEATURE_SUSPENSE__ <span class="token operator">&amp;&amp;</span> shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">SUSPENSE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">type</span> <span class="token class-name"><span class="token keyword">as</span></span> <span class="token keyword">typeof</span> SuspenseImpl<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">process</span><span class="token punctuation">(</span>
+          n1<span class="token punctuation">,</span>
+          n2<span class="token punctuation">,</span>
+          container<span class="token punctuation">,</span>
+          anchor<span class="token punctuation">,</span>
+          parentComponent<span class="token punctuation">,</span>
+          parentSuspense<span class="token punctuation">,</span>
+          isSVG<span class="token punctuation">,</span>
+          optimized<span class="token punctuation">,</span>
+          internals
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// set ref</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ref <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> parentComponent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setRef</span><span class="token punctuation">(</span>ref<span class="token punctuation">,</span> n1 <span class="token operator">&amp;&amp;</span> n1<span class="token punctuation">.</span>ref<span class="token punctuation">,</span> parentComponent<span class="token punctuation">,</span> parentSuspense<span class="token punctuation">,</span> n2<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br></div></div><p><code>patch</code>方法经过<code>swtich</code>语句调用了<code>processComponent</code>方法，其代码位于同文件的第1201行：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">const</span> <span class="token function-variable function">processComponent</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+  n1<span class="token operator">:</span> VNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  n2<span class="token operator">:</span> VNode<span class="token punctuation">,</span>
+  container<span class="token operator">:</span> RendererElement<span class="token punctuation">,</span>
+  anchor<span class="token operator">:</span> RendererNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  parentComponent<span class="token operator">:</span> ComponentInternalInstance <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  parentSuspense<span class="token operator">:</span> SuspenseBoundary <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  isSVG<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span>
+  optimized<span class="token operator">:</span> <span class="token builtin">boolean</span>
+<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n1 <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n2<span class="token punctuation">.</span>shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">COMPONENT_KEPT_ALIVE</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">(</span>parentComponent<span class="token operator">!</span><span class="token punctuation">.</span>ctx <span class="token keyword">as</span> KeepAliveContext<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">activate</span><span class="token punctuation">(</span>
+        n2<span class="token punctuation">,</span>
+        container<span class="token punctuation">,</span>
+        anchor<span class="token punctuation">,</span>
+        isSVG<span class="token punctuation">,</span>
+        optimized
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token function">mountComponent</span><span class="token punctuation">(</span>
+        n2<span class="token punctuation">,</span>
+        container<span class="token punctuation">,</span>
+        anchor<span class="token punctuation">,</span>
+        parentComponent<span class="token punctuation">,</span>
+        parentSuspense<span class="token punctuation">,</span>
+        isSVG<span class="token punctuation">,</span>
+        optimized
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">updateComponent</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> n2<span class="token punctuation">,</span> optimized<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><p>其主要有两个逻辑分支：旧的<code>VNode``n1</code>不为<code>null</code>时，调用更新组件的<code>updateComponent</code>方法；当<code>n1</code>为<code>null</code>时，又有两个子分支：新的<code>VNode``n1</code>为<code>keep-alive</code>的组件时，调用其<code>ctx</code>的<code>activate</code>方法，否则调用挂载组件的<code>mountComponent</code>方法。</p> <p>我们先看挂载组件的<code>mountComponent</code>方法，其位于<code>processComponent</code>的下方：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">const</span> mountComponent<span class="token operator">:</span> MountComponentFn <span class="token operator">=</span> <span class="token punctuation">(</span>
+  initialVNode<span class="token punctuation">,</span> <span class="token comment">// 初始的VNode</span>
+  container<span class="token punctuation">,</span>  <span class="token comment">// 挂载的容器</span>
+  anchor<span class="token punctuation">,</span>
+  parentComponent<span class="token punctuation">,</span>
+  parentSuspense<span class="token punctuation">,</span>
+  isSVG<span class="token punctuation">,</span>
+  optimized
+<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> instance<span class="token operator">:</span> ComponentInternalInstance <span class="token operator">=</span> <span class="token punctuation">(</span>initialVNode<span class="token punctuation">.</span>component <span class="token operator">=</span> <span class="token function">createComponentInstance</span><span class="token punctuation">(</span>
+    initialVNode<span class="token punctuation">,</span>
+    parentComponent<span class="token punctuation">,</span>
+    parentSuspense
+  <span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// inject renderer internals for keepAlive</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isKeepAlive</span><span class="token punctuation">(</span>initialVNode<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span>instance<span class="token punctuation">.</span>ctx <span class="token keyword">as</span> KeepAliveContext<span class="token punctuation">)</span><span class="token punctuation">.</span>renderer <span class="token operator">=</span> internals
+  <span class="token punctuation">}</span>
+
+  <span class="token function">setupComponent</span><span class="token punctuation">(</span>instance<span class="token punctuation">)</span>
+
+  <span class="token comment">// setup() is async. This component relies on async logic to be resolved</span>
+  <span class="token comment">// before proceeding</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>__FEATURE_SUSPENSE__ <span class="token operator">&amp;&amp;</span> instance<span class="token punctuation">.</span>asyncDep<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    parentSuspense <span class="token operator">&amp;&amp;</span> parentSuspense<span class="token punctuation">.</span><span class="token function">registerDep</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> setupRenderEffect<span class="token punctuation">)</span>
+
+    <span class="token comment">// Give it a placeholder if this is not hydration</span>
+    <span class="token comment">// TODO handle self-defined fallback</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>initialVNode<span class="token punctuation">.</span>el<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> placeholder <span class="token operator">=</span> <span class="token punctuation">(</span>instance<span class="token punctuation">.</span>subTree <span class="token operator">=</span> <span class="token function">createVNode</span><span class="token punctuation">(</span>Comment<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token function">processCommentNode</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> placeholder<span class="token punctuation">,</span> container<span class="token operator">!</span><span class="token punctuation">,</span> anchor<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">setupRenderEffect</span><span class="token punctuation">(</span>
+    instance<span class="token punctuation">,</span>
+    initialVNode<span class="token punctuation">,</span>
+    container<span class="token punctuation">,</span>
+    anchor<span class="token punctuation">,</span>
+    parentSuspense<span class="token punctuation">,</span>
+    isSVG<span class="token punctuation">,</span>
+    optimized
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h3 id="create"><a href="#create" class="header-anchor">#</a> create</h3> <p>首先调用<code>createComponentInstance</code>方法生成组件的实例，先看下组件实例的构成：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">const</span> instance<span class="token operator">:</span> ComponentInternalInstance <span class="token operator">=</span> <span class="token punctuation">{</span>
+  uid<span class="token operator">:</span> uid<span class="token operator">++</span><span class="token punctuation">,</span>
+  vnode<span class="token punctuation">,</span>
+  type<span class="token punctuation">,</span>
+  parent<span class="token punctuation">,</span>
+  appContext<span class="token punctuation">,</span>
+  root<span class="token operator">:</span> <span class="token keyword">null</span><span class="token operator">!</span><span class="token punctuation">,</span> <span class="token comment">// to be immediately set</span>
+  next<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  subTree<span class="token operator">:</span> <span class="token keyword">null</span><span class="token operator">!</span><span class="token punctuation">,</span> <span class="token comment">// will be set synchronously right after creation</span>
+  update<span class="token operator">:</span> <span class="token keyword">null</span><span class="token operator">!</span><span class="token punctuation">,</span> <span class="token comment">// will be set synchronously right after creation</span>
+  render<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  proxy<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  exposed<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  withProxy<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  effects<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  provides<span class="token operator">:</span> parent <span class="token operator">?</span> parent<span class="token punctuation">.</span>provides <span class="token operator">:</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>appContext<span class="token punctuation">.</span>provides<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  accessCache<span class="token operator">:</span> <span class="token keyword">null</span><span class="token operator">!</span><span class="token punctuation">,</span>
+  renderCache<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// local resovled assets</span>
+  components<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  directives<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// resolved props and emits options</span>
+  propsOptions<span class="token operator">:</span> <span class="token function">normalizePropsOptions</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> appContext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  emitsOptions<span class="token operator">:</span> <span class="token function">normalizeEmitsOptions</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> appContext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// emit</span>
+  emit<span class="token operator">:</span> <span class="token keyword">null</span> <span class="token keyword">as</span> <span class="token builtin">any</span><span class="token punctuation">,</span> <span class="token comment">// to be set immediately</span>
+  emitted<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// state</span>
+  ctx<span class="token operator">:</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">,</span>
+  data<span class="token operator">:</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">,</span>
+  attrs<span class="token operator">:</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">,</span>
+  slots<span class="token operator">:</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">,</span>
+  refs<span class="token operator">:</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">,</span>
+  setupState<span class="token operator">:</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">,</span>
+  setupContext<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// suspense related</span>
+  suspense<span class="token punctuation">,</span>
+  suspenseId<span class="token operator">:</span> suspense <span class="token operator">?</span> suspense<span class="token punctuation">.</span>pendingId <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  asyncDep<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  asyncResolved<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// lifecycle hooks</span>
+  <span class="token comment">// not using enums here because it results in computed properties</span>
+  isMounted<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  isUnmounted<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  isDeactivated<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  bc<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  c<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  bm<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  m<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  bu<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  u<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  um<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  bum<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  da<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  a<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  rtg<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  rtc<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  ec<span class="token operator">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br></div></div><p><code>createComponentInstance</code>方法的代码位于<code>@vue/runtime-core/component.ts</code>的第401行：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createComponentInstance</span><span class="token punctuation">(</span>
+  vnode<span class="token operator">:</span> VNode<span class="token punctuation">,</span>
+  parent<span class="token operator">:</span> ComponentInternalInstance <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  suspense<span class="token operator">:</span> SuspenseBoundary <span class="token operator">|</span> <span class="token keyword">null</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> type <span class="token operator">=</span> vnode<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token class-name"><span class="token keyword">as</span></span> ConcreteComponent
+  <span class="token comment">// inherit parent app context - or - if root, adopt from root vnode</span>
+  <span class="token keyword">const</span> appContext <span class="token operator">=</span>
+    <span class="token punctuation">(</span>parent <span class="token operator">?</span> parent<span class="token punctuation">.</span>appContext <span class="token operator">:</span> vnode<span class="token punctuation">.</span>appContext<span class="token punctuation">)</span> <span class="token operator">||</span> emptyAppContext
+
+  <span class="token keyword">const</span> instance<span class="token operator">:</span> ComponentInternalInstance <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 省略componentInstance内容</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// TODO</span>
+    instance<span class="token punctuation">.</span>ctx <span class="token operator">=</span> <span class="token function">createRenderContext</span><span class="token punctuation">(</span>instance<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    instance<span class="token punctuation">.</span>ctx <span class="token operator">=</span> <span class="token punctuation">{</span> _<span class="token operator">:</span> instance <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  instance<span class="token punctuation">.</span>root <span class="token operator">=</span> parent <span class="token operator">?</span> parent<span class="token punctuation">.</span>root <span class="token operator">:</span> instance
+  instance<span class="token punctuation">.</span>emit <span class="token operator">=</span> <span class="token function">emit</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> instance<span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> instance
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="setup"><a href="#setup" class="header-anchor">#</a> setup</h3> <p><code>setup</code>主要包括<code>setupComponent</code>和<code>setupRenderEffect</code>两个过程。</p> <p><code>setupComponent</code>方法代码位于<code>@vue/runtime-core/component.ts</code>的第516行：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token keyword">let</span> isInSSRComponentSetup <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token comment">// 表明组件是否服务端渲染的变量</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">setupComponent</span><span class="token punctuation">(</span>
+  instance<span class="token operator">:</span> ComponentInternalInstance<span class="token punctuation">,</span>
+  isSSR <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  isInSSRComponentSetup <span class="token operator">=</span> isSSR
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> props<span class="token punctuation">,</span> children<span class="token punctuation">,</span> shapeFlag <span class="token punctuation">}</span> <span class="token operator">=</span> instance<span class="token punctuation">.</span>vnode
+  <span class="token keyword">const</span> isStateful <span class="token operator">=</span> shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">STATEFUL_COMPONENT</span>
+  <span class="token function">initProps</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> props<span class="token punctuation">,</span> isStateful<span class="token punctuation">,</span> isSSR<span class="token punctuation">)</span>
+  <span class="token function">initSlots</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> children<span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> setupResult <span class="token operator">=</span> isStateful
+    <span class="token operator">?</span> <span class="token function">setupStatefulComponent</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> isSSR<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token keyword">undefined</span>
+  isInSSRComponentSetup <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token keyword">return</span> setupResult
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>内部主要做了初始化属性<code>initProps</code>和初始化插槽<code>initSlots</code>这两件事儿，并且带状态<code>isStateful</code>的组件，会执行<code>setupStatefulComponent</code>方法获取<code>setupResult</code>。最后将标识组件是否在<code>SSR</code>环境下执行<code>setup</code>的标识置为<code>false</code>，并返回<code>setupResult</code>。</p> <p><code>initProps</code>方法位于<code>@vue/runtime-core/componentProps.ts</code>的第114行：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">initProps</span><span class="token punctuation">(</span>
+  instance<span class="token operator">:</span> ComponentInternalInstance<span class="token punctuation">,</span>
+  rawProps<span class="token operator">:</span> Data <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  isStateful<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token comment">// result of bitwise flag comparison</span>
+  isSSR <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> props<span class="token operator">:</span> Data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">const</span> attrs<span class="token operator">:</span> Data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">def</span><span class="token punctuation">(</span>attrs<span class="token punctuation">,</span> InternalObjectKey<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token function">setFullProps</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> rawProps<span class="token punctuation">,</span> props<span class="token punctuation">,</span> attrs<span class="token punctuation">)</span>
+  <span class="token comment">// validation</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">validateProps</span><span class="token punctuation">(</span>props<span class="token punctuation">,</span> instance<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isStateful<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// stateful</span>
+    instance<span class="token punctuation">.</span>props <span class="token operator">=</span> isSSR <span class="token operator">?</span> props <span class="token operator">:</span> <span class="token function">shallowReactive</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>instance<span class="token punctuation">.</span>type<span class="token punctuation">.</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// functional w/ optional props, props === attrs</span>
+      instance<span class="token punctuation">.</span>props <span class="token operator">=</span> attrs
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">// functional w/ declared props</span>
+      instance<span class="token punctuation">.</span>props <span class="token operator">=</span> props
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  instance<span class="token punctuation">.</span>attrs <span class="token operator">=</span> attrs
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p><code>setFullProps</code>位于同文件：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">function</span> <span class="token function">setFullProps</span><span class="token punctuation">(</span>
+  instance<span class="token operator">:</span> ComponentInternalInstance<span class="token punctuation">,</span>
+  rawProps<span class="token operator">:</span> Data <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> Data<span class="token punctuation">,</span>
+  attrs<span class="token operator">:</span> Data
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>options<span class="token punctuation">,</span> needCastKeys<span class="token punctuation">]</span> <span class="token operator">=</span> instance<span class="token punctuation">.</span>propsOptions
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>rawProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> rawProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> value <span class="token operator">=</span> rawProps<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token comment">// key, ref are reserved and never passed down</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isReservedProp</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">continue</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// prop option names are camelized during normalization, so to support</span>
+      <span class="token comment">// kebab -&gt; camel conversion here we need to camelize the key.</span>
+      <span class="token keyword">let</span> camelKey
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>options <span class="token operator">&amp;&amp;</span> <span class="token function">hasOwn</span><span class="token punctuation">(</span>options<span class="token punctuation">,</span> <span class="token punctuation">(</span>camelKey <span class="token operator">=</span> <span class="token function">camelize</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        props<span class="token punctuation">[</span>camelKey<span class="token punctuation">]</span> <span class="token operator">=</span> value
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isEmitListener</span><span class="token punctuation">(</span>instance<span class="token punctuation">.</span>emitsOptions<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Any non-declared (either as a prop or an emitted event) props are put</span>
+        <span class="token comment">// into a separate `attrs` object for spreading. Make sure to preserve</span>
+        <span class="token comment">// original key casing</span>
+        attrs<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>needCastKeys<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> rawCurrentProps <span class="token operator">=</span> <span class="token function">toRaw</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> needCastKeys<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> key <span class="token operator">=</span> needCastKeys<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+      props<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">resolvePropValue</span><span class="token punctuation">(</span>
+        options<span class="token operator">!</span><span class="token punctuation">,</span>
+        rawCurrentProps<span class="token punctuation">,</span>
+        key<span class="token punctuation">,</span>
+        rawCurrentProps<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        instance
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><p><code>shallowReactive</code>为<code>Vue3</code>暴露的响应式核心<code>API</code>之一，用于创建一个不会深度嵌套的响应式<code>proxy</code>。调用了<code>Reactivity</code>部分的核心代码<code>createReactiveObject</code>，通过<code>new Proxy</code>的方式来响应<code>data</code>的变化。</p> <h3 id="update"><a href="#update" class="header-anchor">#</a> update</h3> <p><code>setupRenderEffect</code>主要设置了实例的<code>update</code>方法，此处调用了<code>reactivity</code>中的<code>effect</code>方法，在定义之后会立即执行，出发<code>DOM</code>渲染：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">const</span> setupRenderEffect<span class="token operator">:</span> <span class="token function-variable function">SetupRenderEffectFn</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+  instance<span class="token punctuation">,</span>
+  initialVNode<span class="token punctuation">,</span>
+  container<span class="token punctuation">,</span>
+  anchor<span class="token punctuation">,</span>
+  parentSuspense<span class="token punctuation">,</span>
+  isSVG<span class="token punctuation">,</span>
+  optimized
+<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// create reactive effect for rendering</span>
+  instance<span class="token punctuation">.</span>update <span class="token operator">=</span> <span class="token function">effect</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">componentEffect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>instance<span class="token punctuation">.</span>isMounted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> vnodeHook<span class="token operator">:</span> VNodeHook <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">|</span> <span class="token keyword">undefined</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> el<span class="token punctuation">,</span> props <span class="token punctuation">}</span> <span class="token operator">=</span> initialVNode
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> bm<span class="token punctuation">,</span> m<span class="token punctuation">,</span> parent <span class="token punctuation">}</span> <span class="token operator">=</span> instance
+
+      <span class="token comment">// beforeMount hook</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>bm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">invokeArrayFns</span><span class="token punctuation">(</span>bm<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// onVnodeBeforeMount</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>vnodeHook <span class="token operator">=</span> props <span class="token operator">&amp;&amp;</span> props<span class="token punctuation">.</span>onVnodeBeforeMount<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">invokeVNodeHook</span><span class="token punctuation">(</span>vnodeHook<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> initialVNode<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+
+      
+      <span class="token keyword">const</span> subTree <span class="token operator">=</span> <span class="token punctuation">(</span>instance<span class="token punctuation">.</span>subTree <span class="token operator">=</span> <span class="token function">renderComponentRoot</span><span class="token punctuation">(</span>instance<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">endMeasure</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">render</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>el <span class="token operator">&amp;&amp;</span> hydrateNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">startMeasure</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hydrate</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// vnode has adopted host node - perform hydration instead of mount.</span>
+        <span class="token function">hydrateNode</span><span class="token punctuation">(</span>
+          initialVNode<span class="token punctuation">.</span>el <span class="token keyword">as</span> Node<span class="token punctuation">,</span>
+          subTree<span class="token punctuation">,</span>
+          instance<span class="token punctuation">,</span>
+          parentSuspense
+        <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">endMeasure</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hydrate</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">startMeasure</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">patch</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">patch</span><span class="token punctuation">(</span>
+          <span class="token keyword">null</span><span class="token punctuation">,</span>
+          subTree<span class="token punctuation">,</span>
+          container<span class="token punctuation">,</span>
+          anchor<span class="token punctuation">,</span>
+          instance<span class="token punctuation">,</span>
+          parentSuspense<span class="token punctuation">,</span>
+          isSVG
+        <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">endMeasure</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">patch</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        initialVNode<span class="token punctuation">.</span>el <span class="token operator">=</span> subTree<span class="token punctuation">.</span>el
+      <span class="token punctuation">}</span>
+      <span class="token comment">// mounted hook</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">queuePostRenderEffect</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> parentSuspense<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// onVnodeMounted</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>vnodeHook <span class="token operator">=</span> props <span class="token operator">&amp;&amp;</span> props<span class="token punctuation">.</span>onVnodeMounted<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">queuePostRenderEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">invokeVNodeHook</span><span class="token punctuation">(</span>vnodeHook<span class="token operator">!</span><span class="token punctuation">,</span> parent<span class="token punctuation">,</span> initialVNode<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> parentSuspense<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// activated hook for keep-alive roots.</span>
+      <span class="token comment">// #1742 activated hook must be accessed after first render</span>
+      <span class="token comment">// since the hook may be injected by a child keep-alive</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> a <span class="token punctuation">}</span> <span class="token operator">=</span> instance
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        a <span class="token operator">&amp;&amp;</span>
+        initialVNode<span class="token punctuation">.</span>shapeFlag <span class="token operator">&amp;</span> ShapeFlags<span class="token punctuation">.</span><span class="token constant">COMPONENT_SHOULD_KEEP_ALIVE</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">queuePostRenderEffect</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> parentSuspense<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      instance<span class="token punctuation">.</span>isMounted <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">// updateComponent</span>
+      <span class="token comment">// This is triggered by mutation of component's own state (next: null)</span>
+      <span class="token comment">// OR parent calling processComponent (next: VNode)</span>
+      <span class="token keyword">let</span> <span class="token punctuation">{</span> next<span class="token punctuation">,</span> bu<span class="token punctuation">,</span> u<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> vnode <span class="token punctuation">}</span> <span class="token operator">=</span> instance
+      <span class="token keyword">let</span> originNext <span class="token operator">=</span> next
+      <span class="token keyword">let</span> vnodeHook<span class="token operator">:</span> VNodeHook <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token operator">|</span> <span class="token keyword">undefined</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">pushWarningContext</span><span class="token punctuation">(</span>next <span class="token operator">||</span> instance<span class="token punctuation">.</span>vnode<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">updateComponentPreRender</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> next<span class="token punctuation">,</span> optimized<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        next <span class="token operator">=</span> vnode
+      <span class="token punctuation">}</span>
+      next<span class="token punctuation">.</span>el <span class="token operator">=</span> vnode<span class="token punctuation">.</span>el
+
+      <span class="token comment">// beforeUpdate hook</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>bu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">invokeArrayFns</span><span class="token punctuation">(</span>bu<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// onVnodeBeforeUpdate</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>vnodeHook <span class="token operator">=</span> next<span class="token punctuation">.</span>props <span class="token operator">&amp;&amp;</span> next<span class="token punctuation">.</span>props<span class="token punctuation">.</span>onVnodeBeforeUpdate<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">invokeVNodeHook</span><span class="token punctuation">(</span>vnodeHook<span class="token punctuation">,</span> parent<span class="token punctuation">,</span> next<span class="token punctuation">,</span> vnode<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+
+      
+      <span class="token keyword">const</span> nextTree <span class="token operator">=</span> <span class="token function">renderComponentRoot</span><span class="token punctuation">(</span>instance<span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">endMeasure</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">render</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">const</span> prevTree <span class="token operator">=</span> instance<span class="token punctuation">.</span>subTree
+      instance<span class="token punctuation">.</span>subTree <span class="token operator">=</span> nextTree
+
+      <span class="token comment">// reset refs</span>
+      <span class="token comment">// only needed if previous patch had refs</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>instance<span class="token punctuation">.</span>refs <span class="token operator">!==</span> <span class="token constant">EMPTY_OBJ</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        instance<span class="token punctuation">.</span>refs <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>__DEV__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">startMeasure</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">patch</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">patch</span><span class="token punctuation">(</span>
+        prevTree<span class="token punctuation">,</span>
+        nextTree<span class="token punctuation">,</span>
+        <span class="token comment">// parent may have changed if it's in a teleport</span>
+        <span class="token function">hostParentNode</span><span class="token punctuation">(</span>prevTree<span class="token punctuation">.</span>el<span class="token operator">!</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">,</span>
+        <span class="token comment">// anchor may have changed if it's in a fragment</span>
+        <span class="token function">getNextHostNode</span><span class="token punctuation">(</span>prevTree<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        instance<span class="token punctuation">,</span>
+        parentSuspense<span class="token punctuation">,</span>
+        isSVG
+      <span class="token punctuation">)</span>
+      
+      next<span class="token punctuation">.</span>el <span class="token operator">=</span> nextTree<span class="token punctuation">.</span>el
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>originNext <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// self-triggered update. In case of HOC, update parent component</span>
+        <span class="token comment">// vnode el. HOC is indicated by parent instance's subTree pointing</span>
+        <span class="token comment">// to child component's vnode</span>
+        <span class="token function">updateHOCHostEl</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> nextTree<span class="token punctuation">.</span>el<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// updated hook</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>u<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">queuePostRenderEffect</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> parentSuspense<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// onVnodeUpdated</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>vnodeHook <span class="token operator">=</span> next<span class="token punctuation">.</span>props <span class="token operator">&amp;&amp;</span> next<span class="token punctuation">.</span>props<span class="token punctuation">.</span>onVnodeUpdated<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">queuePostRenderEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">invokeVNodeHook</span><span class="token punctuation">(</span>vnodeHook<span class="token operator">!</span><span class="token punctuation">,</span> parent<span class="token punctuation">,</span> next<span class="token operator">!</span><span class="token punctuation">,</span> vnode<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> parentSuspense<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> prodEffectOptions<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/framework/vue3/reactivity.html" class="prev">
+          数据响应式系统
+        </a></span> <span class="next"><a href="/framework/vue3/component.html">
+          组件
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4ffcedcb.js" defer></script><script src="/assets/js/3.a213aa8f.js" defer></script><script src="/assets/js/29.2ea8973e.js" defer></script>
+  </body>
+</html>

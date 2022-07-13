@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>全局API | 前端笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="learning notebook of cheeka">
+    
+    <link rel="preload" href="/assets/css/0.styles.89a87d7c.css" as="style"><link rel="preload" href="/assets/js/app.4ffcedcb.js" as="script"><link rel="preload" href="/assets/js/3.a213aa8f.js" as="script"><link rel="preload" href="/assets/js/25.7e9f2526.js" as="script"><link rel="prefetch" href="/assets/js/10.3c347e54.js"><link rel="prefetch" href="/assets/js/11.9adc9c77.js"><link rel="prefetch" href="/assets/js/12.c74c6a2c.js"><link rel="prefetch" href="/assets/js/13.9bfac093.js"><link rel="prefetch" href="/assets/js/14.8201ea59.js"><link rel="prefetch" href="/assets/js/15.b893f62b.js"><link rel="prefetch" href="/assets/js/16.fe2643ba.js"><link rel="prefetch" href="/assets/js/17.7711ce1c.js"><link rel="prefetch" href="/assets/js/18.8355d792.js"><link rel="prefetch" href="/assets/js/19.10d660f8.js"><link rel="prefetch" href="/assets/js/20.b252f2f1.js"><link rel="prefetch" href="/assets/js/21.72cd72b5.js"><link rel="prefetch" href="/assets/js/22.36e20d02.js"><link rel="prefetch" href="/assets/js/23.36e1d6bf.js"><link rel="prefetch" href="/assets/js/24.fa1933ff.js"><link rel="prefetch" href="/assets/js/26.502733bd.js"><link rel="prefetch" href="/assets/js/27.37687208.js"><link rel="prefetch" href="/assets/js/28.47ac5267.js"><link rel="prefetch" href="/assets/js/29.2ea8973e.js"><link rel="prefetch" href="/assets/js/30.63a8a364.js"><link rel="prefetch" href="/assets/js/31.a0e0a094.js"><link rel="prefetch" href="/assets/js/32.3ffc993b.js"><link rel="prefetch" href="/assets/js/33.53d493cc.js"><link rel="prefetch" href="/assets/js/34.885e33aa.js"><link rel="prefetch" href="/assets/js/35.0b5bb67c.js"><link rel="prefetch" href="/assets/js/36.8b840a3d.js"><link rel="prefetch" href="/assets/js/37.c9149af4.js"><link rel="prefetch" href="/assets/js/38.af7e0ce7.js"><link rel="prefetch" href="/assets/js/39.4d90f037.js"><link rel="prefetch" href="/assets/js/4.212f9d7f.js"><link rel="prefetch" href="/assets/js/40.3272e3fd.js"><link rel="prefetch" href="/assets/js/5.9d6b8bce.js"><link rel="prefetch" href="/assets/js/6.f8a656cd.js"><link rel="prefetch" href="/assets/js/7.26d11c39.js"><link rel="prefetch" href="/assets/js/8.365efa03.js"><link rel="prefetch" href="/assets/js/9.60a6bc0a.js"><link rel="prefetch" href="/assets/js/vendors~mermaid.d4b5f89a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.89a87d7c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link router-link-active">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link router-link-active">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/framework/vue3/" aria-current="page" class="sidebar-link">概述</a></li><li><a href="/framework/vue3/reactivity.html" class="sidebar-link">数据响应式系统</a></li><li><a href="/framework/vue3/render.html" class="sidebar-link">渲染器</a></li><li><a href="/framework/vue3/component.html" class="sidebar-link">组件</a></li><li><a href="/framework/vue3/compiler.html" class="sidebar-link">编译器</a></li><li><a href="/framework/vue3/api.html" aria-current="page" class="active sidebar-link">全局API</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/framework/vue3/api.html#vue3入口-createapp" class="sidebar-link">Vue3入口-createApp</a></li><li class="sidebar-sub-header"><a href="/framework/vue3/api.html#app的mount过程" class="sidebar-link">App的mount过程</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="全局api"><a href="#全局api" class="header-anchor">#</a> 全局API</h1> <h2 id="vue3入口-createapp"><a href="#vue3入口-createapp" class="header-anchor">#</a> Vue3入口-createApp</h2> <p>相比较于<code>Vue 2</code>通过构造函数<code>new Vue()</code>的方式创建根<code>Vue</code>实例，<code>Vue 3</code>改为了通过调用 <code>createApp</code>返回一个应用实例：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
+
+<span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><code>createApp</code>源码位于<code>@vue/runtime-dom/src/index.ts</code>：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token keyword">const</span> createApp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 调用render.createApp生成app</span>
+  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">ensureRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createApp</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
+
+  <span class="token comment">// 重新包装app的mount方法</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> mount <span class="token punctuation">}</span> <span class="token operator">=</span> app
+  app<span class="token punctuation">.</span>mount <span class="token operator">=</span> <span class="token punctuation">(</span>containerOrSelector<span class="token operator">:</span> Element <span class="token operator">|</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> container <span class="token operator">=</span> <span class="token function">normalizeContainer</span><span class="token punctuation">(</span>containerOrSelector<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>container<span class="token punctuation">)</span> <span class="token keyword">return</span>
+    <span class="token keyword">const</span> component <span class="token operator">=</span> app<span class="token punctuation">.</span>_component
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isFunction</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>component<span class="token punctuation">.</span>render <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>component<span class="token punctuation">.</span>template<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      component<span class="token punctuation">.</span>template <span class="token operator">=</span> container<span class="token punctuation">.</span>innerHTML
+    <span class="token punctuation">}</span>
+    <span class="token comment">// clear content before mounting</span>
+    container<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">const</span> proxy <span class="token operator">=</span> <span class="token function">mount</span><span class="token punctuation">(</span>container<span class="token punctuation">)</span>
+    container<span class="token punctuation">.</span><span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token string">'v-cloak'</span><span class="token punctuation">)</span>
+    container<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'data-v-app'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> proxy
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> app
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">as</span> CreateAppFunction<span class="token operator">&lt;</span>Element<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p><code>ensureRenderer</code></p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// lazy create the renderer - this makes core renderer logic tree-shakable</span>
+<span class="token comment">// in case the user only imports reactivity utilities from Vue.</span>
+<span class="token keyword">let</span> renderer<span class="token operator">:</span> Renderer<span class="token operator">&lt;</span>Element<span class="token operator">&gt;</span> <span class="token operator">|</span> HydrationRenderer
+
+<span class="token keyword">let</span> enabledHydration <span class="token operator">=</span> <span class="token boolean">false</span>
+
+<span class="token keyword">function</span> <span class="token function">ensureRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> renderer <span class="token operator">||</span> <span class="token punctuation">(</span>renderer <span class="token operator">=</span> <span class="token generic-function"><span class="token function">createRenderer</span><span class="token generic class-name"><span class="token operator">&lt;</span>Node<span class="token punctuation">,</span> Element<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>rendererOptions<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><code>createRenderer</code>位于<code>@vue/runtime-core/renderer.ts</code>，调用了同文件的<code>baseCreateRenderer</code>，其代码如下：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">function</span> <span class="token function">baseCreateRenderer</span><span class="token punctuation">(</span>
+  options<span class="token operator">:</span> RendererOptions<span class="token punctuation">,</span>
+  createHydrationFns<span class="token operator">?</span><span class="token operator">:</span> <span class="token keyword">typeof</span> createHydrationFunctions
+<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">any</span> <span class="token punctuation">{</span>
+  <span class="token comment">//... 无关代码省略</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    render<span class="token punctuation">,</span>
+    hydrate<span class="token punctuation">,</span>
+    createApp<span class="token operator">:</span> <span class="token function">createAppAPI</span><span class="token punctuation">(</span>render<span class="token punctuation">,</span> hydrate<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>因为在<code>createApp</code>中只使用到了<code>render.createApp</code>，所以我们把无关代码省略，可以看到<code>render.createApp</code>是由<code>createAppAPI</code>生成的，代码位于<code>@vue/runtime-core/apiCreateApp.ts</code>第114行，其作用是返回一个<code>createApp</code>方法，用于生成一个<code>AppContext</code>和一个<code>App</code>，其作用相当于<code>Vue2</code>的<code>new Vue()</code>，代码如下：</p> <div class="language-typescript line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token generic-function"><span class="token function">createAppAPI</span><span class="token generic class-name"><span class="token operator">&lt;</span>HostElement<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>
+  render<span class="token operator">:</span> RootRenderFunction<span class="token punctuation">,</span>
+  hydrate<span class="token operator">?</span><span class="token operator">:</span> RootHydrateFunction
+<span class="token punctuation">)</span><span class="token operator">:</span> CreateAppFunction<span class="token operator">&lt;</span>HostElement<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">createApp</span><span class="token punctuation">(</span>rootComponent<span class="token punctuation">,</span> rootProps <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 确保rootProps只能是null或者Object</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>rootProps <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isObject</span><span class="token punctuation">(</span>rootProps<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      rootProps <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token function">createAppContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> installedPlugins <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">let</span> isMounted <span class="token operator">=</span> <span class="token boolean">false</span>
+
+    <span class="token keyword">const</span> app<span class="token operator">:</span> App <span class="token operator">=</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>app <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token comment">// ... app对象内容省略</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> app
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="app的mount过程"><a href="#app的mount过程" class="header-anchor">#</a> App的mount过程</h2> <p>由于在<code>@vue/runtime-dom/src/index.ts</code>的<code>createApp</code>函数中重写了<code>app.mount</code>方法，所以<code>App</code>的<code>mount</code>入口在这里：</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">// @vue/runtime-dom/src/index.ts 61行</span>
+app<span class="token punctuation">.</span>mount <span class="token operator">=</span> <span class="token punctuation">(</span>containerOrSelector<span class="token operator">:</span> Element <span class="token operator">|</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 如果是选择器，则返回对应的dom</span>
+  <span class="token keyword">const</span> container <span class="token operator">=</span> <span class="token function">normalizeContainer</span><span class="token punctuation">(</span>containerOrSelector<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>container<span class="token punctuation">)</span> <span class="token keyword">return</span>
+  
+  <span class="token comment">// clear content before mounting</span>
+  container<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">''</span>
+
+  <span class="token keyword">const</span> proxy <span class="token operator">=</span> <span class="token function">mount</span><span class="token punctuation">(</span>container<span class="token punctuation">)</span>
+  
+  container<span class="token punctuation">.</span><span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token string">'v-cloak'</span><span class="token punctuation">)</span>
+  container<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'data-v-app'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> proxy
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>主要做了以下的操作，将选择器转行成<code>DOM</code>，将<code>container</code>清空，调用<code>app</code>原来的<code>mount</code>方法，并对<code>DOM</code>的属性做了一些操作</p> <p><code>app</code>原来的<code>mount</code>方法位于<code>@vue/runtime-core/apiCreateApp.ts</code>的<code>createAppAPI</code>中，其主要内容为，将<code>App</code>组件内容生成<code>VNode</code>，将<code>vnode.appContext</code>设置上，调用<code>render(vnode, rootContainer)</code>渲染组件，将闭包里的<code>isMounted</code>设置成<code>true</code>，将<code>rootContainer</code>设置给<code>app._container</code>，将<code>vnode.component!.proxy</code>返回。</p> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">function</span> <span class="token function">createApp</span><span class="token punctuation">(</span>rootComponent<span class="token punctuation">,</span> rootProps <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 其他内容省略</span>
+  <span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token function">createAppContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> isMounted <span class="token operator">=</span> <span class="token boolean">false</span>
+
+  <span class="token keyword">const</span> app<span class="token operator">:</span> App <span class="token operator">=</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span>app <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ... 其他app对象内容省略</span>
+    <span class="token function">mount</span><span class="token punctuation">(</span>rootContainer<span class="token operator">:</span> HostElement<span class="token punctuation">,</span> isHydrate<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">any</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isMounted<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> vnode <span class="token operator">=</span> <span class="token function">createVNode</span><span class="token punctuation">(</span>
+          rootComponent <span class="token keyword">as</span> ConcreteComponent<span class="token punctuation">,</span>
+          rootProps
+        <span class="token punctuation">)</span>
+        <span class="token comment">// store app context on the root VNode.</span>
+        <span class="token comment">// this will be set on the root instance on initial mount.</span>
+        vnode<span class="token punctuation">.</span>appContext <span class="token operator">=</span> context
+
+        <span class="token function">render</span><span class="token punctuation">(</span>vnode<span class="token punctuation">,</span> rootContainer<span class="token punctuation">)</span>
+
+        isMounted <span class="token operator">=</span> <span class="token boolean">true</span>
+        app<span class="token punctuation">.</span>_container <span class="token operator">=</span> rootContainer
+        
+        <span class="token keyword">return</span> vnode<span class="token punctuation">.</span>component<span class="token operator">!</span><span class="token punctuation">.</span>proxy
+      <span class="token punctuation">}</span>
+      <span class="token comment">// else if 内容为开发环境报警</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/framework/vue3/compiler.html" class="prev">
+          编译器
+        </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4ffcedcb.js" defer></script><script src="/assets/js/3.a213aa8f.js" defer></script><script src="/assets/js/25.7e9f2526.js" defer></script>
+  </body>
+</html>

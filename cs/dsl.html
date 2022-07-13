@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DSL(Domain Specific Language) | 前端笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="learning notebook of cheeka">
+    
+    <link rel="preload" href="/assets/css/0.styles.89a87d7c.css" as="style"><link rel="preload" href="/assets/js/app.4ffcedcb.js" as="script"><link rel="preload" href="/assets/js/3.a213aa8f.js" as="script"><link rel="preload" href="/assets/js/16.fe2643ba.js" as="script"><link rel="prefetch" href="/assets/js/10.3c347e54.js"><link rel="prefetch" href="/assets/js/11.9adc9c77.js"><link rel="prefetch" href="/assets/js/12.c74c6a2c.js"><link rel="prefetch" href="/assets/js/13.9bfac093.js"><link rel="prefetch" href="/assets/js/14.8201ea59.js"><link rel="prefetch" href="/assets/js/15.b893f62b.js"><link rel="prefetch" href="/assets/js/17.7711ce1c.js"><link rel="prefetch" href="/assets/js/18.8355d792.js"><link rel="prefetch" href="/assets/js/19.10d660f8.js"><link rel="prefetch" href="/assets/js/20.b252f2f1.js"><link rel="prefetch" href="/assets/js/21.72cd72b5.js"><link rel="prefetch" href="/assets/js/22.36e20d02.js"><link rel="prefetch" href="/assets/js/23.36e1d6bf.js"><link rel="prefetch" href="/assets/js/24.fa1933ff.js"><link rel="prefetch" href="/assets/js/25.7e9f2526.js"><link rel="prefetch" href="/assets/js/26.502733bd.js"><link rel="prefetch" href="/assets/js/27.37687208.js"><link rel="prefetch" href="/assets/js/28.47ac5267.js"><link rel="prefetch" href="/assets/js/29.2ea8973e.js"><link rel="prefetch" href="/assets/js/30.63a8a364.js"><link rel="prefetch" href="/assets/js/31.a0e0a094.js"><link rel="prefetch" href="/assets/js/32.3ffc993b.js"><link rel="prefetch" href="/assets/js/33.53d493cc.js"><link rel="prefetch" href="/assets/js/34.885e33aa.js"><link rel="prefetch" href="/assets/js/35.0b5bb67c.js"><link rel="prefetch" href="/assets/js/36.8b840a3d.js"><link rel="prefetch" href="/assets/js/37.c9149af4.js"><link rel="prefetch" href="/assets/js/38.af7e0ce7.js"><link rel="prefetch" href="/assets/js/39.4d90f037.js"><link rel="prefetch" href="/assets/js/4.212f9d7f.js"><link rel="prefetch" href="/assets/js/40.3272e3fd.js"><link rel="prefetch" href="/assets/js/5.9d6b8bce.js"><link rel="prefetch" href="/assets/js/6.f8a656cd.js"><link rel="prefetch" href="/assets/js/7.26d11c39.js"><link rel="prefetch" href="/assets/js/8.365efa03.js"><link rel="prefetch" href="/assets/js/9.60a6bc0a.js"><link rel="prefetch" href="/assets/js/vendors~mermaid.d4b5f89a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.89a87d7c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+    首页
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端基础" class="mobile-dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fe/css.html" class="nav-link">
+    css
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/es6/" class="nav-link">
+    ES6
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/omission.html" class="nav-link">
+    JS拾遗
+  </a></li><li class="dropdown-item"><!----> <a href="/javascript/ts.html" class="nav-link">
+    TypeScript
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架" class="mobile-dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/framework/vue.html" class="nav-link">
+    Vue
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/vue3/" class="nav-link">
+    Vue3源码解读
+  </a></li><li class="dropdown-item"><!----> <a href="/framework/react.html" class="nav-link">
+    React
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="网络" class="dropdown-title"><span class="title">网络</span> <span class="arrow down"></span></button> <button type="button" aria-label="网络" class="mobile-dropdown-title"><span class="title">网络</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/network/http.html" class="nav-link">
+    HTTP
+  </a></li><li class="dropdown-item"><!----> <a href="/network/caching.html" class="nav-link">
+    缓存
+  </a></li></ul></div></div><div class="nav-item"><a href="/engineering/" class="nav-link">
+    工程化
+  </a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/advance/functional.html" class="nav-link">
+    函数式编程
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/patterns.html" class="nav-link">
+    设计模式
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/architecture.html" class="nav-link">
+    软件架构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/algorithm.html" class="nav-link">
+    数据结构
+  </a></li><li class="dropdown-item"><!----> <a href="/advance/leet_code.html" class="nav-link">
+    LeetCode
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Node" class="dropdown-title"><span class="title">Node</span> <span class="arrow down"></span></button> <button type="button" aria-label="Node" class="mobile-dropdown-title"><span class="title">Node</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/garbage-collection.html" class="nav-link">
+    垃圾回收
+  </a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机科学" class="dropdown-title"><span class="title">计算机科学</span> <span class="arrow down"></span></button> <button type="button" aria-label="计算机科学" class="mobile-dropdown-title"><span class="title">计算机科学</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cs/program.html" class="nav-link">
+    程序是怎么跑起来的
+  </a></li><li class="dropdown-item"><!----> <a href="/cs/compiler.html" class="nav-link">
+    编译原理
+  </a></li></ul></div></div><div class="nav-item"><a href="https://github.com/cheekahao/learning" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="dsl-domain-specific-language"><a href="#dsl-domain-specific-language" class="header-anchor">#</a> DSL(Domain Specific Language)</h1> <blockquote><p>参考自(https://zhuanlan.zhihu.com/p/107947462)[https://zhuanlan.zhihu.com/p/107947462]</p></blockquote> <p><code>DSL</code> 即<code>Domain Specific Language</code>，领域特定语言是一种为特定领域设计的，具有受限表达性的编程语言。</p> <p>编程语言的发展其实是一个不断抽象的过程，比如从机器语言到汇编语言然后到<code>C</code>之类的高级语言。汇编语言通过助记符代替机器指令操作码，极大的增强了机器语言的可读性和可维护性，但本质上仍是一门面向处理器和寄存器等硬件系统的低级编程语言。高级语言以上层抽象的语句(流程控制、循环等)和数据结构等更趋近自然语言和数学公式的方式解决了这个问题，脱离了对机器指令集的直接关联，大大提升了程序开发的效率。</p> <p>但在高级语言层面，抽象带来的效率提升似乎有了天花板。无论是从<code>C</code>到<code>Java</code>，抑或是各种编程范式下衍生的抽象度更高的编程语言，解决的都是通用编程问题，它们都有充分的过程抽象和数据抽象，导致大量的概念产生，进而影响了编程效率。</p> <p>而在一些专有领域的任务处理上其实不需要那么多语言特性，<code>DSL</code>就是在这种矛盾中产生的解决方案。它是为了解决特定任务的语言工具，比如文档编写有<code>markdown</code>，字符串匹配有<code>RegExp</code>，任务控制有 <code>make</code>、<code>gradle</code>，数据查找有<code>SQL</code>，<code>Web</code>样式编码有<code>CSS</code>等等。本质是通过限定问题域边界，从而锁定复杂度，提高编程效率。</p> <p><code>DSL</code>有两种不同类型：外部<code>DSL</code>和内部<code>DSL</code>。</p> <h2 id="外部dsl"><a href="#外部dsl" class="header-anchor">#</a> 外部<code>DSL</code></h2> <p>**外部<code>DSL</code>**是一种独立的编程语言，需要从解析器开始实现自己的编译工具，实现成本较高。其语法的灵活性更高，更容易达到用户的表现力需求。</p> <p>外部<code>DSL</code>的直接对应就是<code>GPPL</code>(<code>General Purpose Programming Language</code>，通用编程语言)，由于受限语法特性更少，一般不要求图灵完备，所以它实现难度会低于<code>GPPL</code>。</p> <p>前端常用的模板引擎如<code>mustache</code>以及<code>React</code>、<code>Vue</code>支持的<code>JSX</code>语法都属于外部<code>DSL</code>。</p> <h2 id="内部dsl"><a href="#内部dsl" class="header-anchor">#</a> 内部<code>DSL</code></h2> <p>**内部<code>DSL</code>（Embedded DSL or Internal DSL）**是建立在其它宿主语言之上（一般为<code>GPPL</code>）的特殊<code>DSL</code>，与宿主语言共享编译与调试工具等基础设施，学习成本更低，也更容易被集成。在语法上与宿主语言同源，但在运行时上需要做额外的封装。</p> <p>也可以将内部<code>DSL</code>视为针对特定任务的特殊接口封装风格，比如<code>jQuery</code>就可以认为是针对<code>DOM</code>操作的一种内部<code>DSL</code>。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4ffcedcb.js" defer></script><script src="/assets/js/3.a213aa8f.js" defer></script><script src="/assets/js/16.fe2643ba.js" defer></script>
+  </body>
+</html>
