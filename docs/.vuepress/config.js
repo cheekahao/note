@@ -102,7 +102,7 @@ module.exports = {
             '/advance/architecture': ['/advance/architecture'],
             '/network/http': ['/network/http',],
             '/network/caching': ['/network/caching'],
-            '/engineering/': ['', '/engineering/webpack', '/engineering/rollup'],
+            '/engineering/': ['', '/engineering/webpack', '/engineering/rollup', '/engineering/vite'],
             "/framework/react": ['/framework/react'],
             '/framework/vue3/': [
                 '/framework/vue3/',
