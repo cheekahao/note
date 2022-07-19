@@ -1,6 +1,6 @@
 # 渲染器
 
-**渲染器**的作用是将**虚拟`DOM`**渲染为**真实DOM**。
+**渲染器**的作用是将**虚拟`DOM`**渲染为特定平台上的**真实元素**。
 
 ## VNode
 
@@ -913,3 +913,6 @@ const setupRenderEffect: SetupRenderEffectFn = (
   }, prodEffectOptions)
 }
 ```
+
+## `Diff`算法
+

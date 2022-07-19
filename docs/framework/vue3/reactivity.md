@@ -1,8 +1,9 @@
 # 数据响应式系统
 
-`Vue3`新增了`Composition API`组合式`API`，能够通过较低级别的数据驱动视图和组件生命周期，将与同一个逻辑关注点相关的代码配置在一起。从而实现一种更自由形式的编写组件逻辑的方式。
+`Vue3`的数据响应式系统主要由`@vue/reactivity`承担，主要包括副作用函数`effect`，依赖收集`track`和触发更新`trigger`这三部分。
 
-`Vue3`的核心逻辑是基于`Composition API`的，对于`Options API`采用兼容处理。
+
+
 
 `Composition API`实现响应式的关键`API`为包装基本类型的`ref`和引用类型的`reactive`。
 
