@@ -49,6 +49,9 @@ module.exports = {
             text: '工程化',
             link: '/engineering/'
         }, {
+            text: '低代码',
+            link: '/low-code/'
+        }, {
             text: '进阶',
             items: [{
                 text: '函数式编程',
@@ -64,7 +67,7 @@ module.exports = {
                 link: '/advance/algorithm',
             }, {
                 text: 'LeetCode',
-                link: '/advance/leet_code',
+                link: '/advance/leet-code',
             }]
         }, {
             text: 'Node',
