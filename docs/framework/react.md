@@ -1,16 +1,24 @@
 # React
 
+## 组件
+
+组件允许你将`UI`拆分为独立可复用的代码片段，并对每个片段进行独立构思。
+
+组件，从概念上类似于`JavaScript`函数。它接受任意的入参`props`，并返回用于描述页面展示内容的`React`元素。
+
+`React`组件分为函数组件与`class`组件。
+
 ## Hook
 
-`Hook`是`React`16.8的新增特性。可以在不编写`class`的情况下使用`state`以及其他的`React`特性。
+`Hook`是`React`16.8 的新增特性。可以在不编写`class`的情况下使用`state`以及其他的`React`特性。
 
 `Hook`为已知的`React`概念提供了更直接的`API`：`props`， `state`，`context`，`refs`以及生命周期。
 
 可以使用`Hook`从组件中提取状态逻辑，使得这些逻辑可以单独测试并复用。`Hook`可以在无需修改组件结构的情况下复用状态逻辑。这使得在组件间或社区内共享`Hook`变得更便捷。
 
-* 利于组件预编译，更易于优化
-* `class`组件会无意中鼓励开发者使用一些让优化措施无效的方案
-* `class`不能很好的压缩，并且会使热重载出现不稳定的情况
+- 利于组件预编译，更易于优化
+- `class`组件会无意中鼓励开发者使用一些让优化措施无效的方案
+- `class`不能很好的压缩，并且会使热重载出现不稳定的情况
 
 `Hook`是一些可以让你在函数组件里“钩入”`React state`及生命周期等特性的函数。
 
@@ -18,7 +26,7 @@
 
 `useState`通过在函数组件里调用它来给组件添加一些内部 `state`。`React`会在重复渲染时保留这个`state`。
 
-不同于class组件`state`必须为一个对象，`useState`可以接受一个基本类型，也可以接受引用类型。
+不同于 class 组件`state`必须为一个对象，`useState`可以接受一个基本类型，也可以接受引用类型。
 
 返回一对值：当前状态`state`和一个可以更新它的函数`setState`，可以在事件处理函数中或其他一些地方调用这个函数。
 
@@ -29,7 +37,7 @@
 具体示例如下：
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Example() {
   // 声明一个叫 “count” 的 state 变量。
@@ -38,11 +46,9 @@ function Example() {
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
     </div>
-  )
+  );
 }
 ```
 
@@ -65,7 +71,7 @@ function Example() {
 具体见下例：
 
 ```js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function FriendStatus(props) {
   const [count, setCount] = useState(0);
@@ -86,9 +92,9 @@ function FriendStatus(props) {
   }, [props.friend.id]); // 仅在 props.friend.id 发生变化时，重新订阅
 
   if (isOnline === null) {
-    return 'Loading...';
+    return "Loading...";
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? "Online" : "Offline";
 }
 ```
 
@@ -96,8 +102,8 @@ function FriendStatus(props) {
 
 Hook 就是`JavaScript`函数，但是要注意两点规则：
 
-* **只能在函数最外层调用`Hook`**，不能在循环、条件判断或者子函数中调用。这样能确保`Hook`在每一次渲染中都按照同样的顺序被调用。让`React`能够在多次的`useState`和`useEffect`调用之间保持`hook`状态的正确
-* **只能在`React`的函数组件中调用`Hook`**，不要在其他 `JavaScript`函数中调用。另外自定义的`Hook`中也可以调用
+- **只能在函数最外层调用`Hook`**，不能在循环、条件判断或者子函数中调用。这样能确保`Hook`在每一次渲染中都按照同样的顺序被调用。让`React`能够在多次的`useState`和`useEffect`调用之间保持`hook`状态的正确
+- **只能在`React`的函数组件中调用`Hook`**，不要在其他 `JavaScript`函数中调用。另外自定义的`Hook`中也可以调用
 
 `React`靠的是`Hook`调用的顺序来确定哪个`state`对应哪个`useState`
 
@@ -123,31 +129,44 @@ const [state, dispatch] = useReducer(reducer, initialArg, init);
 
 ## `React`的生命周期
 
-* `componentDidMount`，组件第一次被渲染到`DOM`中的时候
-* `componentWillUnmount`，组件被删除的时候
+- `componentDidMount`，组件第一次被渲染到`DOM`中的时候
+- `componentWillUnmount`，组件被删除的时候
 
 当组件实例被创建并插入`DOM`中时(挂载)，其生命周期调用顺序如下：
 
-* `constructor()`
-* `static getDerivedStateFromProps()`
-* `render()`
-* `componentDidMount()`
+- `constructor()`
+- `static getDerivedStateFromProps()`
+- `render()`
+- `componentDidMount()`
 
 当组件的`props`或`state`发生变化时会触发更新。组件更新的生命周期调用顺序如下：
 
-* `static getDerivedStateFromProps()`
-* `shouldComponentUpdate()`
-* `render()`
-* `getSnapshotBeforeUpdate()`
-* `componentDidUpdate()`
+- `static getDerivedStateFromProps()`
+- `shouldComponentUpdate()`
+- `render()`
+- `getSnapshotBeforeUpdate()`
+- `componentDidUpdate()`
 
 当组件从`DOM`中移除(卸载)时会调用如下方法：
 
-* `componentWillUnmount()`
+- `componentWillUnmount()`
 
 错误处理，当渲染过程，生命周期，或子组件的构造函数中抛出错误时，会调用如下方法：
 
-* `static getDerivedStateFromError()`
-* `componentDidCatch()`
+- `static getDerivedStateFromError()`
+- `componentDidCatch()`
 
 ## Fiber
+
+### `React`架构
+
+`React 15`架构可以分为两层：
+
+- `Reconciler`**协调器**：负责找出变化的组件
+- `Renderer`**渲染器**：负责将变化的组件渲染到页面上
+
+`React 16`架构可以分为三层：
+
+- `Scheduler`**调度器**：调度任务的优先级，高优任务优先进入`Reconciler`
+- `Reconciler`**协调器**：负责找出变化的组件
+- `Renderer`**渲染器**：负责将变化的组件渲染到页面上
