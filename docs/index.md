@@ -5,9 +5,6 @@ hero:
   name: 前端进阶笔记
   text: 
   tagline: 每天进步一点点
-  image:
-    src: ./images/logo.png
-    alt: 前端进阶笔记
     
   actions:
     - theme: brand

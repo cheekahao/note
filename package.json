@@ -26,6 +26,8 @@
   "homepage": "https://github.com/cheekahao/note#readme",
   "devDependencies": {
     "less": "^4.4.2",
-    "vitepress": "^1.6.4"
+    "mermaid": "^11.12.1",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17"
   }
 }

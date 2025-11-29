@@ -1,22 +1,16 @@
-import { defineConfig } from 'vitepress'
+import {withMermaid} from 'vitepress-plugin-mermaid'
 
-export default defineConfig({
+export default withMermaid({
     title: '前端进阶笔记',
     description: '每天进步一点点',
-
     // 外观配置 - 科技感主题
     appearance: true,
 
     // 基础配置
     base: '/',
 
-    // 头部配置
-    head: [
-        ['meta', { name: 'theme-color', content: '#0f172a' }],
-        ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ],
-
     themeConfig: {
+        logo: '/images/logo.png',
         nav: [{
             text: '首页',
             link: '/'
@@ -115,9 +109,6 @@ export default defineConfig({
         socialLinks: [
             { icon: 'github', link: 'https://github.com/cheekahao/note' }
         ],
-
-        // 科技感主题配置
-        logo: '/logo.png',
 
         // 搜索配置
         search: {
