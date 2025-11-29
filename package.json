@@ -2,16 +2,17 @@
   "name": "note",
   "version": "1.0.0",
   "description": "my learning notebook",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "start": "vitepress dev docs",
+    "build": "vitepress build docs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "./deploy.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cheekahao/learning.git"
+    "url": "git+https://github.com/cheekahao/note.git"
   },
   "keywords": [
     "learning",
@@ -20,11 +21,11 @@
   "author": "cheeka hao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cheekahao/learning/issues"
+    "url": "https://github.com/cheekahao/note/issues"
   },
-  "homepage": "https://github.com/cheekahao/learning#readme",
+  "homepage": "https://github.com/cheekahao/note#readme",
   "devDependencies": {
-    "vuepress": "^1.9.7",
-    "vuepress-plugin-md-enhance": "^1.30.0"
+    "less": "^4.4.2",
+    "vitepress": "^1.6.4"
   }
 }
