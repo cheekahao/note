@@ -17,7 +17,7 @@ export default withMermaid({
         }, {
             text: '前端之基',
             items: [{
-                text: 'css',
+                text: 'CSS',
                 link: '/fe/css',
             }, {
                 text: 'ES6',
@@ -33,7 +33,7 @@ export default withMermaid({
                 link: '/framework/vue3/',
             }, {
                 text: 'React',
-                link: '/framework/react',
+                link: '/framework/react/',
             }, {
                 text: '工程化',
                 link: '/engineering/'
@@ -94,7 +94,10 @@ export default withMermaid({
                 { text: 'Rollup', link: '/engineering/rollup' },
                 { text: 'Vite', link: '/engineering/vite' }
             ],
-            '/framework/react': [{ text: 'React', link: '/framework/react' }],
+            '/framework/react/': [
+                { text: 'React', link: '/framework/react/' },
+                { text: 'React设计原理', link: '/framework/react/source' }
+            ],
             '/framework/vue3/': [
                 { text: 'Vue3概述', link: '/framework/vue3/' },
                 { text: '响应式系统', link: '/framework/vue3/reactivity' },
