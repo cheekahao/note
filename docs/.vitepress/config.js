@@ -75,6 +75,15 @@ export default withMermaid({
                 link: '/cs/compiler'
             }]
         }, {
+            text: '拥抱AI',
+            items: [{
+                text: '机器学习',
+                link: '/ai/ml',
+            },{
+                text: 'MCP',
+                link: '/ai/mcp',
+            }]
+        }, {
             text: 'Github',
             link: 'https://github.com/cheekahao/learning',
             target: '_blank'
