@@ -287,6 +287,48 @@ function romanToInt(roman) {
 }
 ```
 
+## 74. 合并区间
+
+**题目：** 以数组`intervals`表示若干个区间的集合，其中单个区间为`intervals[i] = [starti, endi]`。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
+
+示例：
+
+输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
+
+输出：[[1,6],[8,10],[15,18]]
+
+解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
+
+**解析：**
+
+关键需要先对`intervals`进行排序，再从左到右遍历，合并重叠区间。
+
+否则用两次循环比较所有区间，效率会比较低。
+
+```js
+function merge(intervals) {
+    intervals.sort((a, b) => a[0] - b[0])
+
+    let i = 0, j = 1, result = []
+
+    while(i < intervals.length){
+        const merged = [...intervals[i]]
+        let next = intervals[j]
+
+        while(j < intervals.length && next[0] <= merged[1]){
+            merged[1] = Math.max(merged[1], next[1])
+            j++
+            next = intervals[j]
+        }
+        result.push(merged)
+        i = j
+    }
+
+    return result
+}
+```
+
+
 ## 76. 最小覆盖子串
 
 **题目：** 给两个个字符串`s`和`t`。返回`s`中涵盖`t`所有字符的最小子串。如果不存在则返回空字符串`""`。

@@ -3,9 +3,11 @@ layout: home
 
 hero:
   name: 前端进阶笔记
-  text: 
+  text: 从基础到深入，从全栈迈向AI
   tagline: 每天进步一点点
-    
+  image:
+    src: /images/web.jpg
+    alt: 前端进阶笔记
   actions:
     - theme: brand
       text: 开始阅读

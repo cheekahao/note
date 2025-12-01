@@ -5,23 +5,24 @@
 现代前端框架的实现原理：`UI=f(state)`，框架内部运行机制根据当前状态渲染视图。
 
 其中：
-* state代表“当前视图状态”
-* f代表“框架内部运行机制”
-* UI代表“宿主环境的视图”
+* `state`代表当前视图状态
+* `f`代表框架内部运行机制
+* `UI`代表宿主环境的视图
 
-为了实现 UI与逻辑的关注点分离，需要一种存放 UI与逻辑的松散耦合单元，这就是组件。
-组件通过是那种方式组织逻辑与 UI：
+为了实现`UI`与逻辑的关注点分离，需要一种存放 `UI`与逻辑的松散耦合单元，这就是组件。
+组件通过是那种方式组织逻辑与 `UI`：
 
-* 逻辑中的自变量变化，导致 UI变化
-* 逻辑中的自变量变化，导致“无副作用因变量”变化，导致 UI变化，例如 useMemo，computed等ß
-* 逻辑中的自变量变化，导致“有副作用因变量”变化，导致副作用，例如 useEffect，watchEffect, autorun等
+* 逻辑中的自变量变化，导致`UI`变化
+* 逻辑中的自变量变化，导致“无副作用因变量”变化，导致 `UI`变化，例如`useMemo`，`computed`等
+* 逻辑中的自变量变化，导致“有副作用因变量”变化，导致副作用，例如`useEffect`，`watchEffect`，`autorun`等
 
-在前端框架中，组件内部定义的自变量被称为 state(状态)，其他组件传递而来的自变量成为 props(属性)。当自变量需要跨层级传递时，可以通过 store 实现。React 主要通过 Context 实现。
+在前端框架中，组件内部定义的自变量被称为`state`(状态)，其他组件传递而来的自变量成为`props`(属性)。当自变量需要跨层级传递时，可以通过`store`实现。React 主要通过`Context`实现。
 
 前端框架可以根据与自变量建立对应关系的抽象层级分为以下三类：
-* 应用级框架，如 React
-* 组件级框架，如 Vue
-* 元素级框架，如 Svelte
+
+* 应用级框架，如`React`
+* 组件级框架，如`Vue`
+* 元素级框架，如`Svelte`
 
 ## React16 架构
 
@@ -114,7 +115,55 @@ Layout阶段向下遍历过程中，会执行 OffscreenComponent的显隐逻辑�
 
 ## React Scheduler
 
-Scheduler的执行流程：
+`Scheduler`预置了五种优先级：
 
-* 根据“是否传递 delay 参数”，执行 scheduleCallback 方法后生产的 task 会进入 timerQueue 或 taskQueue, 其中
-  ○ timerQueue
+* `ImmediatePriority`立即执行, 优先级最高，同步执行
+* `UserBlockingPriority`用户阻塞
+* `NormalPriority`正常执行
+* `LowPriority`低优先级
+* `IdlePriority`空闲时执行
+
+`Scheduler`调度的主要数据结构为`Task`:
+
+```typescript
+type Callback = boolean => ?Callback
+
+type Task = {
+  id: number;
+  callback: Callback;
+  priority: PriorityLevel;
+  startTime: number;
+  expirationTime: number;
+};
+```
+
+### `Scheduler`的执行流程
+
+`Scheduler`的执行流程如下：
+
+1. 根据是否传递`delay`参数，执行`scheduleCallback`方法后生产的`task`会进入`timerQueue`或`taskQueue`, 其中
+  - `timerQueue`中的`task`以`currentTime + delay`为排序依据
+  - `taskQueue`中的`task`以`expirationTime`为排序依据
+2. 当`timerQueue`中第一个`task`延时时间到期后，执行`advanceTimers`将其移动到`taskQueue`中
+3. 执行`requestHostCallback`在新的宏任务中执行`workLoop`方法
+4. `workLoop`方法循环消费`taskQueue`中的`task`（即执行`task.callback`）, 直到`taskQueue`为空或`Time Slice`时间用尽且当前`task`未过期(`currentTask.expirationTime > currentTime`)时中断循环
+5. 如果`taskQueue`不为空，则进入步骤3，如果`timerQueue`不为空，则进入步骤2
+
+`workLoop`执行的时机选择，在支持`setImmediate`的环境下使用`setImmediate`，在支持`MessageChannel`的环境下使用`MessageChannel`，在不支持以上两种环境下使用`setTimeout`。
+
+### 优先级队列
+
+优先级队列使用的数据结构为小顶堆，其特点是：
+
+* 是一个完全二叉树（除最后一层外，其他层的节点个数都是满的，且最后一层的节点都靠左填充）
+* 堆中每个节点的值都小于等于其子树的每一个节点的值
+
+完全二叉树适合用数组保存，用数组下标代替指向左右节点的指针。
+
+堆包含以下三个方法：
+
+* `push`向堆中推入元素
+* `pop`从堆顶取出元素
+* `peek`获取排序依据最小的对应节点
+
+`push`和`pop`方法都涉及堆化操作，即在插入、取出节点时对堆重新排序。堆化操作的时间复杂度与二叉树的高度正相关，为`O(log n)`。
