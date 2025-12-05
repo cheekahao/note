@@ -1,0 +1,22 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "工程化概述"
+    },
+    {
+        "type": "file",
+        "name": "webpack",
+        "label": "Webpack"
+    },
+    {
+        "type": "file",
+        "name": "rollup",
+        "label": "Rollup"
+    },
+    {
+        "type": "file",
+        "name": "vite",
+        "label": "Vite"
+    }
+]

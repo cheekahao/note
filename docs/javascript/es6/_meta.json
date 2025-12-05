@@ -1,0 +1,22 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "ES6概述"
+    },
+    {
+        "type": "file",
+        "name": "set-map",
+        "label": "Set和Map"
+    },
+    {
+        "type": "file",
+        "name": "proxy",
+        "label": "Proxy"
+    },
+    {
+        "type": "file",
+        "name": "module",
+        "label": "模块化"
+    }
+]

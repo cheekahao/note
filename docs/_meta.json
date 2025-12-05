@@ -1,0 +1,115 @@
+[
+    {
+        "text": "首页",
+        "link": "/",
+        "activeMatch": "^/$"
+    },
+    {
+        "text": "前端之基",
+        "link": "/javascript/",
+        "activeMatch": "^/(fe|javascript|framework|webgl|engineering)/",
+        "items": [
+            {
+                "text": "CSS",
+                "link": "/fe/css"
+            },
+            {
+                "text": "ES6",
+                "link": "/javascript/es6/"
+            },
+            {
+                "text": "JS拾遗",
+                "link": "/javascript/omission"
+            },
+            {
+                "text": "TypeScript",
+                "link": "/javascript/ts"
+            },
+            {
+                "text": "Vue3",
+                "link": "/framework/vue3/"
+            },
+            {
+                "text": "React",
+                "link": "/framework/react/"
+            },
+            {
+                "text": "Three.js",
+                "link": "/webgl/three"
+            },
+            {
+                "text": "工程化",
+                "link": "/engineering/"
+            }
+        ]
+    },
+    {
+        "text": "进阶之路",
+        "link": "/advance/",
+        "activeMatch": "^/(advance|low-code|network|node)/",
+        "items": [
+            {
+                "text": "函数式编程",
+                "link": "/advance/functional"
+            },
+            {
+                "text": "低代码",
+                "link": "/low-code/"
+            },
+            {
+                "text": "设计模式",
+                "link": "/advance/patterns"
+            },
+            {
+                "text": "软件架构",
+                "link": "/advance/architecture"
+            },
+            {
+                "text": "数据结构",
+                "link": "/advance/algorithm"
+            },
+            {
+                "text": "算法",
+                "link": "/advance/leet-code"
+            },
+            {
+                "text": "网络",
+                "link": "/network/http"
+            },
+            {
+                "text": "Node垃圾回收",
+                "link": "/node/garbage-collection"
+            }
+        ]
+    },
+    {
+        "text": "计算机科学",
+        "link": "/cs/",
+        "activeMatch": "^/cs/",
+        "items": [
+            {
+                "text": "程序是怎么跑起来的",
+                "link": "/cs/program"
+            },
+            {
+                "text": "编译原理",
+                "link": "/cs/compiler"
+            }
+        ]
+    },
+    {
+        "text": "拥抱AI",
+        "link": "/ai/",
+        "activeMatch": "^/ai/",
+        "items": [
+            {
+                "text": "机器学习",
+                "link": "/ai/ml"
+            },
+            {
+                "text": "MCP",
+                "link": "/ai/mcp"
+            }
+        ]
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "Vue3概述"
+    },
+    {
+        "type": "file",
+        "name": "reactivity",
+        "label": "响应式系统"
+    },
+    {
+        "type": "file",
+        "name": "render",
+        "label": "渲染系统"
+    },
+    {
+        "type": "file",
+        "name": "component",
+        "label": "组件系统"
+    },
+    {
+        "type": "file",
+        "name": "compiler",
+        "label": "编译系统"
+    },
+    {
+        "type": "file",
+        "name": "api",
+        "label": "API设计"
+    },
+    {
+        "type": "file",
+        "name": "vue",
+        "label": "Vue2"
+    }
+]

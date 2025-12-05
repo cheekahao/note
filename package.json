@@ -5,8 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "./deploy.sh"
   },
@@ -27,7 +28,8 @@
   "devDependencies": {
     "less": "^4.4.2",
     "mermaid": "^11.12.1",
-    "vitepress": "^1.6.4",
-    "vitepress-plugin-mermaid": "^2.0.17"
+    "rspress": "^1.47.0",
+    "rspress-plugin-mermaid": "^0.3.0",
+    "typescript": "^5.9.3"
   }
 }

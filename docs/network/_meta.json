@@ -1,0 +1,12 @@
+[
+    {
+        "type": "file",
+        "name": "http",
+        "label": "HTTP"
+    },
+    {
+        "type": "file",
+        "name": "caching",
+        "label": "缓存"
+    }
+]

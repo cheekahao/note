@@ -7,7 +7,7 @@ set -e
 npm run build
 
 # 进入生成的文件夹
-cd docs/.vitepress/dist
+cd dist
 
 # 创建CNAME文件用于自定义域名
 echo "note.haozhenjia.com" > CNAME
