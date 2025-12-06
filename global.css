@@ -1,0 +1,127 @@
+/* 科技感主题样式 - Rspress适配版 */
+
+/* 全局变量定义 */
+:root {
+  /* 主色调 - 深色科技蓝 */
+  --rs-c-brand: #3b82f6;
+  --rs-c-brand-light: #60a5fa;
+  --rs-c-brand-lighter: #93c5fd;
+  --rs-c-brand-dark: #2563eb;
+  --rs-c-brand-darker: #1d4ed8;
+  
+  /* 霓虹色系 */
+  --rs-c-neon: #00ff88;
+  --rs-c-cyber: #ff0088;
+  --rs-c-neon-glow: #00ff88;
+}
+
+/* 导航栏科技感 */
+.rspress-nav {
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.8) !important;
+  border-bottom: 1px solid var(--rs-c-neon);
+}
+
+/* 侧边栏科技感 */
+.rspress-sidebar {
+  border-right: 1px solid var(--rs-c-neon);
+}
+
+/* 页脚科技感 */
+.rspress-footer {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-top: 1px solid var(--rs-c-neon);
+}
+
+.rspress-footer .message,
+.rspress-footer .copyright {
+  color: #94a3b8;
+  transition: color 0.3s ease;
+}
+
+.rspress-footer .message:hover,
+.rspress-footer .copyright:hover {
+  color: var(--rs-c-neon);
+}
+
+/* 按钮科技感 */
+.rspress-button {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.rspress-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 自定义动画效果 */
+@keyframes neon-glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--rs-c-neon-glow);
+  }
+  50% { 
+    box-shadow: 0 0 20px var(--rs-c-neon-glow), 0 0 30px var(--rs-c-neon-glow);
+  }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { 
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0.7;
+  }
+}
+
+/* 应用动画到关键元素 */
+.rspress-nav .logo {
+  animation: cyber-pulse 3s ease-in-out infinite;
+}
+
+.action-button.primary {
+  animation: neon-glow 2s ease-in-out infinite;
+}
+
+/* 代码块科技感 */
+.rspress-code {
+  border: 1px solid var(--rs-c-neon);
+  background: rgba(15, 23, 42, 0.9) !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .rspress-nav {
+    backdrop-filter: blur(5px);
+  }
+  
+  .rspress-sidebar {
+    border-right: none;
+    border-top: 1px solid var(--rs-c-neon);
+  }
+}
+
+/* 链接悬停效果 */
+.rspress-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.rspress-link:hover {
+  color: var(--rs-c-neon);
+}
+
+.rspress-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--rs-c-neon);
+  transition: width 0.3s ease;
+}
+
+.rspress-link:hover::after {
+  width: 100%;
+}

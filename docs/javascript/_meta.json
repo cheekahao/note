@@ -1,0 +1,22 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "概述"
+    },
+    {
+        "type": "file",
+        "name": "omission",
+        "label": "JS拾遗"
+    },
+    {
+        "type": "dir",
+        "name": "es6",
+        "label": "ES6"
+    },
+    {
+        "type": "file",
+        "name": "ts",
+        "label": "TypeScript"
+    }
+]

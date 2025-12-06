@@ -14,16 +14,8 @@
                 "link": "/fe/css"
             },
             {
-                "text": "ES6",
-                "link": "/javascript/es6/"
-            },
-            {
-                "text": "JS拾遗",
-                "link": "/javascript/omission"
-            },
-            {
-                "text": "TypeScript",
-                "link": "/javascript/ts"
+                "text": "JavaScript",
+                "link": "/javascript/"
             },
             {
                 "text": "Vue3",
