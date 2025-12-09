@@ -1,0 +1,17 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "WebGL"
+    },
+    {
+        "type": "file",
+        "name": "three",
+        "label": "Three.js"
+    },
+    {
+        "type": "file",
+        "name": "optimization",
+        "label": "性能优化"
+    }
+]
