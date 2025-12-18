@@ -26,6 +26,10 @@
                 "link": "/framework/react/"
             },
             {
+                "text": "前端性能",
+                "link": "/fe/performance"
+            },
+            {
                 "text": "Three.js",
                 "link": "/webgl/three"
             },
