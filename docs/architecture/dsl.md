@@ -1,4 +1,4 @@
-# DSL(Domain Specific Language)
+# 领域特定语言
 
 > 参考自(https://zhuanlan.zhihu.com/p/107947462)[https://zhuanlan.zhihu.com/p/107947462]
 

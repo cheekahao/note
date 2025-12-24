@@ -1,0 +1,17 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "整洁架构"
+    },
+    {
+        "type": "file",
+        "name": "ddd",
+        "label": "领域驱动设计"
+    },
+    {
+        "type": "file",
+        "name": "dsl",
+        "label": "领域特定语言"
+    }
+]
