@@ -1,0 +1,111 @@
+[
+    {
+        "type": "section-header",
+        "label": "导学"
+    },
+    {
+        "type": "file",
+        "name": "index",
+        "label": "专栏导读"
+    },
+    {
+        "type": "section-header",
+        "label": "第一部分 · 基础与架构"
+    },
+    {
+        "type": "file",
+        "name": "quick-start",
+        "label": "环境搭建与第一个应用"
+    },
+    {
+        "type": "file",
+        "name": "process-model",
+        "label": "进程模型与运行原理"
+    },
+    {
+        "type": "file",
+        "name": "window",
+        "label": "窗口与 WebContents"
+    },
+    {
+        "type": "section-header",
+        "label": "第二部分 · 通信与安全"
+    },
+    {
+        "type": "file",
+        "name": "ipc",
+        "label": "IPC 通信体系"
+    },
+    {
+        "type": "file",
+        "name": "security",
+        "label": "安全模型与加固"
+    },
+    {
+        "type": "file",
+        "name": "system",
+        "label": "系统能力集成"
+    },
+    {
+        "type": "section-header",
+        "label": "第三部分 · 构建与工程化"
+    },
+    {
+        "type": "file",
+        "name": "build",
+        "label": "构建、打包与分发"
+    },
+    {
+        "type": "file",
+        "name": "native",
+        "label": "原生模块与跨平台编译"
+    },
+    {
+        "type": "file",
+        "name": "engineering",
+        "label": "工程化、CI 与稳定性"
+    },
+    {
+        "type": "section-header",
+        "label": "第四部分 · 性能优化（岗位核心）"
+    },
+    {
+        "type": "file",
+        "name": "performance-startup",
+        "label": "启动性能优化"
+    },
+    {
+        "type": "file",
+        "name": "performance-memory",
+        "label": "内存与 GC 优化"
+    },
+    {
+        "type": "file",
+        "name": "performance-render",
+        "label": "渲染与 IPC 性能"
+    },
+    {
+        "type": "section-header",
+        "label": "第五部分 · 调试、进阶与面试"
+    },
+    {
+        "type": "file",
+        "name": "debugging",
+        "label": "调试与 Profiling 工具链"
+    },
+    {
+        "type": "file",
+        "name": "advanced",
+        "label": "进阶：Chromium、V8 与 WASM"
+    },
+    {
+        "type": "file",
+        "name": "vscode-performance",
+        "label": "VS Code 性能工程实战"
+    },
+    {
+        "type": "file",
+        "name": "interview",
+        "label": "岗位能力对照与面试"
+    }
+]

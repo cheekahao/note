@@ -94,6 +94,45 @@
         ]
     },
     {
+        "text": "Electron",
+        "link": "/electron/",
+        "activeMatch": "^/electron/",
+        "items": [
+            {
+                "text": "专栏导读",
+                "link": "/electron/"
+            },
+            {
+                "text": "快速上手",
+                "link": "/electron/quick-start"
+            },
+            {
+                "text": "进程与窗口",
+                "link": "/electron/process-model"
+            },
+            {
+                "text": "IPC 与安全",
+                "link": "/electron/ipc"
+            },
+            {
+                "text": "构建与工程化",
+                "link": "/electron/build"
+            },
+            {
+                "text": "性能优化",
+                "link": "/electron/performance-startup"
+            },
+            {
+                "text": "调试与进阶",
+                "link": "/electron/debugging"
+            },
+            {
+                "text": "岗位面试",
+                "link": "/electron/interview"
+            }
+        ]
+    },
+    {
         "text": "拥抱AI",
         "link": "/ai/",
         "activeMatch": "^/ai/",
