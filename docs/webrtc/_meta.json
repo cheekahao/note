@@ -1,0 +1,53 @@
+[
+    {
+        "type": "section-header",
+        "label": "导学"
+    },
+    {
+        "type": "file",
+        "name": "index",
+        "label": "专栏导读"
+    },
+    {
+        "type": "section-header",
+        "label": "第一部分 · 原理与连接"
+    },
+    {
+        "type": "file",
+        "name": "media",
+        "label": "媒体采集与设备管理"
+    },
+    {
+        "type": "file",
+        "name": "signaling",
+        "label": "信令、SDP 与 ICE"
+    },
+    {
+        "type": "file",
+        "name": "architecture",
+        "label": "RTC 架构与发布订阅"
+    },
+    {
+        "type": "section-header",
+        "label": "第二部分 · 互动课堂实战"
+    },
+    {
+        "type": "file",
+        "name": "classroom",
+        "label": "进房、连麦与白板协同"
+    },
+    {
+        "type": "section-header",
+        "label": "第三部分 · 质量与排障"
+    },
+    {
+        "type": "file",
+        "name": "weak-network",
+        "label": "弱网对抗与质量指标"
+    },
+    {
+        "type": "file",
+        "name": "troubleshooting",
+        "label": "排障手册与高频问题"
+    }
+]

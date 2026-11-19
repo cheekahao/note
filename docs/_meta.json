@@ -5,17 +5,25 @@
         "activeMatch": "^/$"
     },
     {
-        "text": "前端之基",
+        "text": "前端",
         "link": "/javascript/",
-        "activeMatch": "^/(fe|javascript|framework|webgl|engineering)/",
+        "activeMatch": "^/(fe|javascript|framework|webgl|engineering|electron|webrtc|low-code|network|node)/|^/advance/(functional|patterns|micro-frontends)",
         "items": [
             {
-                "text": "CSS",
-                "link": "/fe/css"
+                "text": "Electron",
+                "link": "/electron/"
             },
             {
-                "text": "JavaScript",
-                "link": "/javascript/"
+                "text": "实时音视频",
+                "link": "/webrtc/"
+            },
+            {
+                "text": "工程化",
+                "link": "/engineering/"
+            },
+            {
+                "text": "前端性能",
+                "link": "/fe/performance"
             },
             {
                 "text": "Vue3",
@@ -26,39 +34,39 @@
                 "link": "/framework/react/"
             },
             {
-                "text": "前端性能",
-                "link": "/fe/performance"
+                "text": "设计模式",
+                "link": "/advance/patterns"
             },
-            {
-                "text": "Three.js",
-                "link": "/webgl/three"
-            },
-            {
-                "text": "工程化",
-                "link": "/engineering/"
-            }
-        ]
-    },
-    {
-        "text": "进阶之路",
-        "link": "/advance/",
-        "activeMatch": "^/(advance|low-code|network|node)/",
-        "items": [
             {
                 "text": "函数式编程",
                 "link": "/advance/functional"
             },
             {
-                "text": "低代码",
-                "link": "/low-code/"
+                "text": "CSS",
+                "link": "/fe/css"
             },
             {
-                "text": "设计模式",
-                "link": "/advance/patterns"
+                "text": "JavaScript",
+                "link": "/javascript/"
             },
             {
-                "text": "软件架构",
-                "link": "/architecture/"
+                "text": "网络",
+                "link": "/network/http"
+            }
+        ]
+    },
+    {
+        "text": "计算机科学",
+        "link": "/cs/",
+        "activeMatch": "^/(cs|architecture)/|^/advance/(algorithm|leet-code)",
+        "items": [
+            {
+                "text": "程序是怎么跑起来的",
+                "link": "/cs/program"
+            },
+            {
+                "text": "编译原理",
+                "link": "/cs/compiler"
             },
             {
                 "text": "数据结构",
@@ -69,81 +77,31 @@
                 "link": "/advance/leet-code"
             },
             {
-                "text": "网络",
-                "link": "/network/http"
-            },
-            {
-                "text": "Node垃圾回收",
-                "link": "/node/garbage-collection"
-            }
-        ]
-    },
-    {
-        "text": "计算机科学",
-        "link": "/cs/",
-        "activeMatch": "^/cs/",
-        "items": [
-            {
-                "text": "程序是怎么跑起来的",
-                "link": "/cs/program"
-            },
-            {
-                "text": "编译原理",
-                "link": "/cs/compiler"
-            }
-        ]
-    },
-    {
-        "text": "Electron",
-        "link": "/electron/",
-        "activeMatch": "^/electron/",
-        "items": [
-            {
-                "text": "专栏导读",
-                "link": "/electron/"
-            },
-            {
-                "text": "快速上手",
-                "link": "/electron/quick-start"
-            },
-            {
-                "text": "进程与窗口",
-                "link": "/electron/process-model"
-            },
-            {
-                "text": "IPC 与安全",
-                "link": "/electron/ipc"
-            },
-            {
-                "text": "构建与工程化",
-                "link": "/electron/build"
-            },
-            {
-                "text": "性能优化",
-                "link": "/electron/performance-startup"
-            },
-            {
-                "text": "调试与进阶",
-                "link": "/electron/debugging"
-            },
-            {
-                "text": "岗位面试",
-                "link": "/electron/interview"
+                "text": "软件架构",
+                "link": "/architecture/"
             }
         ]
     },
     {
         "text": "拥抱AI",
-        "link": "/ai/",
+        "link": "/ai/agent/",
         "activeMatch": "^/ai/",
         "items": [
             {
+                "text": "Agent设计模式",
+                "link": "/ai/agent/"
+            },
+            {
                 "text": "机器学习",
-                "link": "/ai/ml"
+                "link": "/ai/ml/"
             },
             {
                 "text": "MCP",
-                "link": "/ai/mcp"
+                "link": "/ai/mcp/"
+            },
+            {
+                "text": "AI编码",
+                "link": "/ai/vibe/"
             }
         ]
     }

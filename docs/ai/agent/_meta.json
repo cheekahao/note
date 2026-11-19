@@ -1,0 +1,42 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "一本书读懂 Agent 设计模式"
+    },
+    {
+        "type": "file",
+        "name": "part1-prelude",
+        "label": "从 GoF 到 Agent"
+    },
+    {
+        "type": "file",
+        "name": "part2-perception",
+        "label": "感知模式"
+    },
+    {
+        "type": "file",
+        "name": "part3-memory",
+        "label": "记忆模式"
+    },
+    {
+        "type": "file",
+        "name": "part4-reasoning",
+        "label": "推理模式"
+    },
+    {
+        "type": "file",
+        "name": "part5-action",
+        "label": "行动模式"
+    },
+    {
+        "type": "file",
+        "name": "part6-reflection",
+        "label": "反思模式"
+    },
+    {
+        "type": "file",
+        "name": "part7-collaboration",
+        "label": "协作模式"
+    }
+]

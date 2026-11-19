@@ -25,6 +25,8 @@ features:
     details: Webpack、Vite、Rollup等构建工具的配置与优化
   - title: 算法与数据结构
     details: LeetCode题解、算法思想、数据结构设计与应用
+  - title: 实时音视频
+    details: WebRTC原理、SFU架构、互动课堂实战与弱网排障
   - title: 计算机科学基础
     details: 编译原理、DSL设计、编程范式等计算机科学核心知识
   - title: AI与前沿技术
