@@ -1,0 +1,127 @@
+[
+    {
+        "type": "file",
+        "name": "index",
+        "label": "课程总览"
+    },
+    {
+        "type": "file",
+        "name": "01-from-model-to-actor",
+        "label": "01 从概率模型到行动者"
+    },
+    {
+        "type": "file",
+        "name": "02-tool-calling",
+        "label": "02 Tool Calling 的真相"
+    },
+    {
+        "type": "file",
+        "name": "03-react-and-termination",
+        "label": "03 ReAct 与终止判据"
+    },
+    {
+        "type": "file",
+        "name": "04-prompt-architecture",
+        "label": "04 提示词的信息架构"
+    },
+    {
+        "type": "file",
+        "name": "05-reasoning-and-structured-output",
+        "label": "05 推理引导与结构化输出"
+    },
+    {
+        "type": "file",
+        "name": "06-context-economics",
+        "label": "06 上下文经济学与 Token 计量"
+    },
+    {
+        "type": "file",
+        "name": "07-context-assembly",
+        "label": "07 上下文装配"
+    },
+    {
+        "type": "file",
+        "name": "08-compaction-and-isolation",
+        "label": "08 压缩、遗忘与隔离"
+    },
+    {
+        "type": "file",
+        "name": "09-persistence-and-checkpoint",
+        "label": "09 持久化与检查点"
+    },
+    {
+        "type": "file",
+        "name": "10-reliability-and-trust",
+        "label": "10 可靠性与信任边界"
+    },
+    {
+        "type": "file",
+        "name": "11-streaming-and-cancellation",
+        "label": "11 流式、取消与一致性结算"
+    },
+    {
+        "type": "file",
+        "name": "12-extensibility-and-eval",
+        "label": "12 可替换性、插件化与评测"
+    },
+    {
+        "type": "file",
+        "name": "13-from-problems-to-cordis",
+        "label": "13 从问题清单到 Cordis"
+    },
+    {
+        "type": "file",
+        "name": "14-plugin-as-service",
+        "label": "14 Plugin = Service"
+    },
+    {
+        "type": "file",
+        "name": "15-inject-dependency-gating",
+        "label": "15 inject 依赖门控"
+    },
+    {
+        "type": "file",
+        "name": "16-reversible-effect",
+        "label": "16 注册是可逆 effect"
+    },
+    {
+        "type": "file",
+        "name": "17-typed-events-waterfall",
+        "label": "17 Typed Events 与 waterfall"
+    },
+    {
+        "type": "file",
+        "name": "18-tool-pipeline-guard",
+        "label": "18 工具四段管线与单调 guard"
+    },
+    {
+        "type": "file",
+        "name": "19-capability-seams",
+        "label": "19 能力缝隙三角色"
+    },
+    {
+        "type": "file",
+        "name": "20-prompt-sections-and-adapter",
+        "label": "20 提示段与模型适配层"
+    },
+    {
+        "type": "file",
+        "name": "21-log-as-truth",
+        "label": "21 日志即真相"
+    },
+    {
+        "type": "file",
+        "name": "22-agent-loop-and-token-meter",
+        "label": "22 主循环状态机与 Token 计量"
+    },
+    {
+        "type": "file",
+        "name": "23-composition-and-trust",
+        "label": "23 组合部署与信任边界"
+    },
+    {
+        "type": "file",
+        "name": "24-invariants-and-regression",
+        "label": "24 不变量前移与回归评测"
+    }
+]

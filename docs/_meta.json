@@ -92,6 +92,10 @@
                 "link": "/ai/agent/"
             },
             {
+                "text": "Agent Harness 原理",
+                "link": "/ai/harness/"
+            },
+            {
                 "text": "机器学习",
                 "link": "/ai/ml/"
             },

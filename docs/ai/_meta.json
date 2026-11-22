@@ -1,0 +1,27 @@
+[
+    {
+        "type": "dir",
+        "name": "agent",
+        "label": "Agent设计模式"
+    },
+    {
+        "type": "dir",
+        "name": "harness",
+        "label": "Agent Harness 原理"
+    },
+    {
+        "type": "dir",
+        "name": "ml",
+        "label": "机器学习"
+    },
+    {
+        "type": "dir",
+        "name": "mcp",
+        "label": "MCP"
+    },
+    {
+        "type": "dir",
+        "name": "vibe",
+        "label": "AI编码"
+    }
+]

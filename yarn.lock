@@ -52,6 +52,11 @@
   resolved "https://registry.npmjs.org/@chevrotain/regexp-to-ast/-/regexp-to-ast-11.0.3.tgz"
   integrity sha512-1fMHaBZxLFvWI067AVbGJav1eRY7N8DDvYCTwGBiE/ytKBgP8azTdgyrKyWZ9Mfh09eHWb5PgTSO8wi7U824RA==
 
+"@chevrotain/types@~13.2.0":
+  version "13.2.0"
+  resolved "https://registry.npmjs.org/@chevrotain/types/-/types-13.2.0.tgz"
+  integrity sha512-7qrYHRlKfWf2AvBfJi5eVOrKAkbxvMFsy/iIHTGIiApNcEecCaVIdR+mIQhyCBsTDJxBz4JWXHMo6krbhR9hVg==
+
 "@chevrotain/types@11.0.3":
   version "11.0.3"
   resolved "https://registry.npmjs.org/@chevrotain/types/-/types-11.0.3.tgz"
@@ -193,6 +198,13 @@
   dependencies:
     "@types/mdx" "^2.0.0"
     "@types/react" ">=16"
+
+"@mermaid-js/parser@*":
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/@mermaid-js/parser/-/parser-2.0.1.tgz"
+  integrity sha512-j37dj/h6p6pots1L7pLPPNuABEEu9WP4OYg9pW1g+nYG331j0+3canE9OagtYdytYvdSAMG+2fKU5cxep6LgjA==
+  dependencies:
+    "@chevrotain/types" "~13.2.0"
 
 "@mermaid-js/parser@^0.6.3":
   version "0.6.3"
@@ -858,11 +870,6 @@
   dependencies:
     undici-types "~6.21.0"
 
-"@types/offscreencanvas@^2019.7.3":
-  version "2019.7.3"
-  resolved "https://registry.npmjs.org/@types/offscreencanvas/-/offscreencanvas-2019.7.3.tgz"
-  integrity sha512-ieXiYmgSRXUDeOntE1InxjWyvEelZGP63M+cGuquuRLuIKKT1osnkXjxev9B7d1nXSug5vpunx+gNlbVxMlC9A==
-
 "@types/react@>=16":
   version "19.2.7"
   resolved "https://registry.npmjs.org/@types/react/-/react-19.2.7.tgz"
@@ -889,11 +896,6 @@
   version "2.0.11"
   resolved "https://registry.npmjs.org/@types/unist/-/unist-2.0.11.tgz"
   integrity sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==
-
-"@types/webgl2@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.npmjs.org/@types/webgl2/-/webgl2-0.0.12.tgz"
-  integrity sha512-42qYzEoJ1yQlDNWSwtJmQKUKAoYv25mjsxKXhwn4/1qlG3Xlr8t8EK/2771dVi5ytw/KX5XwwG5L8lNxLf6qSQ==
 
 "@ungap/structured-clone@^1.0.0":
   version "1.3.0"
@@ -4628,9 +4630,9 @@ vscode-languageserver-protocol@3.17.5:
     vscode-languageserver-types "3.17.5"
 
 vscode-languageserver-textdocument@~1.0.11:
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.12.tgz"
-  integrity sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==
+  version "1.0.16"
+  resolved "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.16.tgz"
+  integrity sha512-qeNEuOi9a3qkqRf7Gfez2WL2VwlBTLCNekHBGO9kxPVUp9XuY15yfTJ9jwvOwKI0I2MhUUfZq95NSp+LK1CLQg==
 
 vscode-languageserver-types@3.17.5:
   version "3.17.5"
