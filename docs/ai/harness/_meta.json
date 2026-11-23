@@ -123,5 +123,10 @@
         "type": "file",
         "name": "24-invariants-and-regression",
         "label": "24 不变量前移与回归评测"
+    },
+    {
+        "type": "file",
+        "name": "agnes-harness",
+        "label": "附 · Agnes Harness 速读"
     }
 ]
