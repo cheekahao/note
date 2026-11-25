@@ -1,7 +1,5 @@
 # Electron 应用开发教程：专栏导读
 
-> 一套面向「大型 PC 客户端」岗位的 Electron 系统教程。从进程模型、IPC、窗口、安全，一路讲到启动优化、内存治理、崩溃监控、构建分发与 Chromium/V8 调优。
-
 ## 这个专栏解决什么问题
 
 Electron 的入门门槛很低：会写 HTML/CSS/JavaScript，几行代码就能跑起一个桌面窗口。但从「能跑」到「能支撑千万级用户、启动一秒内、内存三百兆内、崩溃率极低」之间，隔着完整的客户端工程体系。
@@ -53,65 +51,6 @@ flowchart LR
 
 需要提前接受的代价：安装包体积、内存基线、启动链路都比原生应用长，**性能治理必须从第一天就纳入架构**，而不是上线后补救。
 
-## 岗位能力地图
-
-本专栏直接对应「Electron 客户端性能专家」类岗位的招聘要求。把 JD 拆成可验证的能力项：
-
-### 职责一：性能体系架构与优化
-
-| 要求 | 对应章节 | 自检标准 |
-| --- | --- | --- |
-| 启动速度优化（首屏白屏、冷/热启动） | [启动性能优化](/electron/performance-startup) | 能画出启动链路并给出分阶段预算 |
-| 建立启动性能监控看板 | [启动性能优化](/electron/performance-startup) | 能设计埋点字段与 P50/P95 看板 |
-| 内存占用优化（进程内存、V8 堆、GPU 缓存） | [内存与 GC 优化](/electron/performance-memory) | 能用快照对比定位泄漏对象 |
-| 解决内存泄漏与频繁 GC 卡顿 | [内存与 GC 优化](/electron/performance-memory) | 能列出常见泄漏模式与验证方法 |
-| 优化主进程与渲染进程通信效率 | [IPC 通信体系](/electron/ipc)、[渲染与 IPC 性能](/electron/performance-render) | 能解释同步 IPC 的危害并给出批量方案 |
-| 制定渲染性能标准，解决掉帧与重排重绘 | [渲染与 IPC 性能](/electron/performance-render) | 能定义 FPS/长任务/卡顿率指标 |
-
-### 职责二：代码质量与稳定性治理
-
-| 要求 | 对应章节 | 自检标准 |
-| --- | --- | --- |
-| 崩溃监控体系（C++ Crash、JS 未捕获异常） | [工程化、CI 与稳定性](/electron/engineering) | 能配置 `crashReporter` 并分析 minidump |
-| 异步编程模型规范，消除阻塞与死锁 | [工程化、CI 与稳定性](/electron/engineering) | 能写出主进程异步规范与超时策略 |
-| CI/CD 静态扫描、性能门禁 | [工程化、CI 与稳定性](/electron/engineering) | 能设计包体积/内存增量门禁 |
-
-### 职责三：构建系统与包体积
-
-| 要求 | 对应章节 | 自检标准 |
-| --- | --- | --- |
-| Asar 解包、依赖裁剪、资源压缩 | [构建、打包与分发](/electron/build) | 能解释 `asarUnpack` 的使用边界 |
-| 缩减安装包与增量更新包 | [构建、打包与分发](/electron/build) | 能说明 blockmap/差分包原理 |
-| Native Addon 编译链路与多平台兼容 | [原生模块与跨平台编译](/electron/native) | 能排查 ABI 不匹配与 `dlopen` 失败 |
-| Electron Builder/Forge、Squirrel 更新机制 | [构建、打包与分发](/electron/build)、[系统能力集成](/electron/system) | 能定制打包脚本与更新流程 |
-
-### 职责四：工具链与调试能力
-
-| 要求 | 对应章节 | 自检标准 |
-| --- | --- | --- |
-| 性能 profiling 自动化工具链 | [调试与 Profiling 工具链](/electron/debugging) | 能脚本化采集启动/内存/CPU |
-| 复杂场景性能攻坚 | [调试与 Profiling 工具链](/electron/debugging) | 能按决策树定位高 CPU/IO/网络问题 |
-
-### 任职要求与加分项
-
-| 要求 | 对应章节 |
-| --- | --- |
-| 5 年客户端经验、2 年 Electron 核心开发 | 全专栏 |
-| Windows/macOS 进程、线程、内存管理 | [进程模型与运行原理](/electron/process-model) |
-| Chrome 多进程架构（Browser/GPU/Renderer/Utility） | [进程模型与运行原理](/electron/process-model) |
-| Chrome Performance/Memory、Electron F12 | [调试与 Profiling 工具链](/electron/debugging) |
-| Perf/Massif、Instruments、WPT | [调试与 Profiling 工具链](/electron/debugging) |
-| JavaScript/TypeScript、数据结构与算法 | [工程化、CI 与稳定性](/electron/engineering) |
-| C++/Rust 编写高性能 Node 模块 | [原生模块与跨平台编译](/electron/native) |
-| Electron Builder/Forge、Squirrel | [构建、打包与分发](/electron/build) |
-| 性能目标拆解（<1s、<300MB） | [启动性能优化](/electron/performance-startup)、[内存与 GC 优化](/electron/performance-memory) |
-| 架构级解决性能顽疾 | [进阶：Chromium、V8 与 WASM](/electron/advanced) |
-| 技术文档沉淀 | 每章「小结 + 参考资料」 |
-| **加分**：Chromium 内核定制、V8 调优 | [进阶：Chromium、V8 与 WASM](/electron/advanced) |
-| **加分**：electron-rebuild、@electron/remote 贡献 | [原生模块与跨平台编译](/electron/native) |
-| **加分**：WebAssembly 客户端计算 | [进阶：Chromium、V8 与 WASM](/electron/advanced) |
-| **加分**：Unity 渲染管线、60fps | [渲染与 IPC 性能](/electron/performance-render)、[进阶](/electron/advanced) |
-
 ## 学习路径
 
 ```mermaid
@@ -140,9 +79,7 @@ flowchart TD
 - **第三周**：10–12，建立启动/内存/渲染三套指标体系，完成一轮真实优化。
 - **第四周**：13–15，补齐工具链与进阶知识，整理成可讲述的项目案例。
 
-## 性能目标的拆解思路
-
-岗位要求里常见的两个数字：**启动 < 1s、内存 < 300MB**。这两个数字不能靠单点优化达成，必须先拆解再逐项治理。
+## 性能优化思路
 
 启动时间的粗粒度拆解：
 
